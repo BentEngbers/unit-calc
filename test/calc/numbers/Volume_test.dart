@@ -12,11 +12,11 @@ void main() {
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("throws error when result is negative", () {
-      expect(() => {Volume(1) - SyringeSizes.ML10.volume},
+      expect(() => {Volume(1) - SyringeSizes.ml10.volume},
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("check addition", () {
-      var a = Volume(1) + SyringeSizes.ML10.volume;
+      var a = Volume(1) + SyringeSizes.ml10.volume;
       expect(a, Volume(11));
     });
     test("check equality", () {

@@ -1,17 +1,9 @@
-enum TimeUnit { min, hr }
+enum TimeUnit {
+  min(1),
+  hr(1 / 60);
 
-TimeUnit timeFromString(String str) =>
-    TimeUnit.values.firstWhere((e) => e.name == str);
-
-extension TimeUnitExtention on TimeUnit {
-  /// Factor between the current TimeUnit and Min.
-  /// used in changing units
-  double get factorMin {
-    switch (this) {
-      case TimeUnit.min:
-        return 1;
-      case TimeUnit.hr:
-        return 1 / 60;
-    }
-  }
+  final double factorMin;
+  const TimeUnit(this.factorMin);
+  TimeUnit timeFromString(String str) =>
+      TimeUnit.values.firstWhere((e) => e.name == str);
 }
