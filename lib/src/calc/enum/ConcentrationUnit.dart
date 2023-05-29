@@ -29,7 +29,7 @@ class ConcentrationUnit with _$ConcentrationUnit {
       case "U":
         return const ConcentrationUnit.U(DEFAULT_U);
       default:
-        throw const InvalidConcentrationUnitException();
+        throw InvalidConcentrationUnitException();
     }
   }
   String toJSON() => name;
