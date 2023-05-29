@@ -8,6 +8,9 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
+  freezed: ^2.3.4
+  intl: ^0.18.1
+  meta: ^1.9.1
   # path: ^1.8.0
 
 dev_dependencies:
