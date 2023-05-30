@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 
 void main() {
   group('ConcentrationUnit', () {

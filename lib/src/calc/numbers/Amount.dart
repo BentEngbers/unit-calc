@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerML.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_ml.dart';
 
 import 'Number.dart';
 import 'Volume.dart';

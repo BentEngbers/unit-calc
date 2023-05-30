@@ -1,7 +1,7 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/enum/TimeUnit.dart';
-import 'package:unit_calc/src/calc/numbers/VolumePerTime.dart';
+import 'package:unit_calc/src/calc/enum/time_unit.dart';
+import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
 
 void main() {
   group('VolumePerTime', () {

@@ -1,9 +1,9 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/Exceptions.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/enum/TimeUnit.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerMLTime.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/time_unit.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_ml_time.dart';
 
 void main() {
   group('AmountPerMLTime', () {

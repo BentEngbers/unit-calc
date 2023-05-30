@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/enum/TimeUnit.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerTime.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/time_unit.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_time.dart';
 
 @immutable
 class AmountPerMLTime extends AbstractAmountPerTime {

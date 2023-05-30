@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:test/test.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/enum/TimeUnit.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/time_unit.dart';
 
 main() {
   group("Calc", () {

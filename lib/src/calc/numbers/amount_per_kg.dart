@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 
-import 'Amount.dart';
+import 'amount.dart';
 
 @immutable
 class AmountPerKG extends AbstractAmount {

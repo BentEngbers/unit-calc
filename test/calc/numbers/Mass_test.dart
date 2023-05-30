@@ -2,7 +2,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/Exceptions.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
-import 'package:unit_calc/src/calc/numbers/Mass.dart';
+import 'package:unit_calc/src/calc/numbers/mass.dart';
 
 void main() {
   group('Mass', () {
@@ -39,11 +39,11 @@ void main() {
       expect(Mass(0.0000001).isAbsoluteZero, false);
     });
     test("check isZero false", () {
-      const value = PRECISION * 10;
+      const value = defaultPrecision * 10;
       expect(Mass(value).isZero, false);
     });
     test("check isZero true", () {
-      const value = PRECISION / 10;
+      const value = defaultPrecision / 10;
       expect(Mass(value).isZero, true);
     });
 

@@ -1,8 +1,8 @@
 import 'package:test/test.dart';
 import 'package:unit_calc/src/Exceptions.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/numbers/Amount.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerKG.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/numbers/amount.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_kg.dart';
 
 void main() {
   group('AmountPerKG', () {

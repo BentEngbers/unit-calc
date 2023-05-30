@@ -1,11 +1,11 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/enum/TimeUnit.dart';
-import 'package:unit_calc/src/calc/numbers/Amount.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerKGTime.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerML.dart';
-import 'package:unit_calc/src/calc/numbers/Mass.dart';
-import 'package:unit_calc/src/calc/numbers/VolumePerTime.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/time_unit.dart';
+import 'package:unit_calc/src/calc/numbers/amount.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_kg_time.dart';
+import 'package:unit_calc/src/calc/numbers/mass.dart';
+import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_ml.dart';
 
 import '../Calc.dart';
 

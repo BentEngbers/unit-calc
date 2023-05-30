@@ -1,9 +1,9 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/Exceptions.dart';
-import 'package:unit_calc/src/calc/enum/SyringeSizes.dart';
-import 'package:unit_calc/src/calc/numbers/Mass.dart';
-import 'package:unit_calc/src/calc/numbers/Volume.dart';
+import 'package:unit_calc/src/calc/enum/syringe_sizes.dart';
+import 'package:unit_calc/src/calc/numbers/mass.dart';
+import 'package:unit_calc/src/calc/numbers/volume.dart';
 
 void main() {
   group('Volume', () {
@@ -12,7 +12,7 @@ void main() {
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("throws error when result is negative", () {
-      expect(() => {Volume(1) - SyringeSizes.ml10.volume},
+      expect(() => {Volume(1) - SyringeSizes.ml20.volume},
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("check addition", () {

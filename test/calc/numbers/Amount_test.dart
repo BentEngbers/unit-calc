@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:test/test.dart';
 import 'package:unit_calc/src/Exceptions.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/numbers/Amount.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerML.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/numbers/amount.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_ml.dart';
 import 'package:unit_calc/src/calc/numbers/Volume.dart';
 
 void main() {

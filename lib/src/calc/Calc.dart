@@ -1,7 +1,8 @@
-import 'enum/ConcentrationUnit.dart';
-import 'enum/TimeUnit.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 
-const double PRECISION = 0.0000000001;
+import 'enum/time_unit.dart';
+
+const double defaultPrecision = 0.0000000001;
 
 class Calc {
   static double convertFactor(
@@ -18,7 +19,7 @@ class Calc {
   }
 
   static bool doubleEquals(double a, double b) {
-    double epsilon = PRECISION;
+    double epsilon = defaultPrecision;
     return (a - b).abs() < epsilon;
   }
 

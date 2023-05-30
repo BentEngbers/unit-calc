@@ -1,10 +1,9 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/ConcentrationUnit.dart';
-import 'package:unit_calc/src/calc/numbers/AmountPerTime.dart';
-import 'package:unit_calc/src/calc/numbers/VolumePerTime.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/numbers/amount_per_time.dart';
+import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
 
-import 'Amount.dart';
+import 'amount.dart';
 import 'Volume.dart';
 
 @immutable
