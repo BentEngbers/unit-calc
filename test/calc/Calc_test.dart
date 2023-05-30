@@ -9,8 +9,8 @@ main() {
     for (var tuple in [
       const Tuple3(mg, mg, 1.0),
       const Tuple3(mg, mcg, 1000.0),
-      const Tuple3(mcg, nanogr, 1000.0),
-      const Tuple3(nanogr, mcg, 0.001),
+      const Tuple3(mcg, nanoGr, 1000.0),
+      const Tuple3(nanoGr, mcg, 0.001),
       const Tuple3(U, U, 1.0)
     ]) {
       test("test conversion from ${tuple.value1} to ${tuple.value2}", () {

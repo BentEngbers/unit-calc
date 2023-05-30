@@ -14,7 +14,7 @@ class Calc {
 
   static double convertFactorOnlyUnit(
       {required ConcentrationUnit from, required ConcentrationUnit to}) {
-    return from.factorMG / to.factorMG;
+    return from.factorToMG / to.factorToMG;
   }
 
   static bool doubleEquals(double a, double b) {

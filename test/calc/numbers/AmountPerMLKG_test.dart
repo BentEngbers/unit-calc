@@ -23,8 +23,8 @@ void main() {
       const Tuple3(1.0, 4.0, 4.0)
     ]) {
       test("mass multiplication", () {
-        expect(AmountPerMLKG(v.value1, U) * Mass(v.value2),
-            AmountPerML(v.value3, U));
+        expect(AmountPerMLKG(v.value1, U(factorToMG: 1)) * Mass(v.value2),
+            AmountPerML(v.value3, U(factorToMG: 1)));
       });
     }
   });

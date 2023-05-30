@@ -8,6 +8,7 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
+  build_runner: ^2.4.4
   dartz: ^0.10.1
   freezed: ^2.3.4
   intl: ^0.18.1

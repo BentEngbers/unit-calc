@@ -13,48 +13,49 @@ void main() {
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("check the to string method", () {
-      expect('${AmountPerTime(2.4, U, TimeUnit.hr)}', "2.4 U/hr");
+      expect(
+          '${AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.hr)}', "2.4 U/hr");
     });
     test("equality true", () {
       expect(
-          AmountPerTime(2.4, U, TimeUnit.hr) ==
-              AmountPerTime(2.4, U, TimeUnit.hr),
+          AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.hr) ==
+              AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.hr),
           true);
     });
     test("equality different value", () {
       expect(
-          AmountPerTime(2.5, U, TimeUnit.hr) ==
-              AmountPerTime(2.4, U, TimeUnit.hr),
+          AmountPerTime(2.5, U(factorToMG: 1), TimeUnit.hr) ==
+              AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.hr),
           false);
     });
     test("equality different unit", () {
       expect(
           AmountPerTime(2.4, mcg, TimeUnit.hr) ==
-              AmountPerTime(2.4, U, TimeUnit.hr),
+              AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.hr),
           false);
     });
     test("equality different time unit", () {
       expect(
-          AmountPerTime(2.4, U, TimeUnit.min) ==
-              AmountPerTime(2.4, U, TimeUnit.hr),
+          AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.min) ==
+              AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.hr),
           false);
     });
     test("equality different class", () {
       expect(
-          AmountPerTime(2.4, U, TimeUnit.min) ==
-              AmountPerKGTime(2.4, U, TimeUnit.min),
+          AmountPerTime(2.4, U(factorToMG: 1), TimeUnit.min) ==
+              AmountPerKGTime(2.4, U(factorToMG: 1), TimeUnit.min),
           false);
     });
     test("equality different unit Time", () {
       expect(
-          AmountPerTime(5, U, TimeUnit.hr) ==
-              AmountPerKGTime(60, U, TimeUnit.min),
+          AmountPerTime(5, U(factorToMG: 1), TimeUnit.hr) ==
+              AmountPerKGTime(60, U(factorToMG: 1), TimeUnit.min),
           false);
     });
     test("equality different unit Time", () {
       expect(
-          AmountPerTime(60, U, TimeUnit.min) ==
-              AmountPerKGTime(5, U, TimeUnit.hr),
+          AmountPerTime(60, U(factorToMG: 1), TimeUnit.min) ==
+              AmountPerKGTime(5, U(factorToMG: 1), TimeUnit.hr),
           false);
     });
     test("equality different ConcentrationUnit and time unit", () {

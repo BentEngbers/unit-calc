@@ -1,45 +1,72 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../../exceptions.dart';
 
-part 'ConcentrationUnit.freezed.dart';
+sealed class ConcentrationUnit {
+  static const double DEFAULT_U = 1;
 
-const double DEFAULT_U = 1;
-const mg = ConcentrationUnit.mg();
-const mcg = ConcentrationUnit.mcg();
-const nanogr = ConcentrationUnit.nanogr();
-const U = ConcentrationUnit.U(DEFAULT_U);
+  final String name;
+  final double factorToMG;
+  const ConcentrationUnit({required this.name, required this.factorToMG});
 
-@freezed
-class ConcentrationUnit with _$ConcentrationUnit {
-  const ConcentrationUnit._();
-  const factory ConcentrationUnit.mg() = _mg;
-  const factory ConcentrationUnit.mcg() = _mcg;
-  const factory ConcentrationUnit.nanogr() = _nanogr;
-  const factory ConcentrationUnit.U(double factorMG) = _U;
-
-  factory ConcentrationUnit.fromJson(String json) {
-    switch (json) {
-      case "mg":
-        return const ConcentrationUnit.mg();
-      case "mcg":
-        return const ConcentrationUnit.mcg();
-      case "nanogr":
-        return const ConcentrationUnit.nanogr();
-      case "U":
-        return const ConcentrationUnit.U(DEFAULT_U);
-      default:
-        throw InvalidConcentrationUnitException();
-    }
-  }
+  factory ConcentrationUnit.fromJson(String json) => switch (json) {
+        "mg" => mg,
+        "mcg" => mcg,
+        "nanogr" => nanoGr,
+        "U" => U(factorToMG: DEFAULT_U),
+        _ => throw InvalidConcentrationUnitException()
+      };
   String toJSON() => name;
-  double get factorMG => when(
-      mg: () => 1,
-      mcg: () => 0.001,
-      nanogr: () => 0.000001,
-      U: (factorMG) => factorMG);
 
-  String get name {
-    return toString().split('.')[1].split('(').first;
+  @override
+  String toString() => name;
+}
+
+const mg = MG._();
+
+class MG extends ConcentrationUnit {
+  const MG._() : super(name: "mg", factorToMG: 1);
+
+  @override
+  operator ==(Object other) => other is MG;
+
+  @override
+  int get hashCode => super.name.hashCode;
+}
+
+const mcg = MCG._();
+
+class MCG extends ConcentrationUnit {
+  const MCG._() : super(name: "mcg", factorToMG: 0.001);
+
+  @override
+  operator ==(Object other) => other is MCG;
+
+  @override
+  int get hashCode => super.name.hashCode;
+}
+
+const nanoGr = NanoGr._();
+
+class NanoGr extends ConcentrationUnit {
+  const NanoGr._() : super(name: "nanogr", factorToMG: 0.000001);
+
+  @override
+  operator ==(Object other) => other is NanoGr;
+
+  @override
+  int get hashCode => super.name.hashCode;
+}
+
+class U extends ConcentrationUnit {
+  const U({required double factorToMG})
+      : super(name: "U", factorToMG: factorToMG);
+  @override
+  operator ==(Object other) => other is U && other.factorToMG == factorToMG;
+
+  @override
+  int get hashCode => Object.hash(name, factorToMG);
+
+  @override
+  String toString() {
+    return "U($factorToMG)";
   }
 }

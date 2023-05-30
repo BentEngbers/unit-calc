@@ -12,7 +12,8 @@ void main() {
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("check the to string method", () {
-      expect('${AmountPerKGTime(2.4, U, TimeUnit.hr)}', "2.4 U/kg/hr");
+      expect('${AmountPerKGTime(2.4, U(factorToMG: 1), TimeUnit.hr)}',
+          "2.4 U/kg/hr");
     });
   });
 }

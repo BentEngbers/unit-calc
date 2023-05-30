@@ -11,7 +11,7 @@ void main() {
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("check the to string method", () {
-      expect('${AmountPerML(2.56, U)}', "2.56 U/ml");
+      expect('${AmountPerML(2.56, U(factorToMG: 1))}', "2.56 U/ml");
     });
   });
 }

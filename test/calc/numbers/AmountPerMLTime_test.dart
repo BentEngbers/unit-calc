@@ -12,7 +12,8 @@ void main() {
           throwsA(const TypeMatcher<NegativeNumberException>()));
     });
     test("check the to string method", () {
-      expect('${AmountPerMLTime(1.2, U, TimeUnit.min)}', "1.2 U/ml/min");
+      expect('${AmountPerMLTime(1.2, U(factorToMG: 1), TimeUnit.min)}',
+          "1.2 U/ml/min");
     });
   });
 }
