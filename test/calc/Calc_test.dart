@@ -1,37 +1,48 @@
-import 'package:dartz/dartz.dart';
 import 'package:test/test.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 
+typedef UnitConversionTestCase = ({
+  ConcentrationUnit unit1,
+  ConcentrationUnit unit2,
+  double value,
+});
+typedef TimeUnitConversionTestCase = ({
+  TimeUnit unit1,
+  TimeUnit unit2,
+  double value,
+});
 main() {
   group("Calc", () {
-    for (var tuple in [
-      const Tuple3(mg, mg, 1.0),
-      const Tuple3(mg, mcg, 1000.0),
-      const Tuple3(mcg, nanoGr, 1000.0),
-      const Tuple3(nanoGr, mcg, 0.001),
-      const Tuple3(U, U, 1.0)
-    ]) {
-      test("test conversion from ${tuple.value1} to ${tuple.value2}", () {
-        // expect(Calc.convertFactorOnlyUnit(from: tuple.value1, to: tuple.value2),
-        //     moreOrLessEquals(tuple.value3, epsilon: PRECISION));
+    const unitTests = <UnitConversionTestCase>[
+      (unit1: mg, unit2: mg, value: 1.0),
+      (unit1: mg, unit2: mcg, value: 1000.0),
+      (unit1: mcg, unit2: nanoGr, value: 1000.0),
+      (unit1: nanoGr, unit2: mcg, value: 0.001),
+      (unit1: U(factorToMG: 1), unit2: U(factorToMG: 1), value: 1),
+    ];
+    for (final tuple in unitTests) {
+      test("test conversion from ${tuple.unit1} to ${tuple.unit2}", () {
+        expect(Calc.convertFactorOnlyUnit(from: tuple.unit1, to: tuple.unit2),
+            closeTo(tuple.value, defaultPrecision));
       });
     }
 
     const min = TimeUnit.min;
     const hr = TimeUnit.hr;
-    for (var tuple in [
-      const Tuple3(min, min, 1.0),
-      const Tuple3(hr, min, (1 / 60)),
-      const Tuple3(min, hr, 60.0),
-      const Tuple3(hr, hr, 1.0)
-    ]) {
-      test("test conversion from ${tuple.value1} to ${tuple.value2}", () {
-        // expect(
-        //     Calc.convertFactorOnlyTime(
-        //         fromTime: tuple.value1, toTime: tuple.value2),
-        //     moreOrLessEquals(tuple.value3, epsilon: PRECISION));
+    const timeTests = <TimeUnitConversionTestCase>[
+      (unit1: min, unit2: min, value: 1.0),
+      (unit1: hr, unit2: min, value: 1 / 60),
+      (unit1: min, unit2: hr, value: 60),
+      (unit1: hr, unit2: hr, value: 1.0),
+    ];
+    for (final tuple in timeTests) {
+      test("test conversion from ${tuple.unit1} to ${tuple.unit2}", () {
+        expect(
+            Calc.convertFactorOnlyTime(
+                fromTime: tuple.unit1, toTime: tuple.unit2),
+            closeTo(tuple.value, defaultPrecision));
       });
     }
     test("doubleEquals", () {
@@ -52,6 +63,5 @@ main() {
     test("doubleEquals larger than precision ", () {
       expect(Calc.doubleEquals(0.007, 0.007), true);
     });
-    //0.00700000000000000015
   });
 }

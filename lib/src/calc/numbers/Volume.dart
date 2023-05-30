@@ -6,11 +6,11 @@ import 'Number.dart';
 abstract class AbstractVolume extends Number {
   AbstractVolume(double value) : super(value);
 
-  String _todisplayString(String number) => '$number ml';
+  String _toDisplayString(String number) => '$number ml';
 
   @override
   String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
+      _toDisplayString(
           super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
 
   @override
