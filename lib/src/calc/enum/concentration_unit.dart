@@ -1,7 +1,7 @@
 import '../../exceptions.dart';
 
 sealed class ConcentrationUnit {
-  static const double DEFAULT_U = 1;
+  static const double defaultUFactorToMG = 1;
 
   final String name;
   final double factorToMG;
@@ -11,7 +11,7 @@ sealed class ConcentrationUnit {
         "mg" => mg,
         "mcg" => mcg,
         "nanogr" => nanoGr,
-        "U" => U(factorToMG: DEFAULT_U),
+        "U" => U(factorToMG: defaultUFactorToMG),
         _ => throw InvalidConcentrationUnitException()
       };
   String toJSON() => name;

@@ -1,4 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/amount_per_ml.dart';
@@ -10,7 +10,7 @@ import 'Volume.dart';
 abstract class AbstractAmount extends Number {
   final ConcentrationUnit _unit;
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  //@JsonKey(includeFromJson: false, includeToJson: false)
   ConcentrationUnit get unit => _unit;
   AbstractAmount(double value, this._unit) : super(value);
 
@@ -47,7 +47,6 @@ abstract class AbstractAmount extends Number {
 }
 
 ///DO NOT EXTEND: EXTEND [AbstractAmount] INSTEAD.
-@sealed
 @immutable
 class Amount extends AbstractAmount {
   Amount(double value, ConcentrationUnit unit) : super(value, unit);
