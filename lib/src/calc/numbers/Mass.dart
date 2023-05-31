@@ -3,7 +3,7 @@ import 'Number.dart';
 
 @immutable
 class Mass extends Number {
-  Mass(double value) : super(value);
+  const Mass(super.value);
 
   String _todisplayString(String number) => '$number kg';
 

@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/Exceptions.dart';
 
 import '../Calc.dart';
 import 'package:intl/intl.dart' as intl;
@@ -9,12 +8,13 @@ abstract class Number {
   final double _value;
   double get value => _value;
 
-  Number(this._value) {
-    if (_value.isNegative) {
-      throw NegativeNumberException(
-          "The value of the volume cannot be negative (value given: '$_value')");
-    }
-  }
+  const Number(this._value) : assert(_value >= 0);
+  // {
+  //   if (_value.isNegative) {
+  //     throw NegativeNumberException(
+  //         "The value of the volume cannot be negative (value given: '$_value')");
+  //   }
+  // }
   bool get isAbsoluteZero => value == 0;
 
   /// Check if the number is close to zero within a certain [threshold].

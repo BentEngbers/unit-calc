@@ -4,7 +4,7 @@ import 'Number.dart';
 
 @immutable
 abstract class AbstractVolume extends Number {
-  AbstractVolume(double value) : super(value);
+  const AbstractVolume(double value) : super(value);
 
   String _toDisplayString(String number) => '$number ml';
 
@@ -20,7 +20,7 @@ abstract class AbstractVolume extends Number {
 @sealed
 @immutable
 class Volume extends AbstractVolume {
-  Volume(double value) : super(value);
+  const Volume(double value) : super(value);
   Volume operator +(Volume volume) => Volume(super.value + volume.value);
   Volume operator -(Volume volume) => Volume(super.value - volume.value);
   static Volume fromJson(double value) => Volume(value);

@@ -8,7 +8,7 @@ import 'Volume.dart';
 
 @immutable
 class AmountPerML extends AbstractAmount {
-  AmountPerML(double value, ConcentrationUnit unit) : super(value, unit);
+  const AmountPerML(double value, ConcentrationUnit unit) : super(value, unit);
 
   //TODO: test this function
   Amount operator *(Volume volume) => Amount(volume.value * value, unit);

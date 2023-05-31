@@ -1,8 +1,12 @@
-import 'package:dartz/dartz.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 
+typedef UnitTestCases = ({
+  ConcentrationUnit unit,
+  String name,
+  double factorToMG
+});
 void main() {
   group('ConcentrationUnit', () {
     test("U equals", () {
@@ -11,22 +15,21 @@ void main() {
     test("U notEquals", () {
       expect(const U(factorToMG: 4), isNot(const U(factorToMG: 5)));
     });
-    for (final tuple in [
-      const Tuple3<ConcentrationUnit, String, double>(mg, "mg", 1),
-      const Tuple3<ConcentrationUnit, String, double>(mcg, "mcg", 0.001),
-      const Tuple3<ConcentrationUnit, String, double>(
-          nanoGr, "nanogr", 0.000001),
-      const Tuple3<ConcentrationUnit, String, double>(
-          U(factorToMG: 1.0), "U", 1.0)
-    ]) {
-      test("test name of ${tuple.value1}", () {
-        expect(tuple.value1.name, tuple.value2);
+    const testCases = <UnitTestCases>[
+      (unit: mg, name: "mg", factorToMG: 1),
+      (unit: mcg, name: "mcg", factorToMG: 0.001),
+      (unit: nanoGr, name: "nanogr", factorToMG: 0.000001),
+      (unit: U(factorToMG: 1.0), name: "U", factorToMG: 1.0),
+    ];
+    for (final tuple in testCases) {
+      test("test name of ${tuple.unit}", () {
+        expect(tuple.unit.name, tuple.name);
       });
-      test("test factorMG of ${tuple.value1}", () {
-        expect(tuple.value1.factorToMG, tuple.value3);
+      test("test factorMG of ${tuple.unit}", () {
+        expect(tuple.unit.factorToMG, tuple.factorToMG);
       });
-      test("test factorMG of ${tuple.value1}", () {
-        expect(ConcentrationUnit.fromJson(tuple.value2), equals(tuple.value1));
+      test("test factorMG of ${tuple.unit}", () {
+        expect(ConcentrationUnit.fromJson(tuple.name), equals(tuple.unit));
       });
     }
     test(

@@ -1,14 +1,12 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/Exceptions.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
 
 void main() {
   group('Mass', () {
     test("throws an error if initialized with negative Mass", () {
-      expect(() => Mass(-1),
-          throwsA(const TypeMatcher<NegativeNumberException>()));
+      expect(() => Mass(-1), throwsA(isA<AssertionError>()));
     });
     test("check the toFixedDecimalString method same minDigit as maxDigit", () {
       expect(Mass(2).toFixedDecimalString(minDigit: 2, maxDigit: 2), "2.00 kg");

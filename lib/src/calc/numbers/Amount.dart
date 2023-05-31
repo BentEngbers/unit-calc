@@ -12,7 +12,7 @@ abstract class AbstractAmount extends Number {
 
   //@JsonKey(includeFromJson: false, includeToJson: false)
   ConcentrationUnit get unit => _unit;
-  AbstractAmount(double value, this._unit) : super(value);
+  const AbstractAmount(double value, this._unit) : super(value);
 
   String _todisplayString(String number) => '$number ${_unit.name}';
 
@@ -49,7 +49,7 @@ abstract class AbstractAmount extends Number {
 ///DO NOT EXTEND: EXTEND [AbstractAmount] INSTEAD.
 @immutable
 class Amount extends AbstractAmount {
-  Amount(double value, ConcentrationUnit unit) : super(value, unit);
+  const Amount(double value, ConcentrationUnit unit) : super(value, unit);
   convertTo(ConcentrationUnit toUnit) => Amount(
       value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit), toUnit);
   Volume operator /(AmountPerML concentration) {
