@@ -1,22 +1,33 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/amount_per_ml.dart';
-
-import 'amount.dart';
+import 'package:unit_calc/src/calc/numbers/number.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 
 @immutable
-class AmountPerMLKG extends AbstractAmount {
-  AmountPerMLKG(double value, ConcentrationUnit unit) : super(value, unit);
+class AmountPerMLKG with EquatableMixin implements Number {
+  final double value;
+  final ConcentrationUnit unit;
+  const AmountPerMLKG(this.value, this.unit) : assert(value >= 0);
   String _todisplayString(String number) => "$number/ml/kg";
 
   @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) {
+    return "${NumberUtils.toDecimalString(value, override, format)} ${unit.name}/ml/kg";
+  }
 
   @override
-  String toString() => super.toDynamicDecimalString;
+  String toString() => toDisplayString();
 
   AmountPerML operator *(Mass mass) => AmountPerML(value * mass.value, unit);
+
+  @override
+  List<Object?> get props => [
+        value,
+        unit,
+      ];
+  @override
+  bool? get stringify => false;
 }

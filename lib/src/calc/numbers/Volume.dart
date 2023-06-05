@@ -1,28 +1,31 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 
 import 'Number.dart';
 
 @immutable
-abstract class AbstractVolume extends Number {
-  const AbstractVolume(double value) : super(value);
-
-  String _toDisplayString(String number) => '$number ml';
-
-  @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _toDisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
+final class Volume with EquatableMixin implements Number {
+  static const String _unit = 'ml';
+  final double value;
+  const Volume(this.value) : assert(value >= 0);
 
   @override
-  String toString() => super.toDynamicDecimalString;
-}
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+      "${NumberUtils.toDecimalString(value, override, format)} $_unit";
 
-@sealed
-@immutable
-class Volume extends AbstractVolume {
-  const Volume(double value) : super(value);
-  Volume operator +(Volume volume) => Volume(super.value + volume.value);
-  Volume operator -(Volume volume) => Volume(super.value - volume.value);
+  @override
+  String toString() => toDisplayString();
+
+  Volume operator +(Volume volume) => Volume(value + volume.value);
+  Volume operator -(Volume volume) => Volume(value - volume.value);
   static Volume fromJson(double value) => Volume(value);
   static double toJSON(Volume volume) => volume.value;
+
+  @override
+  List<Object?> get props => [
+        value,
+      ];
+  @override
+  bool? get stringify => false;
 }

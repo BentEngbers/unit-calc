@@ -1,18 +1,25 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
-
-import 'amount.dart';
+import 'package:unit_calc/src/calc/numbers/number.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 
 @immutable
-class AmountPerKG extends AbstractAmount {
-  AmountPerKG(double value, ConcentrationUnit unit) : super(value, unit);
-  String _todisplayString(String number) => "$number/kg";
+class AmountPerKG with EquatableMixin implements Number {
+  final double value;
+  final ConcentrationUnit unit;
+  const AmountPerKG(this.value, this.unit) : assert(value > 0);
+  @override
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+      "${NumberUtils.toDecimalString(value, override, format)} ${unit.name}/kg";
+  @override
+  String toString() => toDisplayString();
 
   @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
-
+  List<Object?> get props => [
+        value,
+        unit,
+      ];
   @override
-  String toString() => super.toDynamicDecimalString;
+  bool? get stringify => false;
 }

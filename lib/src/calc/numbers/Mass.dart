@@ -1,19 +1,21 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 import 'Number.dart';
 
 @immutable
-class Mass extends Number {
-  const Mass(super.value);
+final class Mass with EquatableMixin implements Number {
+  final double value;
+  const Mass(this.value) : assert(value >= 0);
 
-  String _todisplayString(String number) => '$number kg';
-
-  @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
+  String get _unit => 'kg';
 
   @override
-  String toString() => super.toDynamicDecimalString;
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+      "${NumberUtils.toDecimalString(value, override, format)} $_unit";
+
+  @override
+  String toString() => toDisplayString();
 
   bool operator <(Mass other) => value < other.value;
 
@@ -21,4 +23,9 @@ class Mass extends Number {
 
   static Mass fromJson(double value) => Mass(value);
   static double toJSON(Mass mass) => mass.value;
+
+  @override
+  List<Object?> get props => [value];
+  @override
+  bool? get stringify => false;
 }

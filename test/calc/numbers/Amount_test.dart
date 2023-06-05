@@ -11,7 +11,7 @@ typedef UnitConversionDivision = ({
   Volume result,
 });
 void main() {
-  group('Amount', () {
+  group('Amount:', () {
     test("throws an error if initialized with negative number", () {
       expect(() => Amount(-1, mcg), throwsA(isA<AssertionError>()));
     });
@@ -31,7 +31,7 @@ void main() {
     ];
     for (final testCase in cases) {
       final (:from, :to) = testCase;
-      test("Test convertTo from ${from} to ${to.unit.name}", () {
+      test("Test convertTo from $from to ${to.unit.name}", () {
         expect(from.convertTo(from.unit), to);
       });
     }
@@ -52,9 +52,9 @@ void main() {
         result: Volume(1)
       ),
       (
-        amount: Amount(18, nanoGr),
-        divisor: AmountPerML(0.009, mcg),
-        result: Volume(2)
+        amount: Amount(60, nanoGr),
+        divisor: AmountPerML(0.004, mcg),
+        result: Volume(15)
       ),
       (
         amount: Amount(60000000, nanoGr),
@@ -64,8 +64,8 @@ void main() {
     ];
     for (final tuple in divisionTestCases) {
       final (:amount, :divisor, :result) = tuple;
-      test("Test dividing ${amount} by ${divisor}",
-          () => {expect(amount / divisor, result)});
+      test("Test dividing $amount by $divisor",
+          () => {expect(amount / divisor, equals(result))});
     }
   });
 }

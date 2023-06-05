@@ -1,20 +1,32 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
-import 'package:unit_calc/src/calc/numbers/amount_per_time.dart';
+import 'package:unit_calc/src/calc/numbers/number.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 
 @immutable
-class AmountPerMLTime extends AbstractAmountPerTime {
-  AmountPerMLTime(double value, ConcentrationUnit unit, TimeUnit timeUnit)
-      : super(value, unit, timeUnit);
-
-  String _todisplayString(String number) => "$number/ml/${timeUnit.name}";
-
-  @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
+class AmountPerMLTime with EquatableMixin implements Number {
+  final double value;
+  final ConcentrationUnit unit;
+  final TimeUnit timeUnit;
+  const AmountPerMLTime(this.value, this.unit, this.timeUnit)
+      : assert(value > 0);
 
   @override
-  String toString() => super.toDynamicDecimalString;
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) {
+    return "${NumberUtils.toDecimalString(value, override, format)} ${unit.name}/ml/${timeUnit.name}";
+  }
+
+  @override
+  String toString() => toDisplayString();
+
+  @override
+  List<Object?> get props => [
+        value,
+        unit,
+        timeUnit,
+      ];
+  @override
+  bool? get stringify => false;
 }

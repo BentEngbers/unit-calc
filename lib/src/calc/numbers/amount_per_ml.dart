@@ -1,14 +1,19 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/amount_per_time.dart';
+import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 
 import 'amount.dart';
 import 'Volume.dart';
 
 @immutable
-class AmountPerML extends AbstractAmount {
-  const AmountPerML(double value, ConcentrationUnit unit) : super(value, unit);
+class AmountPerML with EquatableMixin implements Number {
+  final double value;
+  final ConcentrationUnit unit;
+  const AmountPerML(this.value, this.unit) : assert(value >= 0);
 
   //TODO: test this function
   Amount operator *(Volume volume) => Amount(volume.value * value, unit);
@@ -17,13 +22,19 @@ class AmountPerML extends AbstractAmount {
   AmountPerTime multiply(VolumePerTime volumePerTime) =>
       AmountPerTime(value * volumePerTime.value, unit, volumePerTime.timeUnit);
 
-  String _todisplayString(String number) => "$number/ml";
+  @override
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) {
+    return "${NumberUtils.toDecimalString(value, override, format)} ${unit.name}/ml";
+  }
 
   @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
+  String toString() => toDisplayString();
 
   @override
-  String toString() => super.toDynamicDecimalString;
+  List<Object?> get props => [
+        value,
+        unit,
+      ];
+  @override
+  bool? get stringify => false;
 }

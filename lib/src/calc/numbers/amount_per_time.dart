@@ -1,25 +1,29 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
-import 'package:unit_calc/src/calc/numbers/amount.dart';
 import 'package:unit_calc/src/calc/numbers/amount_per_kg_time.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
+import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
 import 'package:unit_calc/src/calc/numbers/amount_per_ml.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 
 import '../Calc.dart';
 
 @immutable
-abstract class AbstractAmountPerTime extends AbstractAmount {
+final class AmountPerTime with EquatableMixin implements Number {
+  final double value;
   final TimeUnit _timeUnit;
+  final ConcentrationUnit unit;
   TimeUnit get timeUnit => _timeUnit;
-  AbstractAmountPerTime(double value, ConcentrationUnit unit, this._timeUnit)
-      : super(value, unit);
+  const AmountPerTime(this.value, this.unit, this._timeUnit)
+      : assert(value >= 0);
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AbstractAmountPerTime &&
+      other is AmountPerTime &&
           runtimeType == other.runtimeType &&
           Calc.doubleEquals(
               value *
@@ -32,23 +36,12 @@ abstract class AbstractAmountPerTime extends AbstractAmount {
 
   @override
   int get hashCode => _timeUnit.hashCode ^ super.hashCode;
-}
-
-@sealed
-@immutable
-class AmountPerTime extends AbstractAmountPerTime {
-  AmountPerTime(double value, ConcentrationUnit unit, TimeUnit timeUnit)
-      : super(value, unit, timeUnit);
-
-  String _todisplayString(String number) => "$number/${timeUnit.name}";
 
   @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
-
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+      "${NumberUtils.toDecimalString(value, override, format)} ${unit.name}/${timeUnit.name}";
   @override
-  String toString() => super.toDynamicDecimalString;
+  String toString() => toDisplayString();
 
   VolumePerTime operator /(AmountPerML volume) {
     final double convertedValue =
@@ -59,4 +52,13 @@ class AmountPerTime extends AbstractAmountPerTime {
   //TODO: test this function div
   AmountPerKGTime divide(Mass patientWeight) =>
       AmountPerKGTime(value / patientWeight.value, unit, timeUnit);
+
+  @override
+  List<Object?> get props => [
+        value,
+        unit,
+        timeUnit,
+      ];
+  @override
+  bool? get stringify => false;
 }

@@ -1,33 +1,32 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/amount_per_ml.dart';
+import 'package:unit_calc/src/calc/utils.dart';
 
 import 'Number.dart';
 import 'Volume.dart';
 
 @immutable
-abstract class AbstractAmount extends Number {
+class Amount with EquatableMixin implements Number {
+  final double value;
   final ConcentrationUnit _unit;
 
-  //@JsonKey(includeFromJson: false, includeToJson: false)
   ConcentrationUnit get unit => _unit;
-  const AbstractAmount(double value, this._unit) : super(value);
-
-  String _todisplayString(String number) => '$number ${_unit.name}';
+  const Amount(this.value, this._unit) : assert(value >= 0);
 
   @override
-  String toFixedDecimalString({int minDigit = 1, int maxDigit = 1}) =>
-      _todisplayString(
-          super.toFixedDecimalString(minDigit: minDigit, maxDigit: maxDigit));
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+      '${NumberUtils.toDecimalString(value, override, format)} ${_unit.name}';
 
   @override
-  String toString() => super.toDynamicDecimalString;
+  String toString() => toDisplayString();
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AbstractAmount &&
+      other is Amount &&
           runtimeType == other.runtimeType &&
           Calc.doubleEquals(
               value * Calc.convertFactorOnlyUnit(from: unit, to: other.unit),
@@ -35,7 +34,7 @@ abstract class AbstractAmount extends Number {
 
   //TODO:test this function
   bool operator >(Object other) =>
-      other is AbstractAmount &&
+      other is Amount &&
       runtimeType == other.runtimeType &&
       (value * Calc.convertFactorOnlyUnit(from: unit, to: other.unit)) >
           other.value;
@@ -43,13 +42,10 @@ abstract class AbstractAmount extends Number {
   bool operator >=(Object other) => this == other || this > other;
 
   @override
-  int get hashCode => _unit.hashCode ^ super.hashCode;
-}
+  int get hashCode => Object.hash(value, _unit);
 
-///DO NOT EXTEND: EXTEND [AbstractAmount] INSTEAD.
-@immutable
-class Amount extends AbstractAmount {
-  const Amount(double value, ConcentrationUnit unit) : super(value, unit);
+  AmountPerML divide(Volume volume) => AmountPerML(value / volume.value, unit);
+
   convertTo(ConcentrationUnit toUnit) => Amount(
       value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit), toUnit);
   Volume operator /(AmountPerML concentration) {
@@ -57,6 +53,11 @@ class Amount extends AbstractAmount {
     return Volume(convertedAmount.value / concentration.value);
   }
 
-  //TODO: test this function
-  AmountPerML divide(Volume volume) => AmountPerML(value / volume.value, unit);
+  @override
+  List<Object?> get props => [
+        value,
+        unit,
+      ];
+  @override
+  bool? get stringify => false;
 }
