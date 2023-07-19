@@ -18,7 +18,7 @@ void main() {
     test("check the to string method", () {
       expect(Amount(2.1, mg).toString(), "2.1 mg");
     });
-    test("equality different ConcentrationUnit",
+    test("equality different MassUnit",
         () => {expect(Amount(5, mcg) == Amount(5, mg), false)});
     test("equality different value",
         () => {expect(Amount(5, mg) == Amount(6, mg), false)});

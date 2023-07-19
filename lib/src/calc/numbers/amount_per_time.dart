@@ -15,7 +15,7 @@ import '../Calc.dart';
 final class AmountPerTime with EquatableMixin implements Number {
   final double value;
   final TimeUnit _timeUnit;
-  final ConcentrationUnit unit;
+  final MassUnit unit;
   TimeUnit get timeUnit => _timeUnit;
   const AmountPerTime(this.value, this.unit, this._timeUnit)
       : assert(value >= 0);

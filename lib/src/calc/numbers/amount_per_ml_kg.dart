@@ -9,7 +9,7 @@ import 'package:unit_calc/src/calc/utils.dart';
 @immutable
 class AmountPerMLKG with EquatableMixin implements Number {
   final double value;
-  final ConcentrationUnit unit;
+  final MassUnit unit;
   const AmountPerMLKG(this.value, this.unit) : assert(value >= 0);
   String _todisplayString(String number) => "$number/ml/kg";
 

@@ -2,13 +2,9 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 
-typedef UnitTestCases = ({
-  ConcentrationUnit unit,
-  String name,
-  double factorToMG
-});
+typedef UnitTestCases = ({MassUnit unit, String name, double factorToMG});
 void main() {
-  group('ConcentrationUnit', () {
+  group('MassUnit', () {
     test("U equals", () {
       expect(const U(factorToMG: 4), const U(factorToMG: 4));
     });
@@ -29,13 +25,13 @@ void main() {
         expect(tuple.unit.factorToMG, tuple.factorToMG);
       });
       test("test factorMG of ${tuple.unit}", () {
-        expect(ConcentrationUnit.fromJson(tuple.name), equals(tuple.unit));
+        expect(MassUnit.fromJson(tuple.name), equals(tuple.unit));
       });
     }
     test(
         "throws an error if trying to create a ConcentraionUnit from an invalid string",
         () {
-      expect(() => ConcentrationUnit.fromJson("FOO"), throwsException);
+      expect(() => MassUnit.fromJson("FOO"), throwsException);
     });
   });
 }

@@ -1,8 +1,8 @@
-class InvalidConcentrationUnitException implements Exception {
-  const InvalidConcentrationUnitException();
+class InvalidMassUnitException implements Exception {
+  const InvalidMassUnitException();
 
   @override
   String toString() {
-    return 'InvalidConcentrationUnitException:The given string was an invalid ConcentrationUnit';
+    return 'InvalidMassUnitException:The given string was an invalid MassUnit';
   }
 }

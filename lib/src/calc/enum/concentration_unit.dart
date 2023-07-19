@@ -1,18 +1,18 @@
 import '../../exceptions.dart';
 
-sealed class ConcentrationUnit {
+sealed class MassUnit {
   static const double defaultUFactorToMG = 1;
 
   final String name;
   final double factorToMG;
-  const ConcentrationUnit({required this.name, required this.factorToMG});
+  const MassUnit({required this.name, required this.factorToMG});
 
-  factory ConcentrationUnit.fromJson(String json) => switch (json) {
+  factory MassUnit.fromJson(String json) => switch (json) {
         "mg" => mg,
         "mcg" => mcg,
         "nanogr" => nanoGr,
         "U" => U(factorToMG: defaultUFactorToMG),
-        _ => throw InvalidConcentrationUnitException()
+        _ => throw InvalidMassUnitException()
       };
   String toJSON() => name;
 
@@ -22,7 +22,7 @@ sealed class ConcentrationUnit {
 
 const mg = MG._();
 
-class MG extends ConcentrationUnit {
+class MG extends MassUnit {
   const MG._() : super(name: "mg", factorToMG: 1);
 
   @override
@@ -34,7 +34,7 @@ class MG extends ConcentrationUnit {
 
 const mcg = MCG._();
 
-class MCG extends ConcentrationUnit {
+class MCG extends MassUnit {
   const MCG._() : super(name: "mcg", factorToMG: 0.001);
 
   @override
@@ -46,7 +46,7 @@ class MCG extends ConcentrationUnit {
 
 const nanoGr = NanoGr._();
 
-class NanoGr extends ConcentrationUnit {
+class NanoGr extends MassUnit {
   const NanoGr._() : super(name: "nanogr", factorToMG: 0.000001);
 
   @override
@@ -56,7 +56,7 @@ class NanoGr extends ConcentrationUnit {
   int get hashCode => super.name.hashCode;
 }
 
-class U extends ConcentrationUnit {
+class U extends MassUnit {
   const U({required double factorToMG})
       : super(name: "U", factorToMG: factorToMG);
   @override

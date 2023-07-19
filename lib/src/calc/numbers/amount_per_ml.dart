@@ -12,7 +12,7 @@ import 'Volume.dart';
 @immutable
 class AmountPerML with EquatableMixin implements Number {
   final double value;
-  final ConcentrationUnit unit;
+  final MassUnit unit;
   const AmountPerML(this.value, this.unit) : assert(value >= 0);
 
   //TODO: test this function

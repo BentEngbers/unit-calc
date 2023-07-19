@@ -1,4 +1,4 @@
-export '/src/calc/enum/concentration_unit.dart' show ConcentrationUnit;
+export '/src/calc/enum/concentration_unit.dart' show MassUnit;
 export "/src/calc/enum/diluent.dart" show Diluent;
 export "/src/calc/enum/syringe_sizes.dart" show SyringeSizes;
 export "/src/calc/enum/time_unit.dart" show TimeUnit;
@@ -15,4 +15,4 @@ export '/src/calc/numbers/amount_per_ml_time.dart' show AmountPerMLTime;
 export '/src/calc/numbers/amount_per_time.dart' show AmountPerTime;
 export '/src/calc/numbers/volume_per_time.dart' show VolumePerTime;
 
-export '/src/exceptions.dart' show InvalidConcentrationUnitException;
+export '/src/exceptions.dart' show InvalidMassUnitException;

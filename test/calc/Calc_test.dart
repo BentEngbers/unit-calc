@@ -4,8 +4,8 @@ import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 
 typedef UnitConversionTestCase = ({
-  ConcentrationUnit unit1,
-  ConcentrationUnit unit2,
+  MassUnit unit1,
+  MassUnit unit2,
   double value,
 });
 typedef TimeUnitConversionTestCase = ({

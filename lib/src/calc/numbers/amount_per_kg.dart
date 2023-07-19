@@ -7,7 +7,7 @@ import 'package:unit_calc/src/calc/utils.dart';
 @immutable
 class AmountPerKG with EquatableMixin implements Number {
   final double value;
-  final ConcentrationUnit unit;
+  final MassUnit unit;
   const AmountPerKG(this.value, this.unit) : assert(value > 0);
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>

@@ -6,15 +6,15 @@ const double defaultPrecision = 0.0000000001;
 
 final class Calc {
   static double convertFactor(
-          {required ConcentrationUnit from,
-          required ConcentrationUnit to,
+          {required MassUnit from,
+          required MassUnit to,
           required TimeUnit fromTime,
           required TimeUnit toTime}) =>
       convertFactorOnlyUnit(from: from, to: to) *
       convertFactorOnlyTime(fromTime: fromTime, toTime: toTime);
 
   static double convertFactorOnlyUnit(
-          {required ConcentrationUnit from, required ConcentrationUnit to}) =>
+          {required MassUnit from, required MassUnit to}) =>
       from.factorToMG / to.factorToMG;
 
   static bool doubleEquals(double a, double b) =>

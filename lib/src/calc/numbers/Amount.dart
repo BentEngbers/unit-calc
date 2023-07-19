@@ -11,9 +11,9 @@ import 'Volume.dart';
 @immutable
 class Amount with EquatableMixin implements Number {
   final double value;
-  final ConcentrationUnit _unit;
+  final MassUnit _unit;
 
-  ConcentrationUnit get unit => _unit;
+  MassUnit get unit => _unit;
   const Amount(this.value, this._unit) : assert(value >= 0);
 
   @override
@@ -46,7 +46,7 @@ class Amount with EquatableMixin implements Number {
 
   AmountPerML divide(Volume volume) => AmountPerML(value / volume.value, unit);
 
-  convertTo(ConcentrationUnit toUnit) => Amount(
+  convertTo(MassUnit toUnit) => Amount(
       value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit), toUnit);
   Volume operator /(AmountPerML concentration) {
     Amount convertedAmount = convertTo(concentration.unit);

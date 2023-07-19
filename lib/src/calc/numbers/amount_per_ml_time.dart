@@ -8,7 +8,7 @@ import 'package:unit_calc/src/calc/utils.dart';
 @immutable
 class AmountPerMLTime with EquatableMixin implements Number {
   final double value;
-  final ConcentrationUnit unit;
+  final MassUnit unit;
   final TimeUnit timeUnit;
   const AmountPerMLTime(this.value, this.unit, this.timeUnit)
       : assert(value > 0);

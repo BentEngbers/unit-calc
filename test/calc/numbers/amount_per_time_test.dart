@@ -57,7 +57,7 @@ void main() {
               AmountPerKGTime(5, U(factorToMG: 1), TimeUnit.hr),
           false);
     });
-    test("equality different ConcentrationUnit and time unit", () {
+    test("equality different MassUnit and time unit", () {
       expect(
           AmountPerTime(60, mg, TimeUnit.min) ==
               AmountPerKGTime(5000, mcg, TimeUnit.hr),

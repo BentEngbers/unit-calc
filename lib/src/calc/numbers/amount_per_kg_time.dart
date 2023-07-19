@@ -12,7 +12,7 @@ import 'mass.dart';
 @immutable
 class AmountPerKGTime with EquatableMixin implements Number {
   final double value;
-  final ConcentrationUnit unit;
+  final MassUnit unit;
   final TimeUnit timeUnit;
   const AmountPerKGTime(this.value, this.unit, this.timeUnit)
       : assert(value > 0);
@@ -31,7 +31,7 @@ class AmountPerKGTime with EquatableMixin implements Number {
       AmountPerTime(mass.value * value, unit, timeUnit);
 
   //TODO: test this function
-  AmountPerKGTime convertToTime(ConcentrationUnit toUnit, TimeUnit toTime) =>
+  AmountPerKGTime convertToTime(MassUnit toUnit, TimeUnit toTime) =>
       AmountPerKGTime(
           value *
               Calc.convertFactor(
