@@ -38,6 +38,7 @@ final class MassPerTime implements Number {
   @override
   String toString() => toDisplayString();
 
+  @override
   String toJson() => "$_value $displayUnit";
 
   factory MassPerTime.fromJson(String json) =>
@@ -51,13 +52,12 @@ final class MassPerTime implements Number {
       };
 
   MassPerTime _toMassUnit(MassUnit toMass) => MassPerTime(
-      _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toMass),
-      toMass,
-      perTimeUnit);
+      _value * massUnit.convertFactor(to: toMass), toMass, perTimeUnit);
   MassPerTime _toTimeUnit(TimeUnit perTimeUnit) => MassPerTime(
       _value *
-          TimeUnit.convertFactorOnlyTime(
-              fromTime: perTimeUnit, toTime: perTimeUnit),
+          this.perTimeUnit.convertFactor(
+                toTime: perTimeUnit,
+              ),
       massUnit,
       perTimeUnit);
 

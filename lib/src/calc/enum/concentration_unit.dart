@@ -22,6 +22,7 @@ sealed class MassUnit {
         _mgName => milliGram,
         _mcgName => microGram,
         _nanoGrName => nanoGram,
+        _gramName => gram,
         _kgName => kiloGram,
         _ when json.startsWith(_uName) => U(
             factorToNg: num.parse(json
@@ -29,6 +30,9 @@ sealed class MassUnit {
                 .replaceFirst(")", ""))),
         _ => throw InvalidMassUnitException()
       };
+
+  num convertFactor({required MassUnit to}) => factorNanoGr / to.factorNanoGr;
+
   String toJson() => displayName;
 
   @override
@@ -42,7 +46,7 @@ class NanoGram extends MassUnit {
   operator ==(Object other) => other is NanoGram;
 
   @override
-  int get hashCode => super.displayName.hashCode;
+  int get hashCode => Object.hash(displayName, factorNanoGr);
 }
 
 class MicroGram extends MassUnit {
@@ -52,7 +56,7 @@ class MicroGram extends MassUnit {
   operator ==(Object other) => other is MicroGram;
 
   @override
-  int get hashCode => super.displayName.hashCode;
+  int get hashCode => Object.hash(displayName, factorNanoGr);
 }
 
 class MilliGram extends MassUnit {
@@ -62,7 +66,7 @@ class MilliGram extends MassUnit {
   operator ==(Object other) => other is MilliGram;
 
   @override
-  int get hashCode => super.displayName.hashCode;
+  int get hashCode => Object.hash(displayName, factorNanoGr);
 }
 
 class Gram extends MassUnit {

@@ -2,7 +2,12 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 
-typedef UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});
+typedef _UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});
+typedef _MassUnitConversionTestCase = ({
+  MassUnit unit1,
+  MassUnit unit2,
+  num convertFactor,
+});
 void main() {
   group('MassUnit', () {
     test("U equals", () {
@@ -11,24 +16,30 @@ void main() {
     test("U notEquals", () {
       expect(const U(factorToNg: 4), isNot(const U(factorToNg: 5)));
     });
-    const testCases = <UnitTestCases>[
+
+    const testCases = <_UnitTestCases>[
+      (unit: kiloGram, name: "kg", factorNanoGr: 1000000000000),
+      (unit: gram, name: "g", factorNanoGr: 1000000000),
       (unit: milliGram, name: "mg", factorNanoGr: 1000000),
       (unit: microGram, name: "mcg", factorNanoGr: 1000),
       (unit: nanoGram, name: "nanogr", factorNanoGr: 1),
       (unit: U(factorToNg: 11), name: "U(factorNanoGr: 11)", factorNanoGr: 11),
     ];
-    for (final tuple in testCases) {
-      test("json roundtrip  ", () {
-        expect(MassUnit.fromJson(tuple.unit.toJson()), tuple.unit);
-      });
-      test("test name of ${tuple.unit}", () {
-        expect(tuple.unit.displayName, tuple.name.split("(")[0]);
-      });
-      test("test factorNanoGr of ${tuple.unit}", () {
-        expect(tuple.unit.factorNanoGr, tuple.factorNanoGr);
-      });
-      test("test factorNanoGr of ${tuple.unit}", () {
-        expect(MassUnit.fromJson(tuple.name), equals(tuple.unit));
+    for (final (:unit, :name, :factorNanoGr) in testCases) {
+      group("$name:", () {
+        test("json roundtrip", () {
+          expect(MassUnit.fromJson(unit.toJson()), unit);
+        });
+        test("test name", () {
+          expect(unit.displayName, name.split("(")[0]);
+        });
+        test("test factorNanoGr", () {
+          expect(unit.factorNanoGr, factorNanoGr);
+        });
+
+        test("hashcode", () {
+          expect(unit.hashCode, Object.hash(name.split("(")[0], factorNanoGr));
+        });
       });
     }
     test(
@@ -37,4 +48,16 @@ void main() {
       expect(() => MassUnit.fromJson("FOO"), throwsException);
     });
   });
+  const unitTests = <_MassUnitConversionTestCase>[
+    (unit1: milliGram, unit2: milliGram, convertFactor: 1.0),
+    (unit1: milliGram, unit2: microGram, convertFactor: 1000.0),
+    (unit1: microGram, unit2: nanoGram, convertFactor: 1000.0),
+    (unit1: nanoGram, unit2: microGram, convertFactor: 0.001),
+    (unit1: U(factorToNg: 1), unit2: U(factorToNg: 1), convertFactor: 1),
+  ];
+  for (final (:unit1, :unit2, :convertFactor) in unitTests) {
+    test("test conversion from $unit1 to $unit2", () {
+      expect(unit1.convertFactor(to: unit2), convertFactor);
+    });
+  }
 }

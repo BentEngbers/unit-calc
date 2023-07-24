@@ -6,7 +6,8 @@ import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume_mass.dart';
 
-typedef testCase = ({double amountPerMlKg, double mass, double result});
+// ignore: camel_case_types
+typedef _testCase = ({double amountPerMlKg, double mass, double result});
 void main() {
   group('AmountPerMLKG', () {
     test("throws an error if initialized with negative number", () {
@@ -17,7 +18,7 @@ void main() {
       expect('${MassPerVolumeMass.perKg(0.0, microGram, VolumeUnit.ml)}',
           "0 mcg/ml/kg");
     });
-    const testCases = <testCase>[
+    const testCases = <_testCase>[
       (amountPerMlKg: 5.0, mass: 6.0, result: 30.0),
       (amountPerMlKg: 0.0, mass: 5.0, result: 0.0),
       (amountPerMlKg: 1.0, mass: 4.0, result: 4.0),

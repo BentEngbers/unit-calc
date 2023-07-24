@@ -15,6 +15,7 @@ class VolumePerTime implements Number {
   const VolumePerTime(this._value, this.timeUnit, this.volumeUnit)
       : assert(_value >= 0);
 
+  @override
   String get displayUnit => '${volumeUnit.displayName}/${timeUnit.displayName}';
 
   @override
@@ -31,6 +32,7 @@ class VolumePerTime implements Number {
   @override
   int get hashCode => Object.hash(_value, timeUnit);
 
+  @override
   String toJson() => "$_value $displayUnit";
 
   factory VolumePerTime.fromJson(String json) =>
@@ -43,10 +45,7 @@ class VolumePerTime implements Number {
       };
   //TODO: test function
   VolumePerTime _toTimeUnit(TimeUnit toTime) => VolumePerTime(
-      _value *
-          TimeUnit.convertFactorOnlyTime(fromTime: timeUnit, toTime: toTime),
-      toTime,
-      volumeUnit);
+      _value * timeUnit.convertFactor(toTime: toTime), toTime, volumeUnit);
 
   VolumePerTime _toVolumeUnit(VolumeUnit toVolume) => VolumePerTime(
       _value * Calc.convertFactorOnlyVolume(from: volumeUnit, to: toVolume),

@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
@@ -70,21 +69,20 @@ class MassPerMassTime implements Number {
       perTimeUnit);
 
   MassPerMassTime _toMassUnit(MassUnit toMass) => MassPerMassTime(
-      _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toMass),
+      _value * massUnit.convertFactor(to: toMass),
       toMass,
       perMassUnit,
       perTimeUnit);
 
   MassPerMassTime _toPerMassUnit(MassUnit toPerMass) => MassPerMassTime(
-      _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toPerMass),
+      _value * massUnit.convertFactor(to: toPerMass),
       massUnit,
       toPerMass,
       perTimeUnit);
 
   MassPerMassTime _toTimeUnit(TimeUnit toPerTime) => MassPerMassTime(
       _value *
-          TimeUnit.convertFactorOnlyTime(
-            fromTime: perTimeUnit,
+          perTimeUnit.convertFactor(
             toTime: toPerTime,
           ),
       massUnit,

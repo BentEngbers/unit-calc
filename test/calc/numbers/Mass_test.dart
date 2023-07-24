@@ -20,7 +20,7 @@ void main() {
       expect(Mass(2.1, milliGram).toString(), "2.1 mg");
     });
     test("equality different MassUnit",
-        () => {expect(Mass(5, microGram) == Mass(5, milliGram), false)});
+        () => {expect(Mass(1000, gram) == Mass(1, kiloGram), true)});
     test("equality different value",
         () => {expect(Mass(5, milliGram) == Mass(6, milliGram), false)});
     test("equality true",
@@ -35,6 +35,9 @@ void main() {
       final (:from, :to) = testCase;
       test("Test convertTo from $from to ${to.unit.displayName}", () {
         expect(from.as(from.unit), to);
+      });
+      test("json roundtrip", () {
+        expect(Mass.fromJson(from.toJson()), from);
       });
     }
     const divisionTestCases = <UnitConversionDivision>[

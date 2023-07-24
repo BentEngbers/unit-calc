@@ -11,12 +11,8 @@ final class Calc {
           required MassUnit to,
           required TimeUnit fromTime,
           required TimeUnit toTime}) =>
-      convertFactorOnlyUnit(from: from, to: to) *
-      TimeUnit.convertFactorOnlyTime(fromTime: fromTime, toTime: toTime);
+      from.convertFactor(to: to) * fromTime.convertFactor(toTime: toTime);
 
-  static num convertFactorOnlyUnit(
-          {required MassUnit from, required MassUnit to}) =>
-      from.factorNanoGr / to.factorNanoGr;
   static num convertFactorOnlyVolume(
       {required VolumeUnit from, required VolumeUnit to}) {
     return from.factorMl / to.factorMl;

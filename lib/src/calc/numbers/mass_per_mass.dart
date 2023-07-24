@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
@@ -17,6 +16,7 @@ class MassPerMass implements Number {
   /// the mass unit that divides. If you have 5mg/kg ,then kg is the dividing mass unit.
   final MassUnit perMassUnit;
 
+  @override
   String get displayUnit =>
       "${massUnit.displayName}/${perMassUnit.displayName}";
   const MassPerMass(
@@ -36,6 +36,7 @@ class MassPerMass implements Number {
   @override
   String toString() => toDisplayString();
 
+  @override
   String toJson() => "$_value $displayUnit";
 
   factory MassPerMass.fromJson(String json) =>
@@ -60,14 +61,10 @@ class MassPerMass implements Number {
   int get hashCode => Object.hash(_value, massUnit, perMassUnit);
 
   MassPerMass _toMassUnit(MassUnit toMass) => MassPerMass(
-      _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toMass),
-      toMass,
-      perMassUnit);
+      _value * massUnit.convertFactor(to: toMass), toMass, perMassUnit);
 
   MassPerMass _toPerMassUnit(MassUnit toPerMass) => MassPerMass(
-      _value * Calc.convertFactorOnlyUnit(from: perMassUnit, to: toPerMass),
-      massUnit,
-      toPerMass);
+      _value * perMassUnit.convertFactor(to: toPerMass), massUnit, toPerMass);
 
   MassPerMass as({MassUnit? massUnit, MassUnit? perMassUnit}) =>
       _toMassUnit(massUnit ?? this.massUnit)

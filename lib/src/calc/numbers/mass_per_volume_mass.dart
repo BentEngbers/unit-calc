@@ -29,6 +29,7 @@ class MassPerVolumeMass implements Number {
   @override
   String toString() => toDisplayString();
 
+  @override
   String toJson() => "$_value $displayUnit";
 
   factory MassPerVolumeMass.fromJson(String json) =>
@@ -68,13 +69,13 @@ class MassPerVolumeMass implements Number {
               other.asNumber();
 
   MassPerVolumeMass _toMassUnit(MassUnit toMass) => MassPerVolumeMass(
-      _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toMass),
+      _value * massUnit.convertFactor(to: toMass),
       toMass,
       perVolumeUnit,
       perMassUnit);
 
   MassPerVolumeMass _toPerMassUnit(MassUnit toMass) => MassPerVolumeMass(
-      _value * Calc.convertFactorOnlyUnit(from: perMassUnit, to: toMass),
+      _value * perMassUnit.convertFactor(to: toMass),
       toMass,
       perVolumeUnit,
       perMassUnit);
@@ -90,7 +91,7 @@ class MassPerVolumeMass implements Number {
           MassUnit? massUnit,
           MassUnit? perMassUnit}) =>
       _toMassUnit(massUnit ?? this.massUnit)
-          ._toVolumeUnit(volumeUnit ?? this.perVolumeUnit)
+          ._toVolumeUnit(volumeUnit ?? perVolumeUnit)
           ._toPerMassUnit(perMassUnit ?? this.perMassUnit);
 
   num asNumber(

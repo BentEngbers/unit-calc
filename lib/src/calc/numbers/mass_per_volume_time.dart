@@ -68,7 +68,7 @@ class MassPerVolumeTime implements Number {
   String toString() => toDisplayString();
 
   MassPerVolumeTime _toMassUnit(MassUnit toMass) => MassPerVolumeTime(
-      _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toMass),
+      _value * massUnit.convertFactor(to: toMass),
       toMass,
       volumeUnit,
       timeUnit);

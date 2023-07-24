@@ -31,9 +31,7 @@ class MassPerVolume implements Number {
       volumeUnit);
 
   MassPerVolume _toMassUnit(MassUnit toMass) => MassPerVolume(
-      _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toMass),
-      toMass,
-      volumeUnit);
+      _value * massUnit.convertFactor(to: toMass), toMass, volumeUnit);
 
   MassPerVolume _toVolumeUnit(VolumeUnit toVolume) => MassPerVolume(
       _value * Calc.convertFactorOnlyVolume(from: volumeUnit, to: toVolume),

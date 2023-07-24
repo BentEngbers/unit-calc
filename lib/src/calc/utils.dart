@@ -33,10 +33,10 @@ final class NumberUtils {
   }
 }
 
-typedef parseTuple = (String, List<String>);
+typedef ParseTuple = (String, List<String>);
 
 final class ParseUtilities {
-  static parseTuple splitString(String json) {
+  static ParseTuple splitString(String json) {
     final [numberPart, r] = json.split(" ");
     return (numberPart, r.split("/"));
   }

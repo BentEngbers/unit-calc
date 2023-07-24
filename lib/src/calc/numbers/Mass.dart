@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/utils.dart';
@@ -27,9 +26,8 @@ class Mass implements Number {
   MassPerVolume divide(Volume volume) =>
       MassPerVolume(_value / volume.asNumber(volume.unit), unit, volume.unit);
 
-  Mass as([MassUnit? toUnit]) => Mass(
-      _value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit ?? unit),
-      toUnit ?? unit);
+  Mass as([MassUnit? toUnit]) =>
+      Mass(_value * unit.convertFactor(to: toUnit ?? unit), toUnit ?? unit);
 
   num asNumber([MassUnit? toUnit]) => as(toUnit)._value;
 
@@ -72,6 +70,5 @@ class Mass implements Number {
   int get hashCode => Object.hash(_value, unit);
 
   @override
-  // TODO: implement displayUnit
   String get displayUnit => unit.displayName;
 }

@@ -1,50 +1,8 @@
 import 'package:test/test.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
-import 'package:unit_calc/src/calc/enum/time_unit.dart';
 
-typedef UnitConversionTestCase = ({
-  MassUnit unit1,
-  MassUnit unit2,
-  num value,
-});
-typedef TimeUnitConversionTestCase = ({
-  TimeUnit unit1,
-  TimeUnit unit2,
-  num value,
-});
 main() {
   group("Calc", () {
-    const unitTests = <UnitConversionTestCase>[
-      (unit1: milliGram, unit2: milliGram, value: 1.0),
-      (unit1: milliGram, unit2: microGram, value: 1000.0),
-      (unit1: microGram, unit2: nanoGram, value: 1000.0),
-      (unit1: nanoGram, unit2: microGram, value: 0.001),
-      (unit1: U(factorToNg: 1), unit2: U(factorToNg: 1), value: 1),
-    ];
-    for (final tuple in unitTests) {
-      test("test conversion from ${tuple.unit1} to ${tuple.unit2}", () {
-        expect(Calc.convertFactorOnlyUnit(from: tuple.unit1, to: tuple.unit2),
-            closeTo(tuple.value, defaultPrecision));
-      });
-    }
-
-    const min = TimeUnit.min;
-    const hr = TimeUnit.hr;
-    const timeTests = <TimeUnitConversionTestCase>[
-      (unit1: min, unit2: min, value: 1.0),
-      (unit1: hr, unit2: min, value: 1 / 60),
-      (unit1: min, unit2: hr, value: 60),
-      (unit1: hr, unit2: hr, value: 1.0),
-    ];
-    for (final tuple in timeTests) {
-      test("test conversion from ${tuple.unit1} to ${tuple.unit2}", () {
-        expect(
-            TimeUnit.convertFactorOnlyTime(
-                fromTime: tuple.unit1, toTime: tuple.unit2),
-            closeTo(tuple.value, defaultPrecision));
-      });
-    }
     test("doubleEquals", () {
       expect(Calc.doubleEquals(4, 4), true);
     });
