@@ -1,18 +1,18 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
-import 'package:unit_calc/src/calc/enum/time_unit.dart';
-import 'package:unit_calc/src/calc/numbers/amount_per_kg_time.dart';
+import 'package:unit_calc/src/calc/enum/volume_unit.dart';
+import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 
 void main() {
-  group('AmountPerKGTime', () {
+  group('AmountPerML', () {
     test("throws an error if initialized with negative number", () {
-      expect(() => AmountPerKGTime(-1, mcg, TimeUnit.hr),
+      expect(() => MassPerVolume(-1, microGram, VolumeUnit.ml),
           throwsA(isA<AssertionError>()));
     });
     test("check the to string method", () {
-      expect('${AmountPerKGTime(2.4, U(factorToMG: 1), TimeUnit.hr)}',
-          "2.4 U/kg/hr");
+      expect('${MassPerVolume(2.56, U(factorToNg: 1), VolumeUnit.ml)}',
+          "2.56 U/ml");
     });
   });
 }

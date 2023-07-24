@@ -1,3 +1,4 @@
+import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/volume.dart';
 
 enum SyringeSizes {
@@ -12,5 +13,5 @@ enum SyringeSizes {
 
   final double value;
   const SyringeSizes(this.value);
-  Volume get volume => Volume(value);
+  Volume get volume => Volume(value, VolumeUnit.ml);
 }

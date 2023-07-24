@@ -1,30 +1,34 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
-import 'package:unit_calc/src/calc/numbers/amount_per_time.dart';
+import 'package:unit_calc/src/calc/enum/volume_unit.dart';
+import 'package:unit_calc/src/calc/numbers/mass_per_time.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 
-import 'amount.dart';
+import 'mass.dart';
 import 'Volume.dart';
 
 @immutable
-class AmountPerML with EquatableMixin implements Number {
+class MassPerVolume with EquatableMixin implements Number {
   final double value;
   final MassUnit unit;
-  const AmountPerML(this.value, this.unit) : assert(value >= 0);
+  final VolumeUnit volumeUnit;
+  const MassPerVolume(this.value, this.unit, this.volumeUnit)
+      : assert(value >= 0);
 
   //TODO: test this function
-  Amount operator *(Volume volume) => Amount(volume.value * value, unit);
+  Mass operator *(Volume volume) =>
+      Mass(volume.asNumber(volume.unit) * value, unit);
 
   //TODO: test this function
-  AmountPerTime multiply(VolumePerTime volumePerTime) =>
-      AmountPerTime(value * volumePerTime.value, unit, volumePerTime.timeUnit);
+  MassPerTime multiply(VolumePerTime volumePerTime) =>
+      MassPerTime(value * volumePerTime.value, unit, volumePerTime.timeUnit);
 
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) {
-    return "${NumberUtils.toDecimalString(value, override, format)} ${unit.name}/ml";
+    return "${NumberUtils.toDecimalString(value, override, format)} ${unit.name}/$volumeUnit";
   }
 
   @override

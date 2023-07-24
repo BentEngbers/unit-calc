@@ -1,26 +1,26 @@
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 
 import 'enum/time_unit.dart';
 
 const double defaultPrecision = 0.0000000001;
 
 final class Calc {
-  static double convertFactor(
+  static num convertFactor(
           {required MassUnit from,
           required MassUnit to,
           required TimeUnit fromTime,
           required TimeUnit toTime}) =>
       convertFactorOnlyUnit(from: from, to: to) *
-      convertFactorOnlyTime(fromTime: fromTime, toTime: toTime);
+      TimeUnit.convertFactorOnlyTime(fromTime: fromTime, toTime: toTime);
 
-  static double convertFactorOnlyUnit(
+  static num convertFactorOnlyUnit(
           {required MassUnit from, required MassUnit to}) =>
-      from.factorToMG / to.factorToMG;
+      from.factorNanoGr / to.factorNanoGr;
+  static num convertFactorOnlyVolume(
+      {required VolumeUnit from, required VolumeUnit to}) {
+    return from.factorMl / to.factorMl;
+  }
 
-  static bool doubleEquals(double a, double b) =>
-      (a - b).abs() < defaultPrecision;
-
-  static double convertFactorOnlyTime(
-          {required TimeUnit fromTime, required TimeUnit toTime}) =>
-      fromTime.factorMin / toTime.factorMin;
+  static bool doubleEquals(num a, num b) => (a - b).abs() < defaultPrecision;
 }

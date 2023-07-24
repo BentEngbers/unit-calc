@@ -6,21 +6,21 @@ import 'package:unit_calc/src/calc/enum/time_unit.dart';
 typedef UnitConversionTestCase = ({
   MassUnit unit1,
   MassUnit unit2,
-  double value,
+  num value,
 });
 typedef TimeUnitConversionTestCase = ({
   TimeUnit unit1,
   TimeUnit unit2,
-  double value,
+  num value,
 });
 main() {
   group("Calc", () {
     const unitTests = <UnitConversionTestCase>[
-      (unit1: mg, unit2: mg, value: 1.0),
-      (unit1: mg, unit2: mcg, value: 1000.0),
-      (unit1: mcg, unit2: nanoGr, value: 1000.0),
-      (unit1: nanoGr, unit2: mcg, value: 0.001),
-      (unit1: U(factorToMG: 1), unit2: U(factorToMG: 1), value: 1),
+      (unit1: milliGram, unit2: milliGram, value: 1.0),
+      (unit1: milliGram, unit2: microGram, value: 1000.0),
+      (unit1: microGram, unit2: nanoGram, value: 1000.0),
+      (unit1: nanoGram, unit2: microGram, value: 0.001),
+      (unit1: U(factorToNg: 1), unit2: U(factorToNg: 1), value: 1),
     ];
     for (final tuple in unitTests) {
       test("test conversion from ${tuple.unit1} to ${tuple.unit2}", () {
@@ -40,7 +40,7 @@ main() {
     for (final tuple in timeTests) {
       test("test conversion from ${tuple.unit1} to ${tuple.unit2}", () {
         expect(
-            Calc.convertFactorOnlyTime(
+            TimeUnit.convertFactorOnlyTime(
                 fromTime: tuple.unit1, toTime: tuple.unit2),
             closeTo(tuple.value, defaultPrecision));
       });

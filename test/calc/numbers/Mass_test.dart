@@ -1,63 +1,73 @@
-import 'package:test/expect.dart';
-import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/Calc.dart';
+import 'package:test/test.dart';
+import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
+import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
+import 'package:unit_calc/src/calc/numbers/Volume.dart';
 
+typedef UnitConversion = ({Mass from, Mass to});
+typedef UnitConversionDivision = ({
+  Mass amount,
+  MassPerVolume divisor,
+  Volume result,
+});
 void main() {
-  group('Mass', () {
-    test("throws an error if initialized with negative Mass", () {
-      expect(() => Mass(-1), throwsA(isA<AssertionError>()));
+  group('Amount:', () {
+    test("throws an error if initialized with negative number", () {
+      expect(() => Mass(-1, microGram), throwsA(isA<AssertionError>()));
     });
-    test("check the toFixedDecimalString method same minDigit as maxDigit", () {
-      expect(Mass(2).toDisplayString((minDigit: 2, maxDigit: 2)), "2.00 kg");
+    test("check the to string method", () {
+      expect(Mass(2.1, milliGram).toString(), "2.1 mg");
     });
-    test("check the toFixedDecimalString method maxDigit=1 overrides minDigit",
-        () {
-      expect(Mass(2).toDisplayString((minDigit: 2, maxDigit: 1)), "2.0 kg");
-    });
-    test("check the toFixedDecimalString method default value", () {
-      expect(Mass(10).toDisplayString((minDigit: 1, maxDigit: 1)), "10.0 kg");
-    });
-    test("check the toFixedDecimalString method extra zeros", () {
-      expect(Mass(10).toDisplayString((minDigit: 2, maxDigit: 2)), "10.00 kg");
-    });
-    test("check the toFixedDecimalString method rounding", () {
-      expect(Mass(5.5).toDisplayString((minDigit: 0, maxDigit: 0)), "6 kg");
-    });
-
-    test("check the tostring method stringinterpolation", () {
-      var a = Mass(10.1);
-      expect("$a", "10.1 kg");
-    });
-    // test("check isAbsoluteZero true", () {
-    //   expect(Mass(0).isAbsoluteZero, isTrue);
-    // });
-    // test("check isAbsoluteZero false", () {
-    //   expect(Mass(0.0000001).isAbsoluteZero, isFalse);
-    // });
-    // test("check isZero false", () {
-    //   const value = defaultPrecision * 10;
-    //   expect(Mass(value).isZero, isFalse);
-    // });
-    // test("check isZero true", () {
-    //   const value = defaultPrecision / 10;
-    //   expect(Mass(value).isZero, isTrue);
-    // });
-
-    test("check < operator false", () {
-      expect(Mass(5) < Mass(4), isFalse);
-    });
-    test("check < operator true", () {
-      expect((Mass(3.9999999999) < Mass(4)), true);
-    });
-    test("check <= operator true", () {
-      expect(Mass(5) <= Mass(5), true);
-    });
-    test("check <= operator true", () {
-      expect((Mass(3.9999999999) <= Mass(4)), true);
-    });
-    test("check <= operator false", () {
-      expect((Mass(4) <= Mass(3.9999999999)), false);
-    });
+    test("equality different MassUnit",
+        () => {expect(Mass(5, microGram) == Mass(5, milliGram), false)});
+    test("equality different value",
+        () => {expect(Mass(5, milliGram) == Mass(6, milliGram), false)});
+    test("equality true",
+        () => {expect(Mass(6, milliGram) == Mass(6, milliGram), true)});
+    const cases = <UnitConversion>[
+      (from: Mass(5, milliGram), to: Mass(5, milliGram)),
+      (from: Mass(7, microGram), to: Mass(0.007, milliGram)),
+      (from: Mass(9, nanoGram), to: Mass(0.009, microGram)),
+      (from: Mass(6000000, nanoGram), to: Mass(6, milliGram))
+    ];
+    for (final testCase in cases) {
+      final (:from, :to) = testCase;
+      test("Test convertTo from $from to ${to.unit.name}", () {
+        expect(from.as(from.unit), to);
+      });
+    }
+    const divisionTestCases = <UnitConversionDivision>[
+      (
+        amount: Mass(5, milliGram),
+        divisor: MassPerVolume(5, milliGram, VolumeUnit.ml),
+        result: Volume.ml(1),
+      ),
+      (
+        amount: Mass(7, microGram),
+        divisor: MassPerVolume(0.007, milliGram, VolumeUnit.ml),
+        result: Volume.ml(1)
+      ),
+      (
+        amount: Mass(7, microGram),
+        divisor: MassPerVolume(0.007, milliGram, VolumeUnit.ml),
+        result: Volume.ml(1)
+      ),
+      (
+        amount: Mass(60, nanoGram),
+        divisor: MassPerVolume(0.004, microGram, VolumeUnit.ml),
+        result: Volume.ml(15)
+      ),
+      (
+        amount: Mass(60000000, nanoGram),
+        divisor: MassPerVolume(6, milliGram, VolumeUnit.ml),
+        result: Volume.ml(10)
+      ),
+    ];
+    for (final tuple in divisionTestCases) {
+      final (:amount, :divisor, :result) = tuple;
+      test("Test dividing $amount by $divisor",
+          () => {expect(amount / divisor, equals(result))});
+    }
   });
 }

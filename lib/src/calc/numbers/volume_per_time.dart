@@ -2,7 +2,6 @@
 
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
@@ -19,7 +18,8 @@ class VolumePerTime with EquatableMixin implements Number {
 
   //TODO: test function
   VolumePerTime toTimeUnit(TimeUnit toTime) => VolumePerTime(
-      value * Calc.convertFactorOnlyTime(fromTime: timeUnit, toTime: toTime),
+      value *
+          TimeUnit.convertFactorOnlyTime(fromTime: timeUnit, toTime: toTime),
       toTime);
 
   @override
