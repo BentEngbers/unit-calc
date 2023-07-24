@@ -10,11 +10,11 @@ typedef testCase = ({double amountPerMlKg, double mass, double result});
 void main() {
   group('AmountPerMLKG', () {
     test("throws an error if initialized with negative number", () {
-      expect(() => AmountPerVolumeMass(-4, microGram, VolumeUnit.ml),
+      expect(() => MassPerVolumeMass.perKg(-4, microGram, VolumeUnit.ml),
           throwsA(isA<AssertionError>()));
     });
     test("check the to string method", () {
-      expect('${AmountPerVolumeMass(0.0, microGram, VolumeUnit.ml)}',
+      expect('${MassPerVolumeMass.perKg(0.0, microGram, VolumeUnit.ml)}',
           "0 mcg/ml/kg");
     });
     const testCases = <testCase>[
@@ -26,7 +26,7 @@ void main() {
       final (:amountPerMlKg, :mass, :result) = testCase;
       test("mass multiplication", () {
         expect(
-            AmountPerVolumeMass(
+            MassPerVolumeMass.perKg(
                     amountPerMlKg, U(factorToNg: 1), VolumeUnit.ml) *
                 Mass(mass, U(factorToNg: 1)),
             equals(

@@ -2,7 +2,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 
-typedef UnitTestCases = ({MassUnit unit, String name, double factorToMG});
+typedef UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});
 void main() {
   group('MassUnit', () {
     test("U equals", () {
@@ -12,17 +12,17 @@ void main() {
       expect(const U(factorToNg: 4), isNot(const U(factorToNg: 5)));
     });
     const testCases = <UnitTestCases>[
-      (unit: milliGram, name: "mg", factorToMG: 1),
-      (unit: microGram, name: "mcg", factorToMG: 0.001),
-      (unit: nanoGram, name: "nanogr", factorToMG: 0.000001),
-      (unit: U(factorToNg: 1.0), name: "U", factorToMG: 1.0),
+      (unit: milliGram, name: "mg", factorNanoGr: 1000000),
+      (unit: microGram, name: "mcg", factorNanoGr: 1000),
+      (unit: nanoGram, name: "nanogr", factorNanoGr: 1),
+      (unit: U(factorToNg: 1.0), name: "U", factorNanoGr: 1),
     ];
     for (final tuple in testCases) {
       test("test name of ${tuple.unit}", () {
-        expect(tuple.unit.name, tuple.name);
+        expect(tuple.unit.displayName, tuple.name);
       });
       test("test factorMG of ${tuple.unit}", () {
-        expect(tuple.unit.factorNanoGr, tuple.factorToMG);
+        expect(tuple.unit.factorNanoGr, tuple.factorNanoGr);
       });
       test("test factorMG of ${tuple.unit}", () {
         expect(MassUnit.fromJson(tuple.name), equals(tuple.unit));

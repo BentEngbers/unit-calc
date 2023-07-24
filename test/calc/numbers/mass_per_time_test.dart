@@ -2,7 +2,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
-import 'package:unit_calc/src/calc/numbers/mass_per_kg_time.dart';
+import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_time.dart';
 
 void main() {
@@ -40,26 +40,30 @@ void main() {
     });
     test("equality different class", () {
       expect(
+          // ignore: unrelated_type_equality_checks
           MassPerTime(2.4, U(factorToNg: 1), TimeUnit.min) ==
-              AmountPerKGTime(2.4, U(factorToNg: 1), TimeUnit.min),
+              Mass(
+                2.4,
+                U(factorToNg: 1),
+              ),
           false);
     });
     test("equality different unit Time", () {
       expect(
           MassPerTime(5, U(factorToNg: 1), TimeUnit.hr) ==
-              AmountPerKGTime(60, U(factorToNg: 1), TimeUnit.min),
+              MassPerTime(60, U(factorToNg: 1), TimeUnit.min),
           false);
     });
     test("equality different unit Time", () {
       expect(
           MassPerTime(60, U(factorToNg: 1), TimeUnit.min) ==
-              AmountPerKGTime(5, U(factorToNg: 1), TimeUnit.hr),
+              MassPerTime(5, U(factorToNg: 1), TimeUnit.hr),
           false);
     });
     test("equality different MassUnit and time unit", () {
       expect(
           MassPerTime(60, milliGram, TimeUnit.min) ==
-              AmountPerKGTime(5000, microGram, TimeUnit.hr),
+              MassPerTime(5000, microGram, TimeUnit.hr),
           false);
     });
   });

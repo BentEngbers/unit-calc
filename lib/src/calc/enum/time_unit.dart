@@ -3,8 +3,8 @@ enum TimeUnit {
   hr(60, "hr");
 
   final int factorMin;
-  final String f;
-  const TimeUnit(this.factorMin, this.f);
+  final String displayName;
+  const TimeUnit(this.factorMin, this.displayName);
   TimeUnit timeFromString(String str) =>
       TimeUnit.values.firstWhere((e) => e.name == str);
   static double convertFactorOnlyTime(

@@ -33,7 +33,7 @@ void main() {
     ];
     for (final testCase in cases) {
       final (:from, :to) = testCase;
-      test("Test convertTo from $from to ${to.unit.name}", () {
+      test("Test convertTo from $from to ${to.unit.displayName}", () {
         expect(from.as(from.unit), to);
       });
     }

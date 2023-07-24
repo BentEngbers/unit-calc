@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
@@ -9,7 +8,7 @@ import 'Number.dart';
 import 'Volume.dart';
 
 @immutable
-class Mass with EquatableMixin implements Number {
+class Mass implements Number {
   final num value;
   final MassUnit unit;
 
@@ -20,47 +19,43 @@ class Mass with EquatableMixin implements Number {
 
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
-      '${NumberUtils.toDecimalString(value, override, format)} ${unit.name}';
+      '${NumberUtils.toDecimalString(value, override, format)} ${unit.displayName}';
 
   @override
   String toString() => toDisplayString();
+
+  MassPerVolume divide(Volume volume) =>
+      MassPerVolume(value / volume.asNumber(volume.unit), unit, volume.unit);
+
+  Mass as(MassUnit? toUnit) => Mass(
+      value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit ?? unit),
+      toUnit ?? unit);
+
+  num asNumber(MassUnit? unit) => as(unit).value;
+
+  Volume operator /(MassPerVolume concentration) => Volume(
+      asNumber(concentration.massUnit) / concentration.asNumber(),
+      concentration.volumeUnit);
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is Mass &&
           runtimeType == other.runtimeType &&
-          Calc.doubleEquals(
-              value * Calc.convertFactorOnlyUnit(from: unit, to: other.unit),
-              other.value);
+          asNumber(other.unit) == other.asNumber(other.unit);
 
-  //TODO:test this function
   bool operator >(Object other) =>
+      identical(this, other) ||
       other is Mass &&
-      runtimeType == other.runtimeType &&
-      (value * Calc.convertFactorOnlyUnit(from: unit, to: other.unit)) >
-          other.value;
-  //TODO: test this function
-  bool operator >=(Object other) => this == other || this > other;
+          runtimeType == other.runtimeType &&
+          asNumber(other.unit) > other.asNumber(other.unit);
+
+  bool operator >=(Object other) =>
+      identical(this, other) ||
+      other is Mass &&
+          runtimeType == other.runtimeType &&
+          asNumber(other.unit) >= other.asNumber(other.unit);
 
   @override
   int get hashCode => Object.hash(value, unit);
-
-  MassPerVolume divide(Volume volume) =>
-      MassPerVolume(value / volume.asNumber(volume.unit), unit, volume.unit);
-
-  Mass as(MassUnit toUnit) =>
-      Mass(value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit), toUnit);
-  num asNumber(MassUnit unit) => as(unit).value;
-  Volume operator /(MassPerVolume concentration) => Volume(
-      asNumber(concentration.unit) / concentration.value,
-      concentration.volumeUnit);
-
-  @override
-  List<Object?> get props => [
-        value,
-        unit,
-      ];
-  @override
-  bool? get stringify => false;
 }

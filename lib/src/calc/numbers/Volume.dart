@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
@@ -7,7 +6,7 @@ import 'package:unit_calc/src/calc/utils.dart';
 import 'Number.dart';
 
 @immutable
-final class Volume with EquatableMixin implements Number {
+final class Volume implements Number {
   final VolumeUnit unit;
 
   final num _value;
@@ -17,8 +16,18 @@ final class Volume with EquatableMixin implements Number {
         assert(_value >= 0);
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Volume &&
+          runtimeType == other.runtimeType &&
+          asNumber(other.unit) == other.asNumber(other.unit);
+
+  @override
+  int get hashCode => Object.hash(_value, unit);
+
+  @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} $unit";
+      "${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}";
 
   @override
   String toString() => toDisplayString();
@@ -30,13 +39,4 @@ final class Volume with EquatableMixin implements Number {
   Volume as(VolumeUnit unit) => Volume(
       _value * Calc.convertFactorOnlyVolume(from: this.unit, to: unit), unit);
   num asNumber(VolumeUnit unit) => as(unit)._value;
-  //static Volume fromJson(double value) => Volume(value);
-  //static double toJSON(Volume volume) => volume.value;
-
-  @override
-  List<Object?> get props => [
-        _value,
-      ];
-  @override
-  bool? get stringify => false;
 }
