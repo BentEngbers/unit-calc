@@ -23,15 +23,31 @@ class MassPerMassTime implements Number {
       : perMassUnit = kiloGram,
         assert(_value > 0);
 
-  String get _unit =>
+  @override
+  String get displayUnit =>
       "${massUnit.displayName}/${perMassUnit.displayName}/${perTimeUnit.displayName}";
 
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} $_unit";
+      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
 
   @override
   String toString() => toDisplayString();
+
+  @override
+  String toJson() => "$_value $displayUnit";
+
+  factory MassPerMassTime.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass, String perMass, String perTime]) =>
+          MassPerMassTime(
+            num.parse(value),
+            MassUnit.fromJson(mass),
+            MassUnit.fromJson(perMass),
+            TimeUnit.fromJson(perTime),
+          ),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
 
   @override
   bool operator ==(Object other) =>

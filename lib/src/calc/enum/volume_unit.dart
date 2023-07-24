@@ -4,6 +4,7 @@ enum VolumeUnit {
   final int factorMl;
   final String displayName;
   const VolumeUnit(this.factorMl, this.displayName);
-  VolumeUnit volumeFromString(String str) =>
+  static VolumeUnit volumeFromString(String str) =>
       VolumeUnit.values.firstWhere((e) => e.name == str);
+  factory VolumeUnit.fromJson(String str) => volumeFromString(str);
 }

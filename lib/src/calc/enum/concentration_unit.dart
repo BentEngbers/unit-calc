@@ -18,15 +18,18 @@ sealed class MassUnit {
   final num factorNanoGr;
   const MassUnit({required this.displayName, required this.factorNanoGr});
 
-  factory MassUnit.fromJson(String json, {num? uFactorToNg}) => switch (json) {
+  factory MassUnit.fromJson(String json) => switch (json) {
         _mgName => milliGram,
         _mcgName => microGram,
         _nanoGrName => nanoGram,
         _kgName => kiloGram,
-        _uName => U(factorToNg: uFactorToNg!),
+        _ when json.startsWith(_uName) => U(
+            factorToNg: num.parse(json
+                .replaceFirst("U(factorNanoGr: ", '')
+                .replaceFirst(")", ""))),
         _ => throw InvalidMassUnitException()
       };
-  String toJSON() => displayName;
+  String toJson() => displayName;
 
   @override
   String toString() => displayName;
@@ -90,7 +93,5 @@ class U extends MassUnit {
   int get hashCode => Object.hash(displayName, factorNanoGr);
 
   @override
-  String toString() {
-    return "U($factorNanoGr)";
-  }
+  String toJson() => "U(factorNanoGr: $factorNanoGr)";
 }

@@ -13,6 +13,10 @@ class MassPerVolume implements Number {
   final num _value;
   final MassUnit massUnit;
   final VolumeUnit volumeUnit;
+
+  @override
+  String get displayUnit => "${massUnit.displayName}/${volumeUnit.displayName}";
+
   const MassPerVolume(this._value, this.massUnit, this.volumeUnit)
       : assert(_value >= 0);
 
@@ -45,8 +49,22 @@ class MassPerVolume implements Number {
 
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) {
-    return "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${volumeUnit.displayName}";
+    return "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
   }
+
+  @override
+  String toJson() => "$_value $displayUnit";
+
+  @override
+  factory MassPerVolume.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass, String volume]) => MassPerVolume(
+            num.parse(value),
+            MassUnit.fromJson(mass),
+            VolumeUnit.fromJson(volume),
+          ),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
 
   @override
   bool operator ==(Object other) =>

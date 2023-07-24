@@ -20,9 +20,27 @@ class MassPerVolumeTime implements Number {
   ) : assert(_value > 0);
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) {
-    return "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${volumeUnit.displayName}/${timeUnit.displayName}";
-  }
+  String get displayUnit =>
+      "${massUnit.displayName}/${volumeUnit.displayName}/${timeUnit.displayName}";
+
+  @override
+  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+
+  @override
+  String toJson() => "$_value $displayUnit";
+
+  factory MassPerVolumeTime.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String number, [String mass, String volume, String time]) =>
+          MassPerVolumeTime(
+            num.parse(number),
+            MassUnit.fromJson(mass),
+            VolumeUnit.fromJson(volume),
+            TimeUnit.fromJson(time),
+          ),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
 
   @override
   bool operator ==(Object other) =>

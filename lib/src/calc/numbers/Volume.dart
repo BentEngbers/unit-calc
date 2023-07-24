@@ -27,7 +27,16 @@ final class Volume implements Number {
 
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}";
+      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+
+  factory Volume.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String number, [String volume]) => Volume(
+            num.parse(number),
+            VolumeUnit.fromJson(volume),
+          ),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
 
   @override
   String toString() => toDisplayString();
@@ -39,4 +48,10 @@ final class Volume implements Number {
   Volume as(VolumeUnit unit) => Volume(
       _value * Calc.convertFactorOnlyVolume(from: this.unit, to: unit), unit);
   num asNumber(VolumeUnit unit) => as(unit)._value;
+
+  @override
+  String get displayUnit => unit.displayName;
+
+  @override
+  String toJson() => "$_value $displayUnit";
 }

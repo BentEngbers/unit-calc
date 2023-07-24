@@ -5,9 +5,11 @@ enum TimeUnit {
   final int factorMin;
   final String displayName;
   const TimeUnit(this.factorMin, this.displayName);
-  TimeUnit timeFromString(String str) =>
+  static TimeUnit timeFromString(String str) =>
       TimeUnit.values.firstWhere((e) => e.name == str);
   static double convertFactorOnlyTime(
           {required TimeUnit fromTime, required TimeUnit toTime}) =>
       toTime.factorMin / fromTime.factorMin;
+
+  factory TimeUnit.fromJson(String json) => timeFromString(json);
 }

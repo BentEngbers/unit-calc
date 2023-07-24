@@ -15,16 +15,19 @@ void main() {
       (unit: milliGram, name: "mg", factorNanoGr: 1000000),
       (unit: microGram, name: "mcg", factorNanoGr: 1000),
       (unit: nanoGram, name: "nanogr", factorNanoGr: 1),
-      (unit: U(factorToNg: 1.0), name: "U", factorNanoGr: 1),
+      (unit: U(factorToNg: 11), name: "U(factorNanoGr: 11)", factorNanoGr: 11),
     ];
     for (final tuple in testCases) {
-      test("test name of ${tuple.unit}", () {
-        expect(tuple.unit.displayName, tuple.name);
+      test("json roundtrip  ", () {
+        expect(MassUnit.fromJson(tuple.unit.toJson()), tuple.unit);
       });
-      test("test factorMG of ${tuple.unit}", () {
+      test("test name of ${tuple.unit}", () {
+        expect(tuple.unit.displayName, tuple.name.split("(")[0]);
+      });
+      test("test factorNanoGr of ${tuple.unit}", () {
         expect(tuple.unit.factorNanoGr, tuple.factorNanoGr);
       });
-      test("test factorMG of ${tuple.unit}", () {
+      test("test factorNanoGr of ${tuple.unit}", () {
         expect(MassUnit.fromJson(tuple.name), equals(tuple.unit));
       });
     }

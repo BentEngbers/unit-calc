@@ -9,13 +9,16 @@ import 'package:unit_calc/src/calc/utils.dart';
 /// An amount of mass divided by another mass unit\
 /// e.g. 5 mg / kg
 class MassPerMass implements Number {
-  final double _value;
+  final num _value;
 
   /// the mass unit. If you have 5 mg/kg ,then mg is the mass unit.
   final MassUnit massUnit;
 
   /// the mass unit that divides. If you have 5mg/kg ,then kg is the dividing mass unit.
   final MassUnit perMassUnit;
+
+  String get displayUnit =>
+      "${massUnit.displayName}/${perMassUnit.displayName}";
   const MassPerMass(
     this._value,
     this.massUnit,
@@ -29,9 +32,21 @@ class MassPerMass implements Number {
         assert(_value > 0);
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perMassUnit.displayName}";
+      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
   @override
   String toString() => toDisplayString();
+
+  String toJson() => "$_value $displayUnit";
+
+  factory MassPerMass.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass, String perMass]) => MassPerMass(
+            num.parse(value),
+            MassUnit.fromJson(mass),
+            MassUnit.fromJson(perMass),
+          ),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
 
   @override
   bool operator ==(Object other) =>

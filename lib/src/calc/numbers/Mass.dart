@@ -9,33 +9,45 @@ import 'Volume.dart';
 
 @immutable
 class Mass implements Number {
-  final num value;
+  final num _value;
   final MassUnit unit;
 
-  const Mass(this.value, this.unit) : assert(value >= 0);
-  const Mass.kiloGram(this.value)
+  const Mass(this._value, this.unit) : assert(_value >= 0);
+  const Mass.kiloGram(this._value)
       : unit = kiloGram,
-        assert(value >= 0);
+        assert(_value >= 0);
 
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
-      '${NumberUtils.toDecimalString(value, override, format)} ${unit.displayName}';
+      '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
 
   @override
   String toString() => toDisplayString();
 
   MassPerVolume divide(Volume volume) =>
-      MassPerVolume(value / volume.asNumber(volume.unit), unit, volume.unit);
+      MassPerVolume(_value / volume.asNumber(volume.unit), unit, volume.unit);
 
-  Mass as(MassUnit? toUnit) => Mass(
-      value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit ?? unit),
+  Mass as([MassUnit? toUnit]) => Mass(
+      _value * Calc.convertFactorOnlyUnit(from: unit, to: toUnit ?? unit),
       toUnit ?? unit);
 
-  num asNumber(MassUnit? unit) => as(unit).value;
+  num asNumber([MassUnit? toUnit]) => as(toUnit)._value;
 
   Volume operator /(MassPerVolume concentration) => Volume(
       asNumber(concentration.massUnit) / concentration.asNumber(),
       concentration.volumeUnit);
+
+  @override
+  String toJson() => "$_value ${unit.displayName}";
+
+  factory Mass.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass]) => Mass(
+            num.parse(value),
+            MassUnit.fromJson(mass),
+          ),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
 
   @override
   bool operator ==(Object other) =>
@@ -57,5 +69,9 @@ class Mass implements Number {
           asNumber(other.unit) >= other.asNumber(other.unit);
 
   @override
-  int get hashCode => Object.hash(value, unit);
+  int get hashCode => Object.hash(_value, unit);
+
+  @override
+  // TODO: implement displayUnit
+  String get displayUnit => unit.displayName;
 }

@@ -9,13 +9,13 @@ import 'package:unit_calc/src/calc/utils.dart';
 
 @immutable
 class VolumePerTime implements Number {
-  final double _value;
+  final num _value;
   final TimeUnit timeUnit;
   final VolumeUnit volumeUnit;
   const VolumePerTime(this._value, this.timeUnit, this.volumeUnit)
       : assert(_value >= 0);
 
-  String get unitAsString => 'ml/${timeUnit.displayName}';
+  String get displayUnit => '${volumeUnit.displayName}/${timeUnit.displayName}';
 
   @override
   String toString() => toDisplayString();
@@ -31,6 +31,16 @@ class VolumePerTime implements Number {
   @override
   int get hashCode => Object.hash(_value, timeUnit);
 
+  String toJson() => "$_value $displayUnit";
+
+  factory VolumePerTime.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass, String volume]) => VolumePerTime(
+            num.parse(value),
+            TimeUnit.fromJson(mass),
+            VolumeUnit.fromJson(volume)),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
   //TODO: test function
   VolumePerTime _toTimeUnit(TimeUnit toTime) => VolumePerTime(
       _value *
@@ -52,6 +62,6 @@ class VolumePerTime implements Number {
 
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) {
-    return "${NumberUtils.toDecimalString(_value, override, format)} $unitAsString";
+    return "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
   }
 }

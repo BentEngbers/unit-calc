@@ -9,66 +9,80 @@ import 'package:unit_calc/src/calc/utils.dart';
 
 @immutable
 class MassPerVolumeMass implements Number {
-  final double _value;
+  final num _value;
   final MassUnit massUnit;
-  final VolumeUnit volumeUnit;
+  final VolumeUnit perVolumeUnit;
 
   /// the mass unit that divides the [massUnit]. If you have 5 mg/ml/kg ,then kg is the [perMassUnit].
   final MassUnit perMassUnit;
 
   const MassPerVolumeMass(
-      this._value, this.massUnit, this.volumeUnit, this.perMassUnit)
+      this._value, this.massUnit, this.perVolumeUnit, this.perMassUnit)
       : assert(_value >= 0);
-  const MassPerVolumeMass.perKg(this._value, this.massUnit, this.volumeUnit)
+  const MassPerVolumeMass.perKg(this._value, this.massUnit, this.perVolumeUnit)
       : perMassUnit = kiloGram,
         assert(_value >= 0);
   @override
   String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${volumeUnit.displayName}/${perMassUnit.displayName}";
+      "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perVolumeUnit.displayName}/${perMassUnit.displayName}";
 
   @override
   String toString() => toDisplayString();
 
-  MassPerVolume operator *(Mass mass) =>
-      MassPerVolume(_value * mass.value, massUnit, volumeUnit);
+  String toJson() => "$_value $displayUnit";
+
+  factory MassPerVolumeMass.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass, String perVolume, String perMass]) =>
+          MassPerVolumeMass(
+            num.parse(value),
+            MassUnit.fromJson(mass),
+            VolumeUnit.fromJson(perVolume),
+            MassUnit.fromJson(perMass),
+          ),
+        _ => throw FormatException("invalid json: \"$json\""),
+      };
+
+  MassPerVolume operator *(Mass mass) => MassPerVolume(
+      asNumber(massUnit: mass.unit) * mass.asNumber(), massUnit, perVolumeUnit);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is MassPerVolumeMass &&
           runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) ==
+          asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) ==
               other.asNumber();
 
   bool operator >(Object other) =>
       identical(this, other) ||
       other is MassPerVolumeMass &&
           runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
+          asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) >
               other.asNumber();
 
   bool operator >=(Object other) =>
       identical(this, other) ||
       other is MassPerVolumeMass &&
           runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >=
+          asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) >=
               other.asNumber();
 
   MassPerVolumeMass _toMassUnit(MassUnit toMass) => MassPerVolumeMass(
       _value * Calc.convertFactorOnlyUnit(from: massUnit, to: toMass),
       toMass,
-      volumeUnit,
+      perVolumeUnit,
       perMassUnit);
 
   MassPerVolumeMass _toPerMassUnit(MassUnit toMass) => MassPerVolumeMass(
       _value * Calc.convertFactorOnlyUnit(from: perMassUnit, to: toMass),
       toMass,
-      volumeUnit,
+      perVolumeUnit,
       perMassUnit);
 
   MassPerVolumeMass _toVolumeUnit(VolumeUnit toVolume) => MassPerVolumeMass(
-      _value * Calc.convertFactorOnlyVolume(from: volumeUnit, to: toVolume),
+      _value * Calc.convertFactorOnlyVolume(from: perVolumeUnit, to: toVolume),
       massUnit,
-      volumeUnit,
+      perVolumeUnit,
       perMassUnit);
 
   MassPerVolumeMass as(
@@ -76,7 +90,7 @@ class MassPerVolumeMass implements Number {
           MassUnit? massUnit,
           MassUnit? perMassUnit}) =>
       _toMassUnit(massUnit ?? this.massUnit)
-          ._toVolumeUnit(volumeUnit ?? this.volumeUnit)
+          ._toVolumeUnit(volumeUnit ?? this.perVolumeUnit)
           ._toPerMassUnit(perMassUnit ?? this.perMassUnit);
 
   num asNumber(
@@ -90,5 +104,9 @@ class MassPerVolumeMass implements Number {
       )._value;
 
   @override
-  int get hashCode => Object.hash(_value, massUnit, volumeUnit, perMassUnit);
+  int get hashCode => Object.hash(_value, massUnit, perVolumeUnit, perMassUnit);
+
+  @override
+  String get displayUnit =>
+      "${massUnit.displayName}/${perVolumeUnit.displayName}/${perMassUnit.displayName}";
 }

@@ -32,3 +32,12 @@ final class NumberUtils {
     return formatter.format(value);
   }
 }
+
+typedef parseTuple = (String, List<String>);
+
+final class ParseUtilities {
+  static parseTuple splitString(String json) {
+    final [numberPart, r] = json.split(" ");
+    return (numberPart, r.split("/"));
+  }
+}
