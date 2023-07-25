@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/calc.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_mass_time.dart';
 
 import 'package:unit_calc/src/calc/numbers/number.dart';
@@ -20,14 +19,10 @@ final class MassPerTime implements Number {
       identical(this, other) ||
       other is MassPerTime &&
           runtimeType == other.runtimeType &&
-          Calc.doubleEquals(
-              _value *
-                  Calc.convertFactor(
-                      from: massUnit,
-                      to: other.massUnit,
-                      fromTime: perTimeUnit,
-                      toTime: other.perTimeUnit),
-              other._value);
+          (_value *
+                  massUnit.convertFactor(to: other.massUnit) *
+                  perTimeUnit.convertFactor(toTime: other.perTimeUnit)) ==
+              other._value;
 
   @override
   int get hashCode => Object.hash(_value, perTimeUnit, massUnit);

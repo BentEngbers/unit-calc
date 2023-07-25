@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
@@ -81,7 +80,7 @@ class MassPerVolumeMass implements Number {
       perMassUnit);
 
   MassPerVolumeMass _toVolumeUnit(VolumeUnit toVolume) => MassPerVolumeMass(
-      _value * Calc.convertFactorOnlyVolume(from: perVolumeUnit, to: toVolume),
+      _value * perVolumeUnit.convertFactor(to: toVolume),
       massUnit,
       perVolumeUnit,
       perMassUnit);

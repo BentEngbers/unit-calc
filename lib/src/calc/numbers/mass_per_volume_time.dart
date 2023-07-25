@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
@@ -74,7 +73,7 @@ class MassPerVolumeTime implements Number {
       timeUnit);
 
   MassPerVolumeTime _toVolumeUnit(VolumeUnit toVolume) => MassPerVolumeTime(
-      _value * Calc.convertFactorOnlyVolume(from: volumeUnit, to: toVolume),
+      _value * volumeUnit.convertFactor(to: toVolume),
       massUnit,
       volumeUnit,
       timeUnit);

@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/Calc.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 
@@ -45,9 +44,10 @@ final class Volume implements Number {
       Volume(_value + volume.asNumber(unit), unit);
   Volume operator -(Volume volume) =>
       Volume(_value - volume.asNumber(unit), unit);
-  Volume as(VolumeUnit unit) => Volume(
-      _value * Calc.convertFactorOnlyVolume(from: this.unit, to: unit), unit);
-  num asNumber(VolumeUnit unit) => as(unit)._value;
+  Volume as([VolumeUnit? unit]) => Volume(
+      _value * this.unit.convertFactor(to: (unit ?? this.unit)),
+      unit ?? this.unit);
+  num asNumber([VolumeUnit? unit]) => as(unit)._value;
 
   @override
   String get displayUnit => unit.displayName;

@@ -1,7 +1,6 @@
 //TODO: test this class
 
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/calc.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
@@ -48,9 +47,7 @@ class VolumePerTime implements Number {
       _value * timeUnit.convertFactor(toTime: toTime), toTime, volumeUnit);
 
   VolumePerTime _toVolumeUnit(VolumeUnit toVolume) => VolumePerTime(
-      _value * Calc.convertFactorOnlyVolume(from: volumeUnit, to: toVolume),
-      timeUnit,
-      toVolume);
+      _value * volumeUnit.convertFactor(to: toVolume), timeUnit, toVolume);
 
   VolumePerTime as({VolumeUnit? volumeUnit, TimeUnit? timeUnit}) =>
       _toTimeUnit(timeUnit ?? this.timeUnit)

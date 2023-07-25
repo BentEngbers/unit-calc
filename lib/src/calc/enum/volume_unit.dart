@@ -7,4 +7,6 @@ enum VolumeUnit {
   static VolumeUnit volumeFromString(String str) =>
       VolumeUnit.values.firstWhere((e) => e.name == str);
   factory VolumeUnit.fromJson(String str) => volumeFromString(str);
+
+  num convertFactor({required VolumeUnit to}) => factorMl / to.factorMl;
 }
