@@ -13,6 +13,12 @@ typedef UnitConversionDivision = ({
 });
 void main() {
   group('Amount:', () {
+    test("bad json test", () {
+      expect(() => Mass.fromJson("FOO"), throwsFormatException);
+    });
+    test("bad json test", () {
+      expect(() => Mass.fromJson("3.2 mg/ml"), throwsFormatException);
+    });
     test("throws an error if initialized with negative number", () {
       expect(() => Mass(-1, microGram), throwsA(isA<AssertionError>()));
     });
@@ -31,13 +37,14 @@ void main() {
       (from: Mass(9, nanoGram), to: Mass(0.009, microGram)),
       (from: Mass(6000000, nanoGram), to: Mass(6, milliGram))
     ];
+
     for (final testCase in cases) {
       final (:from, :to) = testCase;
       test("Test convertTo from $from to ${to.unit.displayName}", () {
         expect(from.as(from.unit), to);
       });
       test("json roundtrip", () {
-        expect(Mass.fromJson(from.toJson()), from);
+        expect(Mass.fromJson(from.toJson()), equals(from));
       });
     }
     const divisionTestCases = <UnitConversionDivision>[
@@ -71,6 +78,41 @@ void main() {
       final (:amount, :divisor, :result) = tuple;
       test("Test dividing $amount by $divisor",
           () => {expect(amount / divisor, equals(result))});
+      test("Test dividing $divisor by $amount",
+          () => {expect(amount.divide(result), equals(divisor))});
+    }
+    const decreasingMassList = [
+      Mass(1, kiloGram),
+      Mass(999, gram),
+      Mass(1, gram),
+      Mass(999, milliGram),
+      Mass(1, milliGram),
+      Mass(999, microGram),
+      Mass(1, microGram),
+      Mass(999, nanoGram)
+    ];
+    for (final currentMass in decreasingMassList) {
+      test("test $currentMass >= $currentMass", () {
+        expect(currentMass >= currentMass, isTrue);
+      });
+      final elementsBefore =
+          decreasingMassList.takeWhile((value) => value != currentMass);
+      for (final massBefore in elementsBefore) {
+        test("hashcode not equal", () {
+          expect(currentMass.hashCode, isNot(equals(massBefore.hashCode)));
+        });
+        test("test $massBefore > $currentMass", () {
+          expect(massBefore > currentMass, isTrue);
+        });
+        test("test $massBefore >= $currentMass", () {
+          expect(currentMass >= massBefore, isFalse);
+          expect(massBefore >= currentMass, isTrue);
+        });
+        test("test $currentMass < $massBefore", () {
+          expect(massBefore < currentMass, isFalse);
+          expect(currentMass < massBefore, isTrue);
+        });
+      }
     }
   });
 }

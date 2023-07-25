@@ -57,7 +57,7 @@ class VolumePerTime implements Number {
       as(volumeUnit: volumeUnit, timeUnit: timeUnit)._value;
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) {
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) {
     return "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
   }
 }

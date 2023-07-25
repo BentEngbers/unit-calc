@@ -23,7 +23,7 @@ class MassPerVolumeTime implements Number {
       "${massUnit.displayName}/${volumeUnit.displayName}/${timeUnit.displayName}";
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
 
   @override
@@ -49,19 +49,15 @@ class MassPerVolumeTime implements Number {
           asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) ==
               other.asNumber();
 
-  bool operator >(Object other) =>
-      identical(this, other) ||
-      other is MassPerVolumeTime &&
-          runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
-              other.asNumber();
+  bool operator >(MassPerVolumeTime other) =>
+      runtimeType == other.runtimeType &&
+      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
+          other.asNumber();
 
-  bool operator >=(Object other) =>
+  bool operator >=(MassPerVolumeTime other) =>
       identical(this, other) ||
-      other is MassPerVolumeTime &&
-          runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >=
-              other.asNumber();
+      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >=
+          other.asNumber();
 
   @override
   String toString() => toDisplayString();

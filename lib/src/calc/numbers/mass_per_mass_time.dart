@@ -27,7 +27,7 @@ class MassPerMassTime implements Number {
       "${massUnit.displayName}/${perMassUnit.displayName}/${perTimeUnit.displayName}";
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
 
   @override

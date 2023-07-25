@@ -43,7 +43,7 @@ class MassPerVolume implements Number {
       as(volumeUnit: volumeUnit, massUnit: massUnit)._value;
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) {
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) {
     return "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
   }
 
@@ -69,19 +69,14 @@ class MassPerVolume implements Number {
           asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) ==
               other.asNumber();
 
-  bool operator >(Object other) =>
-      identical(this, other) ||
-      other is MassPerVolume &&
-          runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
-              other.asNumber();
+  bool operator >(MassPerVolume other) =>
+      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
+      other.asNumber();
 
-  bool operator >=(Object other) =>
+  bool operator >=(MassPerVolume other) =>
       identical(this, other) ||
-      other is MassPerVolume &&
-          runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >=
-              other.asNumber();
+      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >=
+          other.asNumber();
   @override
   String toString() => toDisplayString();
 

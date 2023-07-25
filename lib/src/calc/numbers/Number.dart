@@ -12,5 +12,5 @@ abstract interface class Number {
   // /// Check if the number is close to zero within a certain [threshold].
   // bool get isCloseToZero => Calc.doubleEquals(value, 0);
   String toJson();
-  String toDisplayString([DigitOverride? override, NumberFormat? format]);
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]);
 }

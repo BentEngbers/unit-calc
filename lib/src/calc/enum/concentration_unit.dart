@@ -6,12 +6,11 @@ const _mgName = "mg";
 const _kgName = "kg";
 const _gramName = "g";
 const _uName = "U";
-
+const kiloGram = KiloGram._();
+const gram = Gram._();
 const milliGram = MilliGram._();
 const microGram = MicroGram._();
 const nanoGram = NanoGram._();
-const gram = Gram._();
-const kiloGram = KiloGram._();
 
 sealed class MassUnit {
   final String displayName;

@@ -28,7 +28,7 @@ final class MassPerTime implements Number {
   int get hashCode => Object.hash(_value, perTimeUnit, massUnit);
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perTimeUnit.displayName}";
   @override
   String toString() => toDisplayString();

@@ -31,7 +31,7 @@ class MassPerMass implements Number {
   )   : perMassUnit = kiloGram,
         assert(_value > 0);
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
   @override
   String toString() => toDisplayString();

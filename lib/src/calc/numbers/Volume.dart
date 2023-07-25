@@ -25,7 +25,7 @@ final class Volume implements Number {
   int get hashCode => Object.hash(_value, unit);
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
 
   factory Volume.fromJson(String json) =>

@@ -17,7 +17,7 @@ class Mass implements Number {
         assert(_value >= 0);
 
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
 
   @override
@@ -54,17 +54,12 @@ class Mass implements Number {
           runtimeType == other.runtimeType &&
           asNumber(other.unit) == other.asNumber(other.unit);
 
-  bool operator >(Object other) =>
-      identical(this, other) ||
-      other is Mass &&
-          runtimeType == other.runtimeType &&
-          asNumber(other.unit) > other.asNumber(other.unit);
+  bool operator >(Mass other) =>
+      asNumber(other.unit) > other.asNumber(other.unit);
+  bool operator <(Mass other) =>
+      asNumber(other.unit) < other.asNumber(other.unit);
 
-  bool operator >=(Object other) =>
-      identical(this, other) ||
-      other is Mass &&
-          runtimeType == other.runtimeType &&
-          asNumber(other.unit) >= other.asNumber(other.unit);
+  bool operator >=(Mass other) => identical(this, other) || this > other;
 
   @override
   int get hashCode => Object.hash(_value, unit);

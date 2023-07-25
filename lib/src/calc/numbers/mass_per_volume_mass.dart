@@ -22,7 +22,7 @@ class MassPerVolumeMass implements Number {
       : perMassUnit = kiloGram,
         assert(_value >= 0);
   @override
-  String toDisplayString([DigitOverride? override, NumberFormat? format]) =>
+  String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perVolumeUnit.displayName}/${perMassUnit.displayName}";
 
   @override
@@ -53,19 +53,14 @@ class MassPerVolumeMass implements Number {
           asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) ==
               other.asNumber();
 
-  bool operator >(Object other) =>
-      identical(this, other) ||
-      other is MassPerVolumeMass &&
-          runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) >
-              other.asNumber();
+  bool operator >(MassPerVolumeMass other) =>
+      asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) >
+      other.asNumber();
 
-  bool operator >=(Object other) =>
+  bool operator >=(MassPerVolumeMass other) =>
       identical(this, other) ||
-      other is MassPerVolumeMass &&
-          runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) >=
-              other.asNumber();
+      asNumber(volumeUnit: other.perVolumeUnit, massUnit: other.massUnit) >=
+          other.asNumber();
 
   MassPerVolumeMass _toMassUnit(MassUnit toMass) => MassPerVolumeMass(
       _value * massUnit.convertFactor(to: toMass),
