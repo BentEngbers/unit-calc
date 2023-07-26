@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 
-import 'Number.dart';
+import 'number.dart';
 
 @immutable
 final class Volume implements Number {

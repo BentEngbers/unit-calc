@@ -3,7 +3,7 @@ import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 
-import 'Number.dart';
+import 'number.dart';
 import 'volume.dart';
 
 @immutable
