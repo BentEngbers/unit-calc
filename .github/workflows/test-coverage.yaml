@@ -7,6 +7,8 @@ on:
 jobs: 
     test:
         runs-on: ubuntu-latest
+        permissions:
+          pull-requests: write
         steps: 
             
             - name: checkout repo 
@@ -19,8 +21,7 @@ jobs:
                   cache: true
             - name: run tests
               run: flutter test --coverage --suppress-analytics
-            - name: TEST REMOVE
-              run: cat ./coverage/lcov.info
+
               
             - name: check coverage
               uses: romeovs/lcov-reporter-action@v0.3.1
