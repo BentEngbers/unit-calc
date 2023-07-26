@@ -12,5 +12,5 @@ enum TimeUnit {
   String toJson() => name;
 
   factory TimeUnit.fromJson(String json) =>
-      TimeUnit.values.firstWhere((e) => e.name == json);
+      TimeUnit.values.firstWhere((e) => e.displayName == json);
 }

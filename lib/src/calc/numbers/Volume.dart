@@ -7,9 +7,10 @@ import 'Number.dart';
 @immutable
 final class Volume implements Number {
   final VolumeUnit unit;
-
   final num _value;
+
   const Volume(this._value, this.unit) : assert(_value >= 0);
+
   const Volume.ml(this._value)
       : unit = VolumeUnit.ml,
         assert(_value >= 0);
@@ -20,6 +21,16 @@ final class Volume implements Number {
       other is Volume &&
           runtimeType == other.runtimeType &&
           asNumber(other.unit) == other.asNumber(other.unit);
+
+  bool operator >(Volume other) =>
+      asNumber(other.unit) > other.asNumber(other.unit);
+
+  bool operator <(Volume other) =>
+      asNumber(other.unit) < other.asNumber(other.unit);
+
+  bool operator >=(Volume other) =>
+      identical(this, other) ||
+      asNumber(other.unit) >= other.asNumber(other.unit);
 
   @override
   int get hashCode => Object.hash(_value, unit);
@@ -44,9 +55,11 @@ final class Volume implements Number {
       Volume(_value + volume.asNumber(unit), unit);
   Volume operator -(Volume volume) =>
       Volume(_value - volume.asNumber(unit), unit);
+
   Volume as([VolumeUnit? unit]) => Volume(
       _value * this.unit.convertFactor(to: (unit ?? this.unit)),
       unit ?? this.unit);
+
   num asNumber([VolumeUnit? unit]) => as(unit)._value;
 
   @override

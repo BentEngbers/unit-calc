@@ -1,17 +1,20 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/syringe_sizes.dart';
+import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/volume.dart';
+
+import 'mass_per_volume_test.dart';
 
 void main() {
   group('Volume:', () {
     test("throws an error if initialized with negative number", () {
-      expect(() => Volume.ml(-1), throwsA(isA<AssertionError>()));
+      expect(() => Volume.ml(-1), throwAssertionError);
     });
     test("throws error when result is negative", () {
-      expect(() => {Volume.ml(1) - SyringeSizes.ml20.volume},
-          throwsA(isA<AssertionError>()));
+      expect(
+          () => {Volume.ml(1) - SyringeSizes.ml20.volume}, throwAssertionError);
     });
     test("check addition", () {
       final a = Volume.ml(1) + SyringeSizes.ml10.volume;
@@ -37,5 +40,42 @@ void main() {
     test("test equals", () {
       expect(Volume.ml(1), Volume.ml(1));
     });
+    test("json ", () {
+      expect(() => Volume.fromJson("2 ml/mg"), throwsFormatException);
+    });
+    const decreasingVolumeList = [
+      Volume(2, VolumeUnit.ml),
+      Volume(0.2, VolumeUnit.ml),
+      Volume(0.1, VolumeUnit.ml)
+    ];
+    for (final currentVolume in decreasingVolumeList) {
+      test("test $currentVolume >= $currentVolume", () {
+        expect(currentVolume >= currentVolume, isTrue);
+      });
+      test("json roundtrip", () {
+        expect(Volume.fromJson(currentVolume.toJson()), currentVolume);
+      });
+      test("check as", () {
+        expect(currentVolume.as(), currentVolume);
+      });
+      final elementsBefore =
+          decreasingVolumeList.takeWhile((value) => value != currentVolume);
+      for (final volumeBefore in elementsBefore) {
+        test("hashcode not equal", () {
+          expect(currentVolume.hashCode, isNot(equals(volumeBefore.hashCode)));
+        });
+        test("test $volumeBefore > $currentVolume", () {
+          expect(volumeBefore > currentVolume, isTrue);
+        });
+        test("test $volumeBefore >= $currentVolume", () {
+          expect(currentVolume >= volumeBefore, isFalse);
+          expect(volumeBefore >= currentVolume, isTrue);
+        });
+        test("test $currentVolume < $volumeBefore", () {
+          expect(volumeBefore < currentVolume, isFalse);
+          expect(currentVolume < volumeBefore, isTrue);
+        });
+      }
+    }
   });
 }

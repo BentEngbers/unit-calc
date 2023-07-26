@@ -40,7 +40,7 @@ final class ParseUtilities {
     if (!json.contains(" ")) {
       throw FormatException("Could not match on the required \' \'");
     }
-    final [numberPart, r] = json.split(" ");
-    return (numberPart, r.split("/"));
+    final [numberPart, ...r] = json.split(" ");
+    return (numberPart, r.join(" ").split("/"));
   }
 }

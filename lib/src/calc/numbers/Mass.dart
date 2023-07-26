@@ -4,7 +4,7 @@ import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 
 import 'Number.dart';
-import 'Volume.dart';
+import 'volume.dart';
 
 @immutable
 class Mass implements Number {
@@ -12,13 +12,14 @@ class Mass implements Number {
   final MassUnit unit;
 
   const Mass(this._value, this.unit) : assert(_value >= 0);
+
   const Mass.kiloGram(this._value)
       : unit = kiloGram,
         assert(_value >= 0);
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
-      '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
+      '${NumberUtils.toDecimalString(_value, override, format)} $displayUnit';
 
   @override
   String toString() => toDisplayString();
@@ -36,7 +37,7 @@ class Mass implements Number {
       concentration.volumeUnit);
 
   @override
-  String toJson() => "$_value ${unit.displayName}";
+  String toJson() => "$_value $displayUnit";
 
   factory Mass.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
@@ -56,10 +57,13 @@ class Mass implements Number {
 
   bool operator >(Mass other) =>
       asNumber(other.unit) > other.asNumber(other.unit);
+
   bool operator <(Mass other) =>
       asNumber(other.unit) < other.asNumber(other.unit);
 
-  bool operator >=(Mass other) => identical(this, other) || this > other;
+  bool operator >=(Mass other) =>
+      identical(this, other) ||
+      asNumber(other.unit) >= other.asNumber(other.unit);
 
   @override
   int get hashCode => Object.hash(_value, unit);

@@ -18,23 +18,20 @@ class MassPerMassTime implements Number {
   const MassPerMassTime(
       this._value, this.massUnit, this.perMassUnit, this.perTimeUnit)
       : assert(_value > 0);
-  const MassPerMassTime.kg(this._value, this.massUnit, this.perTimeUnit)
+  const MassPerMassTime.perKg(this._value, this.massUnit, this.perTimeUnit)
       : perMassUnit = kiloGram,
         assert(_value > 0);
 
   @override
-  String get displayUnit =>
-      "${massUnit.displayName}/${perMassUnit.displayName}/${perTimeUnit.displayName}";
-
-  @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+      "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perMassUnit.displayName}/${perTimeUnit.displayName}";
 
   @override
   String toString() => toDisplayString();
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() =>
+      "$_value ${massUnit.toJson()}/${perMassUnit.toJson()}/${perTimeUnit.toJson()}";
 
   factory MassPerMassTime.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
@@ -60,13 +57,11 @@ class MassPerMassTime implements Number {
               other.asNumber();
 
   @override
-  int get hashCode => Object.hash(_value, massUnit, perMassUnit);
+  int get hashCode => Object.hash(_value, massUnit, perMassUnit, perTimeUnit);
 
   //TODO: test this function
   MassPerTime operator *(Mass mass) => MassPerTime(
-      mass.asNumber(mass.unit) * asNumber(perMassUnit: mass.unit),
-      massUnit,
-      perTimeUnit);
+      asNumber() * mass.asNumber(perMassUnit), massUnit, perTimeUnit);
 
   MassPerMassTime _toMassUnit(MassUnit toMass) => MassPerMassTime(
       _value * massUnit.convertFactor(to: toMass),
@@ -75,7 +70,7 @@ class MassPerMassTime implements Number {
       perTimeUnit);
 
   MassPerMassTime _toPerMassUnit(MassUnit toPerMass) => MassPerMassTime(
-      _value * massUnit.convertFactor(to: toPerMass),
+      _value * perMassUnit.convertFactor(to: toPerMass),
       massUnit,
       toPerMass,
       perTimeUnit);

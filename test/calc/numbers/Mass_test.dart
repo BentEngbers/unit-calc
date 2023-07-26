@@ -3,7 +3,9 @@ import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
-import 'package:unit_calc/src/calc/numbers/Volume.dart';
+import 'package:unit_calc/src/calc/numbers/volume.dart';
+
+import 'mass_per_volume_test.dart';
 
 typedef UnitConversion = ({Mass from, Mass to});
 typedef UnitConversionDivision = ({
@@ -20,7 +22,7 @@ void main() {
       expect(() => Mass.fromJson("3.2 mg/ml"), throwsFormatException);
     });
     test("throws an error if initialized with negative number", () {
-      expect(() => Mass(-1, microGram), throwsA(isA<AssertionError>()));
+      expect(() => Mass(-1, microGram), throwAssertionError);
     });
     test("check the to string method", () {
       expect(Mass(2.1, milliGram).toString(), "2.1 mg");

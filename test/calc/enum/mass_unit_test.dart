@@ -1,6 +1,7 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 typedef _UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});
 typedef _MassUnitConversionTestCase = ({
@@ -45,7 +46,13 @@ void main() {
     test(
         "throws an error if trying to create a ConcentrationUnit from an invalid string",
         () {
-      expect(() => MassUnit.fromJson("FOO"), throwsException);
+      expect(() {
+        MassUnit.fromJson("FOO");
+      },
+          throwsA(predicate((x) =>
+              x is InvalidMassUnitException &&
+              x.toString() ==
+                  "InvalidMassUnitException:The given string was an invalid MassUnit")));
     });
   });
   const unitTests = <_MassUnitConversionTestCase>[

@@ -29,7 +29,8 @@ class MassPerVolumeMass implements Number {
   String toString() => toDisplayString();
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() =>
+      "$_value ${massUnit.toJson()}/${perVolumeUnit.displayName}/${perMassUnit.displayName}";
 
   factory MassPerVolumeMass.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
@@ -100,8 +101,4 @@ class MassPerVolumeMass implements Number {
 
   @override
   int get hashCode => Object.hash(_value, massUnit, perVolumeUnit, perMassUnit);
-
-  @override
-  String get displayUnit =>
-      "${massUnit.displayName}/${perVolumeUnit.displayName}/${perMassUnit.displayName}";
 }

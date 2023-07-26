@@ -19,15 +19,12 @@ class MassPerVolumeTime implements Number {
   ) : assert(_value > 0);
 
   @override
-  String get displayUnit =>
-      "${massUnit.displayName}/${volumeUnit.displayName}/${timeUnit.displayName}";
-
-  @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+      "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${volumeUnit.displayName}/${timeUnit.displayName}";
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() =>
+      "$_value ${massUnit.toJson()}/${volumeUnit.toJson()}/${timeUnit.toJson()}";
 
   factory MassPerVolumeTime.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {

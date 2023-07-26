@@ -3,9 +3,10 @@ import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 import 'mass.dart';
-import 'Volume.dart';
+import 'volume.dart';
 
 @immutable
 class MassPerVolume implements Number {
@@ -23,11 +24,10 @@ class MassPerVolume implements Number {
   Mass operator *(Volume volume) =>
       Mass(volume.asNumber(volume.unit) * _value, massUnit);
 
-  //TODO: test this function
-  MassPerVolume multiply(MassPerVolume massPerVolume) => MassPerVolume(
-      _value * massPerVolume.asNumber(volumeUnit: volumeUnit),
+  MassPerTime multiply(VolumePerTime volumePerTime) => MassPerTime(
+      _value * volumePerTime.asNumber(volumeUnit: volumeUnit),
       massUnit,
-      volumeUnit);
+      volumePerTime.timeUnit);
 
   MassPerVolume _toMassUnit(MassUnit toMass) => MassPerVolume(
       _value * massUnit.convertFactor(to: toMass), toMass, volumeUnit);
@@ -48,7 +48,7 @@ class MassPerVolume implements Number {
   }
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() => "$_value ${massUnit.toJson()}/${volumeUnit.displayName}";
 
   @override
   factory MassPerVolume.fromJson(String json) =>
@@ -71,6 +71,10 @@ class MassPerVolume implements Number {
 
   bool operator >(MassPerVolume other) =>
       asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
+      other.asNumber();
+
+  bool operator <(MassPerVolume other) =>
+      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) <
       other.asNumber();
 
   bool operator >=(MassPerVolume other) =>

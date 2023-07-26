@@ -34,7 +34,7 @@ final class MassPerTime implements Number {
   String toString() => toDisplayString();
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() => "$_value ${massUnit.toJson()}/${perTimeUnit.toJson()}";
 
   factory MassPerTime.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
@@ -66,8 +66,8 @@ final class MassPerTime implements Number {
   VolumePerTime operator /(MassPerVolume volume) => VolumePerTime(
         asNumber(massUnit: volume.massUnit) /
             volume.asNumber(volumeUnit: volume.volumeUnit),
-        perTimeUnit,
         volume.volumeUnit,
+        perTimeUnit,
       );
 
   //TODO: test this function div
@@ -77,8 +77,4 @@ final class MassPerTime implements Number {
         patientWeight.unit,
         perTimeUnit,
       );
-
-  @override
-  String get displayUnit =>
-      "${massUnit.displayName}/${perTimeUnit.displayName}";
 }

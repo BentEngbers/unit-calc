@@ -11,8 +11,11 @@ class VolumePerTime implements Number {
   final num _value;
   final TimeUnit timeUnit;
   final VolumeUnit volumeUnit;
-  const VolumePerTime(this._value, this.timeUnit, this.volumeUnit)
-      : assert(_value >= 0);
+  const VolumePerTime(
+    this._value,
+    this.volumeUnit,
+    this.timeUnit,
+  ) : assert(_value >= 0);
 
   @override
   String get displayUnit => '${volumeUnit.displayName}/${timeUnit.displayName}';
@@ -32,22 +35,26 @@ class VolumePerTime implements Number {
   int get hashCode => Object.hash(_value, timeUnit);
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() => "$_value ${volumeUnit.displayName}/${timeUnit.toJson()}";
 
   factory VolumePerTime.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
-        (String value, [String mass, String volume]) => VolumePerTime(
+        (String value, [String volume, String timeUnit]) => VolumePerTime(
             num.parse(value),
-            TimeUnit.fromJson(mass),
-            VolumeUnit.fromJson(volume)),
+            VolumeUnit.fromJson(volume),
+            TimeUnit.fromJson(timeUnit),
+          ),
         _ => throw FormatException("invalid json: \"$json\""),
       };
   //TODO: test function
   VolumePerTime _toTimeUnit(TimeUnit toTime) => VolumePerTime(
-      _value * timeUnit.convertFactor(toTime: toTime), toTime, volumeUnit);
+      _value * timeUnit.convertFactor(toTime: toTime), volumeUnit, toTime);
 
   VolumePerTime _toVolumeUnit(VolumeUnit toVolume) => VolumePerTime(
-      _value * volumeUnit.convertFactor(to: toVolume), timeUnit, toVolume);
+        _value * volumeUnit.convertFactor(to: toVolume),
+        toVolume,
+        timeUnit,
+      );
 
   VolumePerTime as({VolumeUnit? volumeUnit, TimeUnit? timeUnit}) =>
       _toTimeUnit(timeUnit ?? this.timeUnit)
