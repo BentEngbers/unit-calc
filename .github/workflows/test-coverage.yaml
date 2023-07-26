@@ -18,7 +18,9 @@ jobs:
                   channel: 'stable'
                   cache: true
             - name: run tests
-              run: flutter test --coverage --disable-telemetry
+              run: flutter test --coverage --suppress-analytics
+            - name: TEST REMOVE
+              run: cat ./coverage/lcov.info
               
             - name: check coverage
               uses: romeovs/lcov-reporter-action@v0.2.16
