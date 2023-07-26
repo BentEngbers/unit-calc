@@ -18,7 +18,7 @@ jobs:
                   channel: 'stable'
                   cache: true
             - name: run tests
-              run: flutter test --coverage --enable-telemetry
+              run: flutter test --coverage --disable-telemetry
               
             - name: check coverage
               uses: romeovs/lcov-reporter-action@v0.2.16
