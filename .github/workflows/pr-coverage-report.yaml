@@ -1,0 +1,30 @@
+name: PR coverage report 
+
+on: 
+    pull_request:
+
+jobs: 
+    test:
+        runs-on: ubuntu-latest
+        permissions:
+          pull-requests: write
+          contents: write
+        steps: 
+            
+            - name: checkout repo 
+              uses: actions/checkout@v3
+            
+            - name: install dart 
+              uses: dart-lang/setup-dart@v1
+            - name: run tests
+              run: dart test . --coverage=./coverage/
+
+              
+            - name: Test Report
+              uses: dorny/test-reporter@v1
+              if: success() || failure()    # run this step even if previous step failed
+              with:
+                name: dart Tests            # Name of the check run which will be created
+                path: ./coverage/    # Path to test results
+                reporter: dart-json        # Format of test results
+
