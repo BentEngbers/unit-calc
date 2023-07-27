@@ -10,14 +10,21 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
 
-      - name: install flutter
-        uses: subosito/flutter-action@v2
+      - name: install dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: setup just
+        uses: extractions/setup-just@v1
+
+      - name: Cache pub dependencies
+        id: cache-pub-dependencies
+        uses: actions/cache@v3
         with:
-          channel: "stable"
-          cache: true
+          path: ${{env.PUB_CACHE}}
+          key: ${{ runner.os }}-${{env.DART_HOME}}
 
       - name: run tests
-        run: flutter test --coverage --suppress-analytics
+        run: just test-coverage
 
       - uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
