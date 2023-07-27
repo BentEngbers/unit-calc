@@ -17,7 +17,6 @@ jobs:
         uses: dart-lang/setup-dart@v1
       - name: run tests
         run: dart test . --coverage=./coverage/
-
       - name: Cache pub dependencies
         id: cache-pub-dependencies
         uses: actions/cache@v3
@@ -30,6 +29,6 @@ jobs:
         if: success() || failure() # run this step even if previous step failed
         with:
           name: dart Tests # Name of the check run which will be created
-          path: ./coverage/* # Path to test results
+          path: ./coverage/*/** # Path to test results
           reporter: dart-json # Format of test results
 
