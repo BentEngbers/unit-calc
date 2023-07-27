@@ -37,7 +37,7 @@ final class Volume implements Number {
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+      "${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}";
 
   factory Volume.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
@@ -63,8 +63,5 @@ final class Volume implements Number {
   num asNumber([VolumeUnit? unit]) => as(unit)._value;
 
   @override
-  String get displayUnit => unit.displayName;
-
-  @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() => "$_value ${unit.toJson()}";
 }

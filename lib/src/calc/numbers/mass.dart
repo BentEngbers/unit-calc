@@ -19,7 +19,7 @@ class Mass implements Number {
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
-      '${NumberUtils.toDecimalString(_value, override, format)} $displayUnit';
+      '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
 
   @override
   String toString() => toDisplayString();
@@ -37,7 +37,7 @@ class Mass implements Number {
       concentration.volumeUnit);
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() => "$_value ${unit.toJson()}";
 
   factory Mass.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
@@ -67,7 +67,4 @@ class Mass implements Number {
 
   @override
   int get hashCode => Object.hash(_value, unit);
-
-  @override
-  String get displayUnit => unit.displayName;
 }

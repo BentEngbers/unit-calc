@@ -16,9 +16,6 @@ class MassPerMass implements Number {
   /// the mass unit that divides. If you have 5mg/kg ,then kg is the dividing mass unit.
   final MassUnit perMassUnit;
 
-  @override
-  String get displayUnit =>
-      "${massUnit.displayName}/${perMassUnit.displayName}";
   const MassPerMass(
     this._value,
     this.massUnit,
@@ -32,12 +29,12 @@ class MassPerMass implements Number {
         assert(_value > 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
-      "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+      "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perMassUnit.displayName}";
   @override
   String toString() => toDisplayString();
 
   @override
-  String toJson() => "$_value $displayUnit";
+  String toJson() => "$_value ${massUnit.toJson()}/${perMassUnit.toJson()}";
 
   factory MassPerMass.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {

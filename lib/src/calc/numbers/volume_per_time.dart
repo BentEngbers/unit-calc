@@ -1,4 +1,3 @@
-
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
@@ -17,9 +16,6 @@ class VolumePerTime implements Number {
   ) : assert(_value >= 0);
 
   @override
-  String get displayUnit => '${volumeUnit.displayName}/${timeUnit.displayName}';
-
-  @override
   String toString() => toDisplayString();
 
   @override
@@ -34,7 +30,7 @@ class VolumePerTime implements Number {
   int get hashCode => Object.hash(_value, timeUnit);
 
   @override
-  String toJson() => "$_value ${volumeUnit.displayName}/${timeUnit.toJson()}";
+  String toJson() => "$_value ${volumeUnit.toJson()}/${timeUnit.toJson()}";
 
   factory VolumePerTime.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
@@ -63,6 +59,6 @@ class VolumePerTime implements Number {
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) {
-    return "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+    return "${NumberUtils.toDecimalString(_value, override, format)} ${volumeUnit.displayName}/${timeUnit.displayName}";
   }
 }

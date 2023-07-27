@@ -10,9 +10,6 @@ class MassPerVolume implements Number {
   final MassUnit massUnit;
   final VolumeUnit volumeUnit;
 
-  @override
-  String get displayUnit => "${massUnit.displayName}/${volumeUnit.displayName}";
-
   const MassPerVolume(this._value, this.massUnit, this.volumeUnit)
       : assert(_value >= 0);
 
@@ -39,11 +36,11 @@ class MassPerVolume implements Number {
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) {
-    return "${NumberUtils.toDecimalString(_value, override, format)} $displayUnit";
+    return "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${volumeUnit.displayName}";
   }
 
   @override
-  String toJson() => "$_value ${massUnit.toJson()}/${volumeUnit.displayName}";
+  String toJson() => "$_value ${massUnit.toJson()}/${volumeUnit.toJson()}";
 
   @override
   factory MassPerVolume.fromJson(String json) =>
