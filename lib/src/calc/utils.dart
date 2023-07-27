@@ -38,7 +38,7 @@ typedef ParseTuple = (String, List<String>);
 final class ParseUtilities {
   static ParseTuple splitString(String json) {
     if (!json.contains(" ")) {
-      throw FormatException("Could not match on the required \' \'");
+      throw FormatException("Could not match on the required ' '");
     }
     final [numberPart, ...r] = json.split(" ");
     return (numberPart, r.join(" ").split("/"));

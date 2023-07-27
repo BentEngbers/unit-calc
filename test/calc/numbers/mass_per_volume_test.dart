@@ -1,24 +1,19 @@
-import 'dart:math';
-
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/unit_calc.dart';
 
-typedef testCaseMultiplyVolume = ({
+// ignore: camel_case_types
+typedef _testCaseMultiplyVolume = ({
   MassPerVolume val,
   Volume multiply,
   Mass result
 });
-typedef testCaseMultiplyMassPerTime = ({
-  MassPerVolume val,
-  MassPerVolume multiply,
-  Mass result
-});
+
 final throwAssertionError = throwsA(isA<AssertionError>());
 void main() {
-  const List<testCaseMultiplyVolume> testCases = [
+  const List<_testCaseMultiplyVolume> testCases = [
     (
       val: MassPerVolume(2.56, U(factorToNg: 1), VolumeUnit.ml),
       multiply: Volume(5, VolumeUnit.ml),

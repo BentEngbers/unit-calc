@@ -70,7 +70,6 @@ final class MassPerTime implements Number {
         perTimeUnit,
       );
 
-  //TODO: test this function div
   MassPerMassTime divide(Mass patientWeight) => MassPerMassTime(
         asNumber() / patientWeight.asNumber(),
         massUnit,

@@ -1,12 +1,8 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/unit_calc.dart';
-
-import 'mass.dart';
-import 'volume.dart';
 
 @immutable
 class MassPerVolume implements Number {
@@ -20,7 +16,6 @@ class MassPerVolume implements Number {
   const MassPerVolume(this._value, this.massUnit, this.volumeUnit)
       : assert(_value >= 0);
 
-  //TODO: test this function
   Mass operator *(Volume volume) =>
       Mass(volume.asNumber(volume.unit) * _value, massUnit);
 

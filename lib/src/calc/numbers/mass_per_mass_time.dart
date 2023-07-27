@@ -59,7 +59,6 @@ class MassPerMassTime implements Number {
   @override
   int get hashCode => Object.hash(_value, massUnit, perMassUnit, perTimeUnit);
 
-  //TODO: test this function
   MassPerTime operator *(Mass mass) => MassPerTime(
       asNumber() * mass.asNumber(perMassUnit), massUnit, perTimeUnit);
 

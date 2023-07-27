@@ -1,4 +1,3 @@
-//TODO: test this class
 
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
@@ -46,7 +45,6 @@ class VolumePerTime implements Number {
           ),
         _ => throw FormatException("invalid json: \"$json\""),
       };
-  //TODO: test function
   VolumePerTime _toTimeUnit(TimeUnit toTime) => VolumePerTime(
       _value * timeUnit.convertFactor(toTime: toTime), volumeUnit, toTime);
 
