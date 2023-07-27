@@ -1,0 +1,45 @@
+name: PR coverage report
+
+on:
+  pull_request:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+      actions: write
+      checks: write
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: install dart
+        uses: dart-lang/setup-dart@v1
+        
+      - name: setup just
+        uses: extractions/setup-just@v1
+
+      - name: run tests
+        run: just test-coverage
+
+      - name: Cache pub dependencies
+        id: cache-pub-dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{env.PUB_CACHE}}
+          key: ${{ runner.os }}-${{env.DART_HOME}}
+
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure() # run this step even if previous step failed
+        with:
+          name: Dart Test Report # Name of the check run which will be created
+          path: ./test-results.json # Path to test results
+          reporter: dart-json # Format of test results
+
+      - uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          delete-old-comments: true
+          lcov-file: ./coverage/lcov.info

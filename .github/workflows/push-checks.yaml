@@ -1,0 +1,64 @@
+name: Push checks
+
+on:
+  push:
+
+jobs:
+  mimimal-test-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: install dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: setup just
+        uses: extractions/setup-just@v1
+
+      - name: Cache pub dependencies
+        id: cache-pub-dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{env.PUB_CACHE}}
+          key: ${{ runner.os }}-${{env.DART_HOME}}
+
+      - name: run tests
+        run: just test-coverage
+
+      - uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          path: "./coverage/lcov.info"
+          min_coverage: 99
+
+  analyse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: install dart
+        uses: dart-lang/setup-dart@v1
+      - name: Cache pub dependencies
+        id: cache-pub-dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{env.PUB_CACHE}}
+          key: ${{ runner.os }}-${{env.DART_HOME}}
+      - name: get dependencies
+        run: dart pub get
+
+      - name: analyse code
+        run: dart analyze --fatal-infos
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: install dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: analyse code
+        run: dart format . --set-exit-if-changed
