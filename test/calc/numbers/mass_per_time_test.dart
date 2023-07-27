@@ -16,8 +16,10 @@ void main() {
       );
     });
     test("check the to string method", () {
-      expect('${const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr)}',
-          "2.4 U/hr");
+      expect(
+        '${const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr)}',
+        "2.4 U/hr",
+      );
     });
     test("equality true", () {
       expect(
