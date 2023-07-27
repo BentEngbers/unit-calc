@@ -25,14 +25,22 @@ void main() {
       expect(() => Mass(-1, microGram), throwAssertionError);
     });
     test("check the to string method", () {
-      expect(Mass(2.1, milliGram).toString(), "2.1 mg");
+      expect(const Mass(2.1, milliGram).toString(), "2.1 mg");
     });
-    test("equality different MassUnit",
-        () => {expect(Mass(1000, gram) == Mass(1, kiloGram), true)});
-    test("equality different value",
-        () => {expect(Mass(5, milliGram) == Mass(6, milliGram), false)});
-    test("equality true",
-        () => {expect(Mass(6, milliGram) == Mass(6, milliGram), true)});
+    test(
+      "equality different MassUnit",
+      () => {expect(const Mass(1000, gram) == const Mass(1, kiloGram), true)},
+    );
+    test(
+      "equality different value",
+      () =>
+          {expect(const Mass(5, milliGram) == const Mass(6, milliGram), false)},
+    );
+    test(
+      "equality true",
+      () =>
+          {expect(const Mass(6, milliGram) == const Mass(6, milliGram), true)},
+    );
     const cases = <UnitConversion>[
       (from: Mass(5, milliGram), to: Mass(5, milliGram)),
       (from: Mass(7, microGram), to: Mass(0.007, milliGram)),
@@ -78,10 +86,14 @@ void main() {
     ];
     for (final tuple in divisionTestCases) {
       final (:amount, :divisor, :result) = tuple;
-      test("Test dividing $amount by $divisor",
-          () => {expect(amount / divisor, equals(result))});
-      test("Test dividing $divisor by $amount",
-          () => {expect(amount.divide(result), equals(divisor))});
+      test(
+        "Test dividing $amount by $divisor",
+        () => {expect(amount / divisor, equals(result))},
+      );
+      test(
+        "Test dividing $divisor by $amount",
+        () => {expect(amount.divide(result), equals(divisor))},
+      );
     }
     const decreasingMassList = [
       Mass(1, kiloGram),

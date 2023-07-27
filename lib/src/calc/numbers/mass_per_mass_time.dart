@@ -16,8 +16,11 @@ class MassPerMassTime implements Number {
   final MassUnit perMassUnit;
   final TimeUnit perTimeUnit;
   const MassPerMassTime(
-      this._value, this.massUnit, this.perMassUnit, this.perTimeUnit)
-      : assert(_value > 0);
+    this._value,
+    this.massUnit,
+    this.perMassUnit,
+    this.perTimeUnit,
+  ) : assert(_value > 0);
   const MassPerMassTime.perKg(this._value, this.massUnit, this.perTimeUnit)
       : perMassUnit = kiloGram,
         assert(_value > 0);
@@ -51,37 +54,44 @@ class MassPerMassTime implements Number {
       other is MassPerMassTime &&
           runtimeType == other.runtimeType &&
           asNumber(
-                  massUnit: other.massUnit,
-                  perMassUnit: other.perMassUnit,
-                  perTimeUnit: other.perTimeUnit) ==
+                massUnit: other.massUnit,
+                perMassUnit: other.perMassUnit,
+                perTimeUnit: other.perTimeUnit,
+              ) ==
               other.asNumber();
 
   @override
   int get hashCode => Object.hash(_value, massUnit, perMassUnit, perTimeUnit);
 
   MassPerTime operator *(Mass mass) => MassPerTime(
-      asNumber() * mass.asNumber(perMassUnit), massUnit, perTimeUnit);
+        asNumber() * mass.asNumber(perMassUnit),
+        massUnit,
+        perTimeUnit,
+      );
 
   MassPerMassTime _toMassUnit(MassUnit toMass) => MassPerMassTime(
-      _value * massUnit.convertFactor(to: toMass),
-      toMass,
-      perMassUnit,
-      perTimeUnit);
+        _value * massUnit.convertFactor(to: toMass),
+        toMass,
+        perMassUnit,
+        perTimeUnit,
+      );
 
   MassPerMassTime _toPerMassUnit(MassUnit toPerMass) => MassPerMassTime(
-      _value * perMassUnit.convertFactor(to: toPerMass),
-      massUnit,
-      toPerMass,
-      perTimeUnit);
+        _value * perMassUnit.convertFactor(to: toPerMass),
+        massUnit,
+        toPerMass,
+        perTimeUnit,
+      );
 
   MassPerMassTime _toTimeUnit(TimeUnit toPerTime) => MassPerMassTime(
-      _value *
-          perTimeUnit.convertFactor(
-            toTime: toPerTime,
-          ),
-      massUnit,
-      perMassUnit,
-      toPerTime);
+        _value *
+            perTimeUnit.convertFactor(
+              toTime: toPerTime,
+            ),
+        massUnit,
+        perMassUnit,
+        toPerTime,
+      );
 
   MassPerMassTime as({
     MassUnit? massUnit,

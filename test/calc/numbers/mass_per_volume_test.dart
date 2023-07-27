@@ -34,10 +34,15 @@ void main() {
 
       test("hashcode", () {
         expect(
-            val.hashCode,
-            isNot(isIn(testCases
-                .where((element) => element.val != val)
-                .map((e) => e.val.hashCode))));
+          val.hashCode,
+          isNot(
+            isIn(
+              testCases
+                  .where((element) => element.val != val)
+                  .map((e) => e.val.hashCode),
+            ),
+          ),
+        );
       });
       test("larger or equal to itself than previous elements", () {
         expect(val >= val, isTrue);
@@ -62,17 +67,22 @@ void main() {
     }
     test("", () {
       expect(
-          MassPerVolume(5, milliGram, VolumeUnit.ml)
-              .multiply(VolumePerTime(3, VolumeUnit.ml, TimeUnit.hr)),
-          MassPerTime(15, milliGram, TimeUnit.hr));
+        const MassPerVolume(5, milliGram, VolumeUnit.ml)
+            .multiply(const VolumePerTime(3, VolumeUnit.ml, TimeUnit.hr)),
+        const MassPerTime(15, milliGram, TimeUnit.hr),
+      );
     });
     test("throws an error if initialized with negative number", () {
-      expect(() => MassPerVolume(-1, microGram, VolumeUnit.ml),
-          throwAssertionError);
+      expect(
+        () => MassPerVolume(-1, microGram, VolumeUnit.ml),
+        throwAssertionError,
+      );
     });
     test("check the to string method", () {
-      expect('${MassPerVolume(2.56, U(factorToNg: 1), VolumeUnit.ml)}',
-          "2.56 U/ml");
+      expect(
+        '${const MassPerVolume(2.56, U(factorToNg: 1), VolumeUnit.ml)}',
+        "2.56 U/ml",
+      );
     });
   });
 }

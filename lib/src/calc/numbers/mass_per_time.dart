@@ -47,14 +47,18 @@ final class MassPerTime implements Number {
       };
 
   MassPerTime _toMassUnit(MassUnit toMass) => MassPerTime(
-      _value * massUnit.convertFactor(to: toMass), toMass, perTimeUnit);
+        _value * massUnit.convertFactor(to: toMass),
+        toMass,
+        perTimeUnit,
+      );
   MassPerTime _toTimeUnit(TimeUnit perTimeUnit) => MassPerTime(
-      _value *
-          this.perTimeUnit.convertFactor(
-                toTime: perTimeUnit,
-              ),
-      massUnit,
-      perTimeUnit);
+        _value *
+            this.perTimeUnit.convertFactor(
+                  toTime: perTimeUnit,
+                ),
+        massUnit,
+        perTimeUnit,
+      );
 
   MassPerTime as({MassUnit? massUnit, TimeUnit? perTimeUnit}) =>
       _toMassUnit(massUnit ?? this.massUnit)

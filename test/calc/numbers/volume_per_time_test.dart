@@ -10,7 +10,9 @@ void main() {
   group('VolumePerTime', () {
     test("invalid json", () {
       expect(
-          () => VolumePerTime.fromJson("120 ml/hr/kg"), throwsFormatException);
+        () => VolumePerTime.fromJson("120 ml/hr/kg"),
+        throwsFormatException,
+      );
     });
     const List<_testCase> testCases = [
       (
@@ -40,12 +42,14 @@ void main() {
         expect(val.hashCode, isNot(VolumePerTime.fromJson(result).hashCode));
       });
       test("test time conversion", () {
-        expect(val.asNumber(timeUnit: unit),
-            VolumePerTime.fromJson(result).asNumber());
+        expect(
+          val.asNumber(timeUnit: unit),
+          VolumePerTime.fromJson(result).asNumber(),
+        );
       });
     }
     test("test time conversion", () {
-      final volumePerTime = VolumePerTime(
+      const volumePerTime = VolumePerTime(
         2,
         VolumeUnit.ml,
         TimeUnit.min,
@@ -53,7 +57,7 @@ void main() {
       expect(volumePerTime.as(timeUnit: TimeUnit.hr).toString(), "120 ml/hr");
     });
     test("test time conversion", () {
-      final volumePerTime = VolumePerTime(
+      const volumePerTime = VolumePerTime(
         10,
         VolumeUnit.ml,
         TimeUnit.hr,

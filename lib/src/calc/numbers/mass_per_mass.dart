@@ -58,10 +58,16 @@ class MassPerMass implements Number {
   int get hashCode => Object.hash(_value, massUnit, perMassUnit);
 
   MassPerMass _toMassUnit(MassUnit toMass) => MassPerMass(
-      _value * massUnit.convertFactor(to: toMass), toMass, perMassUnit);
+        _value * massUnit.convertFactor(to: toMass),
+        toMass,
+        perMassUnit,
+      );
 
   MassPerMass _toPerMassUnit(MassUnit toPerMass) => MassPerMass(
-      _value * perMassUnit.convertFactor(to: toPerMass), massUnit, toPerMass);
+        _value * perMassUnit.convertFactor(to: toPerMass),
+        massUnit,
+        toPerMass,
+      );
 
   MassPerMass as({MassUnit? massUnit, MassUnit? perMassUnit}) =>
       _toMassUnit(massUnit ?? this.massUnit)

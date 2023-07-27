@@ -33,8 +33,9 @@ class Mass implements Number {
   num asNumber([MassUnit? toUnit]) => as(toUnit)._value;
 
   Volume operator /(MassPerVolume concentration) => Volume(
-      asNumber(concentration.massUnit) / concentration.asNumber(),
-      concentration.volumeUnit);
+        asNumber(concentration.massUnit) / concentration.asNumber(),
+        concentration.volumeUnit,
+      );
 
   @override
   String toJson() => "$_value ${unit.toJson()}";

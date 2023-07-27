@@ -42,7 +42,10 @@ class VolumePerTime implements Number {
         _ => throw FormatException("invalid json: \"$json\""),
       };
   VolumePerTime _toTimeUnit(TimeUnit toTime) => VolumePerTime(
-      _value * timeUnit.convertFactor(toTime: toTime), volumeUnit, toTime);
+        _value * timeUnit.convertFactor(toTime: toTime),
+        volumeUnit,
+        toTime,
+      );
 
   VolumePerTime _toVolumeUnit(VolumeUnit toVolume) => VolumePerTime(
         _value * volumeUnit.convertFactor(to: toVolume),

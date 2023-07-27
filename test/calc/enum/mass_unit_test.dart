@@ -46,13 +46,19 @@ void main() {
     test(
         "throws an error if trying to create a ConcentrationUnit from an invalid string",
         () {
-      expect(() {
-        MassUnit.fromJson("FOO");
-      },
-          throwsA(predicate((x) =>
-              x is InvalidMassUnitException &&
-              x.toString() ==
-                  "InvalidMassUnitException:The given string was an invalid MassUnit")));
+      expect(
+        () {
+          MassUnit.fromJson("FOO");
+        },
+        throwsA(
+          predicate(
+            (x) =>
+                x is InvalidMassUnitException &&
+                x.toString() ==
+                    "InvalidMassUnitException:The given string was an invalid MassUnit",
+          ),
+        ),
+      );
     });
   });
   const unitTests = <_MassUnitConversionTestCase>[

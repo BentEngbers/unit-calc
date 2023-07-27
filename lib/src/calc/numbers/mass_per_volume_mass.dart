@@ -16,8 +16,11 @@ class MassPerVolumeMass implements Number {
   final MassUnit perMassUnit;
 
   const MassPerVolumeMass(
-      this._value, this.massUnit, this.perVolumeUnit, this.perMassUnit)
-      : assert(_value >= 0);
+    this._value,
+    this.massUnit,
+    this.perVolumeUnit,
+    this.perMassUnit,
+  ) : assert(_value >= 0);
   const MassPerVolumeMass.perKg(this._value, this.massUnit, this.perVolumeUnit)
       : perMassUnit = kiloGram,
         assert(_value >= 0);
@@ -45,7 +48,10 @@ class MassPerVolumeMass implements Number {
       };
 
   MassPerVolume operator *(Mass mass) => MassPerVolume(
-      asNumber(massUnit: mass.unit) * mass.asNumber(), massUnit, perVolumeUnit);
+        asNumber(massUnit: mass.unit) * mass.asNumber(),
+        massUnit,
+        perVolumeUnit,
+      );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -64,35 +70,40 @@ class MassPerVolumeMass implements Number {
           other.asNumber();
 
   MassPerVolumeMass _toMassUnit(MassUnit toMass) => MassPerVolumeMass(
-      _value * massUnit.convertFactor(to: toMass),
-      toMass,
-      perVolumeUnit,
-      perMassUnit);
+        _value * massUnit.convertFactor(to: toMass),
+        toMass,
+        perVolumeUnit,
+        perMassUnit,
+      );
 
   MassPerVolumeMass _toPerMassUnit(MassUnit toMass) => MassPerVolumeMass(
-      _value * perMassUnit.convertFactor(to: toMass),
-      toMass,
-      perVolumeUnit,
-      perMassUnit);
+        _value * perMassUnit.convertFactor(to: toMass),
+        toMass,
+        perVolumeUnit,
+        perMassUnit,
+      );
 
   MassPerVolumeMass _toVolumeUnit(VolumeUnit toVolume) => MassPerVolumeMass(
-      _value * perVolumeUnit.convertFactor(to: toVolume),
-      massUnit,
-      perVolumeUnit,
-      perMassUnit);
+        _value * perVolumeUnit.convertFactor(to: toVolume),
+        massUnit,
+        perVolumeUnit,
+        perMassUnit,
+      );
 
-  MassPerVolumeMass as(
-          {VolumeUnit? volumeUnit,
-          MassUnit? massUnit,
-          MassUnit? perMassUnit}) =>
+  MassPerVolumeMass as({
+    VolumeUnit? volumeUnit,
+    MassUnit? massUnit,
+    MassUnit? perMassUnit,
+  }) =>
       _toMassUnit(massUnit ?? this.massUnit)
           ._toVolumeUnit(volumeUnit ?? perVolumeUnit)
           ._toPerMassUnit(perMassUnit ?? this.perMassUnit);
 
-  num asNumber(
-          {VolumeUnit? volumeUnit,
-          MassUnit? massUnit,
-          MassUnit? perMassUnit}) =>
+  num asNumber({
+    VolumeUnit? volumeUnit,
+    MassUnit? massUnit,
+    MassUnit? perMassUnit,
+  }) =>
       as(
         volumeUnit: volumeUnit,
         massUnit: massUnit,

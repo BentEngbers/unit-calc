@@ -4,8 +4,11 @@ typedef NumberFormat = intl.NumberFormat;
 typedef DigitPrecision = ({int minDigit, int maxDigit});
 
 final class NumberUtils {
-  static String toDecimalString(num value,
-      [DigitPrecision? override, NumberFormat? format]) {
+  static String toDecimalString(
+    num value, [
+    DigitPrecision? override,
+    NumberFormat? format,
+  ]) {
     if (override != null) {
       return _toFixedDecimalString(value, override, format);
     }
@@ -24,7 +27,10 @@ final class NumberUtils {
         _ => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 0), format)
       };
   static String _toFixedDecimalString(
-      num value, DigitPrecision override, intl.NumberFormat? format) {
+    num value,
+    DigitPrecision override,
+    intl.NumberFormat? format,
+  ) {
     final formatter = format ?? intl.NumberFormat();
     final (:minDigit, :maxDigit) = override;
     formatter.minimumFractionDigits = minDigit;
@@ -38,7 +44,7 @@ typedef ParseTuple = (String, List<String>);
 final class ParseUtilities {
   static ParseTuple splitString(String json) {
     if (!json.contains(" ")) {
-      throw FormatException("Could not match on the required ' '");
+      throw const FormatException("Could not match on the required ' '");
     }
     final [numberPart, ...r] = json.split(" ");
     return (numberPart, r.join(" ").split("/"));

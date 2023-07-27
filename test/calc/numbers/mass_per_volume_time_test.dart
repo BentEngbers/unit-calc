@@ -10,24 +10,29 @@ import 'mass_per_volume_test.dart';
 void main() {
   group('AmountPerMLTime', () {
     test("throws an error if initialized with negative number", () {
-      expect(() => MassPerVolumeTime(-4, microGram, VolumeUnit.ml, TimeUnit.hr),
-          throwAssertionError);
+      expect(
+        () => MassPerVolumeTime(-4, microGram, VolumeUnit.ml, TimeUnit.hr),
+        throwAssertionError,
+      );
     });
     test("check the to string method", () {
       expect(
-          '${MassPerVolumeTime(1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.min)}',
-          "1.2 U/ml/min");
+        '${const MassPerVolumeTime(1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.min)}',
+        "1.2 U/ml/min",
+      );
     });
     test("json round trips", () {
-      final massPerVolumeTime =
+      const massPerVolumeTime =
           MassPerVolumeTime(1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.min);
-      expect(MassPerVolumeTime.fromJson(massPerVolumeTime.toJson()),
-          massPerVolumeTime);
+      expect(
+        MassPerVolumeTime.fromJson(massPerVolumeTime.toJson()),
+        massPerVolumeTime,
+      );
     });
     test("hashCode", () {
-      final massPerVolumeTime =
+      const massPerVolumeTime =
           MassPerVolumeTime(1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.min);
-      final massPerVolumeTime2 =
+      const massPerVolumeTime2 =
           MassPerVolumeTime(1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.hr);
       expect(massPerVolumeTime.hashCode, isNot(massPerVolumeTime2.hashCode));
     });
@@ -50,7 +55,9 @@ void main() {
     }
     test("wrong json", () {
       expect(
-          () => MassPerVolumeTime.fromJson("5 mg/ml"), throwsFormatException);
+        () => MassPerVolumeTime.fromJson("5 mg/ml"),
+        throwsFormatException,
+      );
     });
   });
 }

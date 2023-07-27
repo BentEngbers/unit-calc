@@ -10,7 +10,9 @@ void main() {
     test("roundTrip json", () {
       const massPerMassTime = MassPerMassTime(20, gram, kiloGram, TimeUnit.hr);
       expect(
-          MassPerMassTime.fromJson(massPerMassTime.toJson()), massPerMassTime);
+        MassPerMassTime.fromJson(massPerMassTime.toJson()),
+        massPerMassTime,
+      );
     });
     test("roundTrip json", () {
       const massPerMassTime = MassPerMassTime(20, gram, kiloGram, TimeUnit.hr);
@@ -21,8 +23,10 @@ void main() {
     });
     test("multiply by mass", () {
       const massPerMassTime = MassPerMassTime(20, gram, kiloGram, TimeUnit.hr);
-      expect(massPerMassTime * Mass(5, kiloGram),
-          MassPerTime(100, gram, TimeUnit.hr));
+      expect(
+        massPerMassTime * const Mass(5, kiloGram),
+        const MassPerTime(100, gram, TimeUnit.hr),
+      );
     });
     test("roundTrip json", () {
       expect(() => MassPerMassTime.fromJson("20 gr/kg"), throwsFormatException);
@@ -33,10 +37,14 @@ void main() {
       expect(massPerMassTime.toString(), "20.2 g/kg/hr");
     });
     test("perKg constructor", () {
-      expect(MassPerMassTime.perKg(20, gram, TimeUnit.hr),
-          MassPerMassTime(20, gram, kiloGram, TimeUnit.hr));
-      expect(() => MassPerMassTime.perKg(-1, gram, TimeUnit.hr),
-          throwAssertionError);
+      expect(
+        const MassPerMassTime.perKg(20, gram, TimeUnit.hr),
+        const MassPerMassTime(20, gram, kiloGram, TimeUnit.hr),
+      );
+      expect(
+        () => MassPerMassTime.perKg(-1, gram, TimeUnit.hr),
+        throwAssertionError,
+      );
     });
   });
 }

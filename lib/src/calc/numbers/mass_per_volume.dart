@@ -17,15 +17,22 @@ class MassPerVolume implements Number {
       Mass(volume.asNumber(volume.unit) * _value, massUnit);
 
   MassPerTime multiply(VolumePerTime volumePerTime) => MassPerTime(
-      _value * volumePerTime.asNumber(volumeUnit: volumeUnit),
-      massUnit,
-      volumePerTime.timeUnit);
+        _value * volumePerTime.asNumber(volumeUnit: volumeUnit),
+        massUnit,
+        volumePerTime.timeUnit,
+      );
 
   MassPerVolume _toMassUnit(MassUnit toMass) => MassPerVolume(
-      _value * massUnit.convertFactor(to: toMass), toMass, volumeUnit);
+        _value * massUnit.convertFactor(to: toMass),
+        toMass,
+        volumeUnit,
+      );
 
   MassPerVolume _toVolumeUnit(VolumeUnit toVolume) => MassPerVolume(
-      _value * volumeUnit.convertFactor(to: toVolume), massUnit, toVolume);
+        _value * volumeUnit.convertFactor(to: toVolume),
+        massUnit,
+        toVolume,
+      );
 
   MassPerVolume as({VolumeUnit? volumeUnit, MassUnit? massUnit}) =>
       _toMassUnit(massUnit ?? this.massUnit)

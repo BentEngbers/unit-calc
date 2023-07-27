@@ -10,8 +10,8 @@
 # 'package:lints/core.yaml'. These are just the most critical lints
 # (the recommended set includes the core lints).
 # The core lints are also what is used by pub.dev for scoring packages.
-
-include: package:lints/recommended.yaml
+#include: package:lints/recommended.yaml
+include: package:flutter_lints/flutter.yaml
 
 # Uncomment the following section to specify additional rules.
 
@@ -28,3 +28,6 @@ include: package:lints/recommended.yaml
 
 # For additional information about configuring this file, see
 # https://dart.dev/guides/language/analysis-options
+linter:
+  rules:
+    require_trailing_commas: true

@@ -57,8 +57,9 @@ final class Volume implements Number {
       Volume(_value - volume.asNumber(unit), unit);
 
   Volume as([VolumeUnit? unit]) => Volume(
-      _value * this.unit.convertFactor(to: (unit ?? this.unit)),
-      unit ?? this.unit);
+        _value * this.unit.convertFactor(to: (unit ?? this.unit)),
+        unit ?? this.unit,
+      );
 
   num asNumber([VolumeUnit? unit]) => as(unit)._value;
 

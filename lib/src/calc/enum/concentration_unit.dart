@@ -24,10 +24,11 @@ sealed class MassUnit {
         _gramName => gram,
         _kgName => kiloGram,
         _ when json.startsWith(_uName) => U(
-            factorToNg: num.parse(json
-                .replaceFirst("U(factorNanoGr: ", '')
-                .replaceFirst(")", ""))),
-        _ => throw InvalidMassUnitException()
+            factorToNg: num.parse(
+              json.replaceFirst("U(factorNanoGr: ", '').replaceFirst(")", ""),
+            ),
+          ),
+        _ => throw const InvalidMassUnitException()
       };
 
   num convertFactor({required MassUnit to}) => factorNanoGr / to.factorNanoGr;
