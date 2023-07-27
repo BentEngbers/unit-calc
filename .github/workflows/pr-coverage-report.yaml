@@ -1,30 +1,35 @@
-name: PR coverage report 
+name: PR coverage report
 
-on: 
-    pull_request:
+on:
+  pull_request:
 
-jobs: 
-    test:
-        runs-on: ubuntu-latest
-        permissions:
-          pull-requests: write
-          contents: write
-        steps: 
-            
-            - name: checkout repo 
-              uses: actions/checkout@v3
-            
-            - name: install dart 
-              uses: dart-lang/setup-dart@v1
-            - name: run tests
-              run: dart test . --coverage=./coverage/
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
 
-              
-            - name: Test Report
-              uses: dorny/test-reporter@v1
-              if: success() || failure()    # run this step even if previous step failed
-              with:
-                name: dart Tests            # Name of the check run which will be created
-                path: ./coverage/    # Path to test results
-                reporter: dart-json        # Format of test results
+      - name: install dart
+        uses: dart-lang/setup-dart@v1
+      - name: run tests
+        run: dart test . --coverage=./coverage/
+
+      - name: Cache pub dependencies
+        id: cache-pub-dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{env.PUB_CACHE}}
+          key: ${{ runner.os }}-${{env.DART_HOME}}
+
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure() # run this step even if previous step failed
+        with:
+          name: dart Tests # Name of the check run which will be created
+          path: ./coverage/* # Path to test results
+          reporter: dart-json # Format of test results
 
