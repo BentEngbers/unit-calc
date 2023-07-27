@@ -17,9 +17,12 @@ jobs:
 
       - name: install dart
         uses: dart-lang/setup-dart@v1
+        
+      - name: setup just
+        uses: extractions/setup-just@v1
 
       - name: run tests
-        run: dart test --file-reporter="json:test-results.json" --coverage=./coverage
+        run: just test-coverage
 
       - name: Cache pub dependencies
         id: cache-pub-dependencies
@@ -35,9 +38,6 @@ jobs:
           name: Dart Test Report # Name of the check run which will be created
           path: ./test-results.json # Path to test results
           reporter: dart-json # Format of test results
-
-      - name: gen coverage
-        run: dart run coverage:format_coverage --lcov --in coverage --out ./coverage/lcov.info
 
       - uses: romeovs/lcov-reporter-action@v0.3.1
         with:
