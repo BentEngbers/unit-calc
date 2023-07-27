@@ -1,10 +1,10 @@
-name: PR coverage report
+name: Push checks
 
 on:
   push:
 
 jobs:
-  mimimal-coverage:
+  mimimal-test-coverage:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -33,13 +33,6 @@ jobs:
       - name: install dart
         uses: dart-lang/setup-dart@v1
 
-      - name: Cache pub dependencies
-        id: cache-pub-dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{env.PUB_CACHE}}
-          key: ${{ runner.os }}-${{env.DART_HOME}}
-
       - name: analyse code
         run: dart analyze --fatal-infos
 
@@ -52,15 +45,5 @@ jobs:
       - name: install dart
         uses: dart-lang/setup-dart@v1
 
-      - name: Cache pub dependencies
-        id: cache-pub-dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{env.PUB_CACHE}}
-          key: ${{ runner.os }}-${{env.DART_HOME}}
-      - name: get dependencies
-        run: dart pub get
-      - name: REMOVE
-        run: ls ${{env.PUB_CACHE}}
       - name: analyse code
         run: dart format . --set-exit-if-changed

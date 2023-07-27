@@ -1,0 +1,665 @@
+{"protocolVersion":"0.1.1","runnerVersion":"1.24.4","pid":68654,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"test/calc/numbers/mass_per_volume_time_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading test/calc/numbers/mass_per_volume_time_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":0}
+{"suite":{"id":2,"platform":"vm","path":"test/calc/numbers/volume_test.dart"},"type":"suite","time":4}
+{"test":{"id":3,"name":"loading test/calc/numbers/volume_test.dart","suiteID":2,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":4}
+{"suite":{"id":4,"platform":"vm","path":"test/calc/numbers/mass_per_volume_test.dart"},"type":"suite","time":4}
+{"test":{"id":5,"name":"loading test/calc/numbers/mass_per_volume_test.dart","suiteID":4,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":4}
+{"suite":{"id":6,"platform":"vm","path":"test/calc/numbers/mass_per_time_test.dart"},"type":"suite","time":4}
+{"test":{"id":7,"name":"loading test/calc/numbers/mass_per_time_test.dart","suiteID":6,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":4}
+{"suite":{"id":8,"platform":"vm","path":"test/calc/numbers/mass_per_mass_time_test.dart"},"type":"suite","time":4}
+{"test":{"id":9,"name":"loading test/calc/numbers/mass_per_mass_time_test.dart","suiteID":8,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":5}
+{"count":11,"time":6,"type":"allSuites"}
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":343}
+{"group":{"id":10,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":9,"line":null,"column":null,"url":null},"type":"group","time":346}
+{"group":{"id":11,"suiteID":0,"parentID":10,"name":"AmountPerMLTime","metadata":{"skip":false,"skipReason":null},"testCount":9,"line":11,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"group","time":346}
+{"test":{"id":12,"name":"AmountPerMLTime throws an error if initialized with negative number","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":347}
+{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":370}
+{"group":{"id":13,"suiteID":2,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":31,"line":null,"column":null,"url":null},"type":"group","time":370}
+{"group":{"id":14,"suiteID":2,"parentID":13,"name":"Volume:","metadata":{"skip":false,"skipReason":null},"testCount":31,"line":11,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"group","time":370}
+{"test":{"id":15,"name":"Volume: throws an error if initialized with negative number","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":370}
+{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":371}
+{"testID":5,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":374}
+{"group":{"id":16,"suiteID":4,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":15,"line":null,"column":null,"url":null},"type":"group","time":374}
+{"test":{"id":17,"name":"Check extra units fail","suiteID":4,"groupIDs":[16],"metadata":{"skip":false,"skipReason":null},"line":33,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":374}
+{"testID":7,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":379}
+{"group":{"id":18,"suiteID":6,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":null,"column":null,"url":null},"type":"group","time":379}
+{"group":{"id":19,"suiteID":6,"parentID":18,"name":"AmountPerKGTime","metadata":{"skip":false,"skipReason":null},"testCount":16,"line":14,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"group","time":379}
+{"test":{"id":20,"name":"AmountPerKGTime throws an error if initialized with negative number","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":15,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":379}
+{"test":{"id":21,"name":"AmountPerMLTime check the to string method","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":16,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":379}
+{"testID":9,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":381}
+{"group":{"id":22,"suiteID":8,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":6,"line":null,"column":null,"url":null},"type":"group","time":381}
+{"group":{"id":23,"suiteID":8,"parentID":22,"name":"MassPerMassTime","metadata":{"skip":false,"skipReason":null},"testCount":6,"line":9,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_time_test.dart"},"type":"group","time":381}
+{"test":{"id":24,"name":"MassPerMassTime roundTrip json","suiteID":8,"groupIDs":[22,23],"metadata":{"skip":false,"skipReason":null},"line":10,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_time_test.dart"},"type":"testStart","time":381}
+{"testID":21,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":381}
+{"test":{"id":25,"name":"AmountPerMLTime json round trips","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":381}
+{"testID":25,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":385}
+{"test":{"id":26,"name":"AmountPerMLTime hashCode","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":27,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":385}
+{"testID":15,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":385}
+{"test":{"id":27,"name":"Volume: throws error when result is negative","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":15,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":386}
+{"testID":27,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":387}
+{"test":{"id":28,"name":"Volume: check addition","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":19,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":387}
+{"testID":26,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":387}
+{"test":{"id":29,"name":"AmountPerMLTime 5 g/ml/hr > 5 mg/ml/min","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":43,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":388}
+{"testID":28,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":388}
+{"test":{"id":30,"name":"Volume: check equality","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":23,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":388}
+{"testID":29,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":389}
+{"test":{"id":31,"name":"AmountPerMLTime 5 g/ml/hr >= 5 mg/ml/min","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":46,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":389}
+{"testID":30,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":389}
+{"testID":31,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":390}
+{"test":{"id":32,"name":"Volume: check the tostring method","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":26,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":390}
+{"test":{"id":33,"name":"AmountPerMLTime 5 g/ml/min > 5 mg/ml/min","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":43,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":390}
+{"testID":17,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":390}
+{"group":{"id":34,"suiteID":4,"parentID":16,"name":"MassPerVolume","metadata":{"skip":false,"skipReason":null},"testCount":14,"line":36,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"group","time":390}
+{"test":{"id":35,"name":"MassPerVolume hashcode","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":40,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":390}
+{"testID":33,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":391}
+{"testID":32,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":391}
+{"test":{"id":36,"name":"AmountPerMLTime 5 g/ml/min >= 5 mg/ml/min","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":46,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":391}
+{"test":{"id":37,"name":"Volume: check the tostring method","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":29,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":391}
+{"testID":37,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":392}
+{"testID":36,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":392}
+{"test":{"id":38,"name":"Volume: check the toFixedDecimalString method","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":32,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":392}
+{"test":{"id":39,"name":"AmountPerMLTime wrong json","suiteID":0,"groupIDs":[10,11],"metadata":{"skip":false,"skipReason":null},"line":51,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_time_test.dart"},"type":"testStart","time":392}
+{"testID":20,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":393}
+{"testID":35,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":393}
+{"test":{"id":40,"name":"AmountPerKGTime check the to string method","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":19,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":393}
+{"testID":38,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":393}
+{"test":{"id":41,"name":"MassPerVolume larger or equal to itself than previous elements","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":47,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":393}
+{"testID":39,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":394}
+{"test":{"id":42,"name":"Volume: check the toFixedDecimalString method","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":36,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":394}
+{"suite":{"id":43,"platform":"vm","path":"test/calc/numbers/mass_per_mass_test.dart"},"type":"suite","time":397}
+{"test":{"id":44,"name":"loading test/calc/numbers/mass_per_mass_test.dart","suiteID":43,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":397}
+{"testID":41,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":398}
+{"testID":42,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":398}
+{"testID":24,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":398}
+{"test":{"id":45,"name":"MassPerVolume json RoundTrip","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":61,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":399}
+{"test":{"id":46,"name":"Volume: test equals","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":40,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":399}
+{"test":{"id":47,"name":"MassPerMassTime roundTrip json","suiteID":8,"groupIDs":[22,23],"metadata":{"skip":false,"skipReason":null},"line":15,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_time_test.dart"},"type":"testStart","time":399}
+{"testID":46,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":399}
+{"test":{"id":48,"name":"Volume: json ","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":43,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":400}
+{"testID":40,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":401}
+{"testID":48,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":401}
+{"testID":47,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":401}
+{"test":{"id":49,"name":"AmountPerKGTime equality true","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":22,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":401}
+{"test":{"id":50,"name":"Volume: test 2 ml >= 2 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":52,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":401}
+{"test":{"id":51,"name":"MassPerMassTime multiply by mass","suiteID":8,"groupIDs":[22,23],"metadata":{"skip":false,"skipReason":null},"line":22,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_time_test.dart"},"type":"testStart","time":401}
+{"testID":45,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":402}
+{"test":{"id":52,"name":"MassPerVolume multiply 2.56 U/ml with 5 ml","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":64,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":402}
+{"testID":50,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":402}
+{"testID":49,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":402}
+{"test":{"id":53,"name":"Volume: json roundtrip","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":55,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":402}
+{"test":{"id":54,"name":"AmountPerKGTime equality different value","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":28,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":403}
+{"testID":51,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":404}
+{"testID":52,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":404}
+{"test":{"id":55,"name":"MassPerMassTime roundTrip json","suiteID":8,"groupIDs":[22,23],"metadata":{"skip":false,"skipReason":null},"line":27,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_time_test.dart"},"type":"testStart","time":404}
+{"test":{"id":56,"name":"MassPerVolume hashcode","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":40,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":404}
+{"testID":53,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":404}
+{"testID":54,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":405}
+{"test":{"id":57,"name":"Volume: check as","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":58,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":405}
+{"test":{"id":58,"name":"AmountPerKGTime equality different unit","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":34,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":405}
+{"testID":56,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":405}
+{"testID":57,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":406}
+{"testID":58,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":406}
+{"test":{"id":59,"name":"MassPerVolume larger or equal to itself than previous elements","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":47,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":406}
+{"testID":55,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":406}
+{"test":{"id":60,"name":"Volume: test 0.2 ml >= 0.2 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":52,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":406}
+{"test":{"id":61,"name":"AmountPerKGTime equality different time unit","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":40,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":407}
+{"test":{"id":62,"name":"MassPerMassTime toDisplayString","suiteID":8,"groupIDs":[22,23],"metadata":{"skip":false,"skipReason":null},"line":30,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_time_test.dart"},"type":"testStart","time":407}
+{"testID":59,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":407}
+{"testID":60,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":407}
+{"test":{"id":63,"name":"MassPerVolume previous elements smaller then current element","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":51,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":407}
+{"test":{"id":64,"name":"Volume: json roundtrip","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":55,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":407}
+{"testID":61,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":407}
+{"test":{"id":65,"name":"AmountPerKGTime equality different class","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":46,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":407}
+{"testID":63,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":408}
+{"test":{"id":66,"name":"MassPerVolume larger than previous elements","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":54,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":408}
+{"testID":65,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":408}
+{"test":{"id":67,"name":"AmountPerKGTime equality different unit Time","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":56,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":409}
+{"testID":64,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":409}
+{"testID":66,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":409}
+{"test":{"id":68,"name":"Volume: check as","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":58,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":410}
+{"testID":67,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":410}
+{"test":{"id":69,"name":"MassPerVolume larger than previous elements","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":57,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":410}
+{"test":{"id":70,"name":"AmountPerKGTime roundTrip json","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":62,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":410}
+{"testID":68,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":410}
+{"test":{"id":71,"name":"Volume: hashcode not equal","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":64,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":411}
+{"testID":69,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":411}
+{"test":{"id":72,"name":"MassPerVolume json RoundTrip","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":61,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":411}
+{"testID":72,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":412}
+{"test":{"id":73,"name":"MassPerVolume multiply 2.56 kg/ml with 5 ml","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":64,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":412}
+{"testID":71,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":412}
+{"testID":70,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":412}
+{"test":{"id":74,"name":"Volume: test 2 ml > 0.2 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":67,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":412}
+{"test":{"id":75,"name":"AmountPerKGTime roundTrip json","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":66,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":412}
+{"testID":73,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":413}
+{"test":{"id":76,"name":"MassPerVolume ","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":68,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":413}
+{"testID":74,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":413}
+{"test":{"id":77,"name":"Volume: test 2 ml >= 0.2 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":70,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":413}
+{"testID":75,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":413}
+{"test":{"id":78,"name":"AmountPerKGTime wrong json","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":71,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":413}
+{"testID":77,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":414}
+{"testID":78,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":414}
+{"test":{"id":79,"name":"Volume: test 0.2 ml < 2 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":74,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":414}
+{"test":{"id":80,"name":"AmountPerKGTime HashCode","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":75,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":414}
+{"testID":76,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":414}
+{"testID":62,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":415}
+{"test":{"id":81,"name":"MassPerVolume throws an error if initialized with negative number","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":74,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":415}
+{"testID":79,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":415}
+{"test":{"id":82,"name":"MassPerMassTime perKg constructor","suiteID":8,"groupIDs":[22,23],"metadata":{"skip":false,"skipReason":null},"line":35,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_time_test.dart"},"type":"testStart","time":415}
+{"test":{"id":83,"name":"Volume: test 0.1 ml >= 0.1 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":52,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":415}
+{"testID":81,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":416}
+{"testID":83,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":416}
+{"testID":80,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":416}
+{"test":{"id":84,"name":"MassPerVolume check the to string method","suiteID":4,"groupIDs":[16,34],"metadata":{"skip":false,"skipReason":null},"line":78,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_test.dart"},"type":"testStart","time":416}
+{"test":{"id":85,"name":"Volume: json roundtrip","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":55,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":416}
+{"test":{"id":86,"name":"AmountPerKGTime equality different unit Time","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":82,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":416}
+{"testID":82,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":416}
+{"suite":{"id":87,"platform":"vm","path":"test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"suite","time":417}
+{"test":{"id":88,"name":"loading test/calc/numbers/mass_per_volume_mass_test.dart","suiteID":87,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":417}
+{"testID":85,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":417}
+{"testID":84,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":418}
+{"testID":86,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":418}
+{"test":{"id":89,"name":"Volume: check as","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":58,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":418}
+{"suite":{"id":90,"platform":"vm","path":"test/calc/numbers/volume_per_time_test.dart"},"type":"suite","time":419}
+{"test":{"id":91,"name":"loading test/calc/numbers/volume_per_time_test.dart","suiteID":90,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":419}
+{"test":{"id":92,"name":"AmountPerKGTime equality different MassUnit and time unit","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":88,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":419}
+{"testID":89,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":419}
+{"testID":92,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":420}
+{"test":{"id":93,"name":"Volume: hashcode not equal","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":64,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":420}
+{"test":{"id":94,"name":"AmountPerKGTime divide by volume","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":94,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":420}
+{"testID":93,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":420}
+{"test":{"id":95,"name":"Volume: test 2 ml > 0.1 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":67,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":421}
+{"testID":95,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":421}
+{"testID":94,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":421}
+{"test":{"id":96,"name":"Volume: test 2 ml >= 0.1 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":70,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":421}
+{"test":{"id":97,"name":"AmountPerKGTime divide by mass","suiteID":6,"groupIDs":[18,19],"metadata":{"skip":false,"skipReason":null},"line":100,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_time_test.dart"},"type":"testStart","time":421}
+{"testID":96,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":422}
+{"test":{"id":98,"name":"Volume: test 0.1 ml < 2 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":74,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":422}
+{"testID":98,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":423}
+{"testID":97,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":423}
+{"test":{"id":99,"name":"Volume: hashcode not equal","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":64,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":423}
+{"suite":{"id":100,"platform":"vm","path":"test/calc/numbers/mass_test.dart"},"type":"suite","time":423}
+{"test":{"id":101,"name":"loading test/calc/numbers/mass_test.dart","suiteID":100,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":423}
+{"testID":99,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":424}
+{"test":{"id":102,"name":"Volume: test 0.2 ml > 0.1 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":67,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":424}
+{"testID":102,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":425}
+{"test":{"id":103,"name":"Volume: test 0.2 ml >= 0.1 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":70,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":425}
+{"testID":103,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":425}
+{"test":{"id":104,"name":"Volume: test 0.1 ml < 0.2 ml","suiteID":2,"groupIDs":[13,14],"metadata":{"skip":false,"skipReason":null},"line":74,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_test.dart"},"type":"testStart","time":426}
+{"testID":104,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":426}
+{"suite":{"id":105,"platform":"vm","path":"test/calc/enum/mass_unit_test.dart"},"type":"suite","time":426}
+{"test":{"id":106,"name":"loading test/calc/enum/mass_unit_test.dart","suiteID":105,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":427}
+{"testID":44,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":490}
+{"group":{"id":107,"suiteID":43,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":8,"line":null,"column":null,"url":null},"type":"group","time":490}
+{"group":{"id":108,"suiteID":43,"parentID":107,"name":"AmountPerKG","metadata":{"skip":false,"skipReason":null},"testCount":8,"line":8,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"group","time":490}
+{"test":{"id":109,"name":"AmountPerKG throws an error if initialized with negative number","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":9,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":490}
+{"testID":109,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":503}
+{"test":{"id":110,"name":"AmountPerKG check the to string method","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":12,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":503}
+{"testID":110,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":513}
+{"test":{"id":111,"name":"AmountPerKG equality false","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":15,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":513}
+{"testID":111,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":514}
+{"test":{"id":112,"name":"AmountPerKG equality true","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":19,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":514}
+{"testID":112,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":515}
+{"test":{"id":113,"name":"AmountPerKG equality true 2","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":23,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":516}
+{"testID":113,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":516}
+{"test":{"id":114,"name":"AmountPerKG hashFunction","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":27,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":517}
+{"testID":114,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":519}
+{"test":{"id":115,"name":"AmountPerKG json round trip","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":31,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":519}
+{"testID":115,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":520}
+{"test":{"id":116,"name":"AmountPerKG bad json","suiteID":43,"groupIDs":[107,108],"metadata":{"skip":false,"skipReason":null},"line":35,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_mass_test.dart"},"type":"testStart","time":521}
+{"testID":116,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":521}
+{"suite":{"id":117,"platform":"vm","path":"test/calc/enum/time_unit_test.dart"},"type":"suite","time":522}
+{"test":{"id":118,"name":"loading test/calc/enum/time_unit_test.dart","suiteID":117,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":522}
+{"testID":91,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":550}
+{"group":{"id":119,"suiteID":90,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":9,"line":null,"column":null,"url":null},"type":"group","time":550}
+{"group":{"id":120,"suiteID":90,"parentID":119,"name":"VolumePerTime","metadata":{"skip":false,"skipReason":null},"testCount":9,"line":9,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"group","time":550}
+{"test":{"id":121,"name":"VolumePerTime invalid json","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":10,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":550}
+{"testID":88,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":556}
+{"group":{"id":122,"suiteID":87,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":21,"line":null,"column":null,"url":null},"type":"group","time":556}
+{"group":{"id":123,"suiteID":87,"parentID":122,"name":"AmountPerMLKG","metadata":{"skip":false,"skipReason":null},"testCount":21,"line":14,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"group","time":556}
+{"test":{"id":124,"name":"AmountPerMLKG throws an error if initialized with negative number","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":15,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":556}
+{"testID":121,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":566}
+{"test":{"id":125,"name":"VolumePerTime json roundTrip","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":35,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":566}
+{"testID":125,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":568}
+{"test":{"id":126,"name":"VolumePerTime hashCode","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":38,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":568}
+{"testID":126,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":571}
+{"test":{"id":127,"name":"VolumePerTime test time conversion","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":41,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":571}
+{"testID":127,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":572}
+{"testID":124,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":573}
+{"test":{"id":128,"name":"VolumePerTime json roundTrip","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":35,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":573}
+{"test":{"id":129,"name":"AmountPerMLKG bad json","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":19,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":573}
+{"testID":128,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":574}
+{"test":{"id":130,"name":"VolumePerTime hashCode","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":38,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":574}
+{"testID":130,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":575}
+{"testID":129,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":575}
+{"test":{"id":131,"name":"VolumePerTime test time conversion","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":41,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":575}
+{"test":{"id":132,"name":"AmountPerMLKG check the to string method","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":23,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":575}
+{"testID":131,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":576}
+{"test":{"id":133,"name":"VolumePerTime test time conversion","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":45,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":576}
+{"testID":132,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":576}
+{"test":{"id":134,"name":"AmountPerMLKG json round trip","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":36,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":576}
+{"testID":134,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":580}
+{"test":{"id":135,"name":"AmountPerMLKG mass multiplication","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":41,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":580}
+{"testID":135,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":581}
+{"test":{"id":136,"name":"AmountPerMLKG Check 5 U/ml/kg >= 5 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":50,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":582}
+{"testID":136,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":582}
+{"test":{"id":137,"name":"AmountPerMLKG json round trip","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":36,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":582}
+{"testID":137,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":583}
+{"test":{"id":138,"name":"AmountPerMLKG mass multiplication","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":41,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":583}
+{"testID":138,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":584}
+{"test":{"id":139,"name":"AmountPerMLKG Check 1 U/ml/kg >= 1 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":50,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":584}
+{"testID":139,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":584}
+{"test":{"id":140,"name":"AmountPerMLKG Check 5 U/ml/kg > 1 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":56,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":585}
+{"testID":133,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":585}
+{"test":{"id":141,"name":"VolumePerTime test time conversion","suiteID":90,"groupIDs":[119,120],"metadata":{"skip":false,"skipReason":null},"line":53,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/volume_per_time_test.dart"},"type":"testStart","time":585}
+{"testID":140,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":586}
+{"test":{"id":142,"name":"AmountPerMLKG Check 5 U/ml/kg > 1 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":59,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":586}
+{"testID":141,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":586}
+{"testID":142,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":587}
+{"test":{"id":143,"name":"AmountPerMLKG Check 5 U/ml/kg > 1 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":62,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":587}
+{"testID":143,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":589}
+{"test":{"id":144,"name":"AmountPerMLKG json round trip","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":36,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":590}
+{"testID":144,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":590}
+{"test":{"id":145,"name":"AmountPerMLKG mass multiplication","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":41,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":590}
+{"testID":145,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":591}
+{"test":{"id":146,"name":"AmountPerMLKG Check 0 U/ml/kg >= 0 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":50,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":591}
+{"testID":146,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":592}
+{"test":{"id":147,"name":"AmountPerMLKG Check 5 U/ml/kg > 0 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":56,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":592}
+{"testID":147,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":593}
+{"test":{"id":148,"name":"AmountPerMLKG Check 5 U/ml/kg > 0 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":59,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":593}
+{"testID":148,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":594}
+{"test":{"id":149,"name":"AmountPerMLKG Check 5 U/ml/kg > 0 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":62,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":594}
+{"testID":149,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":594}
+{"test":{"id":150,"name":"AmountPerMLKG Check 1 U/ml/kg > 0 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":56,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":594}
+{"testID":150,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":595}
+{"test":{"id":151,"name":"AmountPerMLKG Check 1 U/ml/kg > 0 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":59,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":595}
+{"testID":151,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":596}
+{"test":{"id":152,"name":"AmountPerMLKG Check 1 U/ml/kg > 0 U/ml/kg ","suiteID":87,"groupIDs":[122,123],"metadata":{"skip":false,"skipReason":null},"line":62,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_per_volume_mass_test.dart"},"type":"testStart","time":596}
+{"testID":152,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":597}
+{"testID":106,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":616}
+{"group":{"id":153,"suiteID":105,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":32,"line":null,"column":null,"url":null},"type":"group","time":616}
+{"group":{"id":154,"suiteID":105,"parentID":153,"name":"MassUnit","metadata":{"skip":false,"skipReason":null},"testCount":27,"line":13,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"group","time":616}
+{"test":{"id":155,"name":"MassUnit U equals","suiteID":105,"groupIDs":[153,154],"metadata":{"skip":false,"skipReason":null},"line":14,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":617}
+{"testID":118,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":623}
+{"group":{"id":156,"suiteID":117,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":8,"line":null,"column":null,"url":null},"type":"group","time":623}
+{"test":{"id":157,"name":"test conversion from TimeUnit.min to TimeUnit.min","suiteID":117,"groupIDs":[156],"metadata":{"skip":false,"skipReason":null},"line":25,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":623}
+{"testID":155,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":625}
+{"test":{"id":158,"name":"MassUnit U notEquals","suiteID":105,"groupIDs":[153,154],"metadata":{"skip":false,"skipReason":null},"line":17,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":626}
+{"testID":158,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":626}
+{"group":{"id":159,"suiteID":105,"parentID":154,"name":"MassUnit kg:","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":30,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"group","time":627}
+{"test":{"id":160,"name":"MassUnit kg: json roundtrip","suiteID":105,"groupIDs":[153,154,159],"metadata":{"skip":false,"skipReason":null},"line":31,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":627}
+{"testID":160,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":627}
+{"test":{"id":161,"name":"MassUnit kg: test name","suiteID":105,"groupIDs":[153,154,159],"metadata":{"skip":false,"skipReason":null},"line":34,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":628}
+{"testID":161,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":628}
+{"test":{"id":162,"name":"MassUnit kg: test factorNanoGr","suiteID":105,"groupIDs":[153,154,159],"metadata":{"skip":false,"skipReason":null},"line":37,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":628}
+{"testID":162,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":629}
+{"test":{"id":163,"name":"MassUnit kg: hashcode","suiteID":105,"groupIDs":[153,154,159],"metadata":{"skip":false,"skipReason":null},"line":41,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":629}
+{"testID":163,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":630}
+{"group":{"id":164,"suiteID":105,"parentID":154,"name":"MassUnit g:","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":30,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"group","time":630}
+{"test":{"id":165,"name":"MassUnit g: json roundtrip","suiteID":105,"groupIDs":[153,154,164],"metadata":{"skip":false,"skipReason":null},"line":31,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":630}
+{"testID":165,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":631}
+{"test":{"id":166,"name":"MassUnit g: test name","suiteID":105,"groupIDs":[153,154,164],"metadata":{"skip":false,"skipReason":null},"line":34,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":631}
+{"testID":166,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":632}
+{"test":{"id":167,"name":"MassUnit g: test factorNanoGr","suiteID":105,"groupIDs":[153,154,164],"metadata":{"skip":false,"skipReason":null},"line":37,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":632}
+{"testID":167,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":632}
+{"test":{"id":168,"name":"MassUnit g: hashcode","suiteID":105,"groupIDs":[153,154,164],"metadata":{"skip":false,"skipReason":null},"line":41,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":633}
+{"testID":168,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":633}
+{"testID":157,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":633}
+{"group":{"id":169,"suiteID":105,"parentID":154,"name":"MassUnit mg:","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":30,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"group","time":633}
+{"test":{"id":170,"name":"MassUnit mg: json roundtrip","suiteID":105,"groupIDs":[153,154,169],"metadata":{"skip":false,"skipReason":null},"line":31,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":634}
+{"test":{"id":171,"name":"test conversion from TimeUnit.hr to TimeUnit.min","suiteID":117,"groupIDs":[156],"metadata":{"skip":false,"skipReason":null},"line":25,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":634}
+{"testID":170,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":634}
+{"test":{"id":172,"name":"MassUnit mg: test name","suiteID":105,"groupIDs":[153,154,169],"metadata":{"skip":false,"skipReason":null},"line":34,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":634}
+{"testID":171,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":634}
+{"test":{"id":173,"name":"test conversion from TimeUnit.min to TimeUnit.hr","suiteID":117,"groupIDs":[156],"metadata":{"skip":false,"skipReason":null},"line":25,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":635}
+{"testID":172,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":635}
+{"test":{"id":174,"name":"MassUnit mg: test factorNanoGr","suiteID":105,"groupIDs":[153,154,169],"metadata":{"skip":false,"skipReason":null},"line":37,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":635}
+{"testID":173,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":635}
+{"test":{"id":175,"name":"test conversion from TimeUnit.hr to TimeUnit.hr","suiteID":117,"groupIDs":[156],"metadata":{"skip":false,"skipReason":null},"line":25,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":636}
+{"testID":174,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":636}
+{"test":{"id":176,"name":"MassUnit mg: hashcode","suiteID":105,"groupIDs":[153,154,169],"metadata":{"skip":false,"skipReason":null},"line":41,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":636}
+{"testID":175,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":636}
+{"group":{"id":177,"suiteID":117,"parentID":156,"name":"hr:","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":30,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"group","time":636}
+{"test":{"id":178,"name":"hr: json roundtrip","suiteID":117,"groupIDs":[156,177],"metadata":{"skip":false,"skipReason":null},"line":31,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":636}
+{"testID":176,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":636}
+{"group":{"id":179,"suiteID":105,"parentID":154,"name":"MassUnit mcg:","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":30,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"group","time":636}
+{"test":{"id":180,"name":"MassUnit mcg: json roundtrip","suiteID":105,"groupIDs":[153,154,179],"metadata":{"skip":false,"skipReason":null},"line":31,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":636}
+{"testID":178,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":637}
+{"testID":180,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":637}
+{"test":{"id":181,"name":"hr: json from string","suiteID":117,"groupIDs":[156,177],"metadata":{"skip":false,"skipReason":null},"line":34,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":637}
+{"test":{"id":182,"name":"MassUnit mcg: test name","suiteID":105,"groupIDs":[153,154,179],"metadata":{"skip":false,"skipReason":null},"line":34,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":637}
+{"testID":182,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":638}
+{"testID":181,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":638}
+{"test":{"id":183,"name":"MassUnit mcg: test factorNanoGr","suiteID":105,"groupIDs":[153,154,179],"metadata":{"skip":false,"skipReason":null},"line":37,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":638}
+{"group":{"id":184,"suiteID":117,"parentID":156,"name":"min:","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":30,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"group","time":638}
+{"test":{"id":185,"name":"min: json roundtrip","suiteID":117,"groupIDs":[156,184],"metadata":{"skip":false,"skipReason":null},"line":31,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":638}
+{"testID":183,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":638}
+{"test":{"id":186,"name":"MassUnit mcg: hashcode","suiteID":105,"groupIDs":[153,154,179],"metadata":{"skip":false,"skipReason":null},"line":41,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":638}
+{"testID":185,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":639}
+{"test":{"id":187,"name":"min: json from string","suiteID":117,"groupIDs":[156,184],"metadata":{"skip":false,"skipReason":null},"line":34,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/time_unit_test.dart"},"type":"testStart","time":639}
+{"testID":186,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":639}
+{"group":{"id":188,"suiteID":105,"parentID":154,"name":"MassUnit nanogr:","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":30,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"group","time":639}
+{"test":{"id":189,"name":"MassUnit nanogr: json roundtrip","suiteID":105,"groupIDs":[153,154,188],"metadata":{"skip":false,"skipReason":null},"line":31,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":639}
+{"testID":187,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":639}
+{"testID":189,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":640}
+{"test":{"id":190,"name":"MassUnit nanogr: test name","suiteID":105,"groupIDs":[153,154,188],"metadata":{"skip":false,"skipReason":null},"line":34,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":640}
+{"testID":190,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":640}
+{"test":{"id":191,"name":"MassUnit nanogr: test factorNanoGr","suiteID":105,"groupIDs":[153,154,188],"metadata":{"skip":false,"skipReason":null},"line":37,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":641}
+{"testID":191,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":641}
+{"test":{"id":192,"name":"MassUnit nanogr: hashcode","suiteID":105,"groupIDs":[153,154,188],"metadata":{"skip":false,"skipReason":null},"line":41,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":642}
+{"testID":192,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":642}
+{"group":{"id":193,"suiteID":105,"parentID":154,"name":"MassUnit U(factorNanoGr: 11):","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":30,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"group","time":642}
+{"test":{"id":194,"name":"MassUnit U(factorNanoGr: 11): json roundtrip","suiteID":105,"groupIDs":[153,154,193],"metadata":{"skip":false,"skipReason":null},"line":31,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":642}
+{"testID":194,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":644}
+{"test":{"id":195,"name":"MassUnit U(factorNanoGr: 11): test name","suiteID":105,"groupIDs":[153,154,193],"metadata":{"skip":false,"skipReason":null},"line":34,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":644}
+{"testID":195,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":644}
+{"test":{"id":196,"name":"MassUnit U(factorNanoGr: 11): test factorNanoGr","suiteID":105,"groupIDs":[153,154,193],"metadata":{"skip":false,"skipReason":null},"line":37,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":644}
+{"testID":196,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":645}
+{"test":{"id":197,"name":"MassUnit U(factorNanoGr: 11): hashcode","suiteID":105,"groupIDs":[153,154,193],"metadata":{"skip":false,"skipReason":null},"line":41,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":645}
+{"testID":101,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":658}
+{"group":{"id":198,"suiteID":100,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":145,"line":null,"column":null,"url":null},"type":"group","time":658}
+{"group":{"id":199,"suiteID":100,"parentID":198,"name":"Amount:","metadata":{"skip":false,"skipReason":null},"testCount":145,"line":17,"column":3,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"group","time":658}
+{"test":{"id":200,"name":"Amount: bad json test","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":18,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":658}
+{"testID":197,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":658}
+{"test":{"id":201,"name":"MassUnit throws an error if trying to create a ConcentrationUnit from an invalid string","suiteID":105,"groupIDs":[153,154],"metadata":{"skip":false,"skipReason":null},"line":46,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":659}
+{"testID":201,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":660}
+{"test":{"id":202,"name":"test conversion from mg to mg","suiteID":105,"groupIDs":[153],"metadata":{"skip":false,"skipReason":null},"line":66,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":660}
+{"testID":202,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":661}
+{"test":{"id":203,"name":"test conversion from mg to mcg","suiteID":105,"groupIDs":[153],"metadata":{"skip":false,"skipReason":null},"line":66,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":661}
+{"testID":203,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":661}
+{"test":{"id":204,"name":"test conversion from mcg to nanogr","suiteID":105,"groupIDs":[153],"metadata":{"skip":false,"skipReason":null},"line":66,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":661}
+{"testID":204,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":662}
+{"test":{"id":205,"name":"test conversion from nanogr to mcg","suiteID":105,"groupIDs":[153],"metadata":{"skip":false,"skipReason":null},"line":66,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":662}
+{"testID":205,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":662}
+{"test":{"id":206,"name":"test conversion from U to U","suiteID":105,"groupIDs":[153],"metadata":{"skip":false,"skipReason":null},"line":66,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/enum/mass_unit_test.dart"},"type":"testStart","time":662}
+{"testID":206,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":663}
+{"testID":200,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":667}
+{"test":{"id":207,"name":"Amount: bad json test","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":21,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":667}
+{"testID":207,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":668}
+{"test":{"id":208,"name":"Amount: throws an error if initialized with negative number","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":24,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":668}
+{"testID":208,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":669}
+{"test":{"id":209,"name":"Amount: check the to string method","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":27,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":669}
+{"testID":209,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":670}
+{"test":{"id":210,"name":"Amount: equality different MassUnit","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":30,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":670}
+{"testID":210,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":670}
+{"test":{"id":211,"name":"Amount: equality different value","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":32,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":671}
+{"testID":211,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":671}
+{"test":{"id":212,"name":"Amount: equality true","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":34,"column":5,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":671}
+{"testID":212,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":672}
+{"test":{"id":213,"name":"Amount: Test convertTo from 5 mg to mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":45,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":672}
+{"testID":213,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":672}
+{"test":{"id":214,"name":"Amount: json roundtrip","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":48,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":672}
+{"testID":214,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":673}
+{"test":{"id":215,"name":"Amount: Test convertTo from 7 mcg to mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":45,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":673}
+{"testID":215,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":674}
+{"test":{"id":216,"name":"Amount: json roundtrip","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":48,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":674}
+{"testID":216,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":674}
+{"test":{"id":217,"name":"Amount: Test convertTo from 9 nanogr to mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":45,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":675}
+{"testID":217,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":675}
+{"test":{"id":218,"name":"Amount: json roundtrip","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":48,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":675}
+{"testID":218,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":675}
+{"test":{"id":219,"name":"Amount: Test convertTo from 6,000,000 nanogr to mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":45,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":676}
+{"testID":219,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":676}
+{"test":{"id":220,"name":"Amount: json roundtrip","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":48,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":676}
+{"testID":220,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":677}
+{"test":{"id":221,"name":"Amount: Test dividing 5 mg by 5 mg/ml","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":81,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":677}
+{"testID":221,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":678}
+{"test":{"id":222,"name":"Amount: Test dividing 5 mg/ml by 5 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":678}
+{"testID":222,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":679}
+{"test":{"id":223,"name":"Amount: Test dividing 7 mcg by 0.007 mg/ml","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":81,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":679}
+{"testID":223,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":679}
+{"test":{"id":224,"name":"Amount: Test dividing 0.007 mg/ml by 7 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":679}
+{"testID":224,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":680}
+{"test":{"id":225,"name":"Amount: Test dividing 7 mcg by 0.007 mg/ml","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":81,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":680}
+{"testID":225,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":680}
+{"test":{"id":226,"name":"Amount: Test dividing 0.007 mg/ml by 7 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":680}
+{"testID":226,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":681}
+{"test":{"id":227,"name":"Amount: Test dividing 60 nanogr by 0.004 mcg/ml","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":81,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":681}
+{"testID":227,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":681}
+{"test":{"id":228,"name":"Amount: Test dividing 0.004 mcg/ml by 60 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":681}
+{"testID":228,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":682}
+{"test":{"id":229,"name":"Amount: Test dividing 60,000,000 nanogr by 6 mg/ml","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":81,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":682}
+{"testID":229,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":682}
+{"test":{"id":230,"name":"Amount: Test dividing 6 mg/ml by 60,000,000 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":83,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":682}
+{"testID":230,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":682}
+{"test":{"id":231,"name":"Amount: test 1 kg >= 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":683}
+{"testID":231,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":683}
+{"test":{"id":232,"name":"Amount: test 999 g >= 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":683}
+{"testID":232,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":683}
+{"test":{"id":233,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":684}
+{"testID":233,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":685}
+{"test":{"id":234,"name":"Amount: test 1 kg > 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":685}
+{"testID":234,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":685}
+{"test":{"id":235,"name":"Amount: test 1 kg >= 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":685}
+{"testID":235,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":686}
+{"test":{"id":236,"name":"Amount: test 999 g < 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":686}
+{"testID":236,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":686}
+{"test":{"id":237,"name":"Amount: test 1 g >= 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":687}
+{"testID":237,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":687}
+{"test":{"id":238,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":687}
+{"testID":238,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":687}
+{"test":{"id":239,"name":"Amount: test 1 kg > 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":688}
+{"testID":239,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":688}
+{"test":{"id":240,"name":"Amount: test 1 kg >= 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":688}
+{"testID":240,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":688}
+{"test":{"id":241,"name":"Amount: test 1 g < 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":689}
+{"testID":241,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":689}
+{"test":{"id":242,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":690}
+{"testID":242,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":690}
+{"test":{"id":243,"name":"Amount: test 999 g > 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":690}
+{"testID":243,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":691}
+{"test":{"id":244,"name":"Amount: test 999 g >= 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":691}
+{"testID":244,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":691}
+{"test":{"id":245,"name":"Amount: test 1 g < 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":691}
+{"testID":245,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":692}
+{"test":{"id":246,"name":"Amount: test 999 mg >= 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":692}
+{"testID":246,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":692}
+{"test":{"id":247,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":692}
+{"testID":247,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":693}
+{"test":{"id":248,"name":"Amount: test 1 kg > 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":693}
+{"testID":248,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":693}
+{"test":{"id":249,"name":"Amount: test 1 kg >= 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":693}
+{"testID":249,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":694}
+{"test":{"id":250,"name":"Amount: test 999 mg < 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":694}
+{"testID":250,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":694}
+{"test":{"id":251,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":694}
+{"testID":251,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":695}
+{"test":{"id":252,"name":"Amount: test 999 g > 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":695}
+{"testID":252,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":695}
+{"test":{"id":253,"name":"Amount: test 999 g >= 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":695}
+{"testID":253,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":696}
+{"test":{"id":254,"name":"Amount: test 999 mg < 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":696}
+{"testID":254,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":696}
+{"test":{"id":255,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":696}
+{"testID":255,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":696}
+{"test":{"id":256,"name":"Amount: test 1 g > 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":696}
+{"testID":256,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":697}
+{"test":{"id":257,"name":"Amount: test 1 g >= 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":697}
+{"testID":257,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":697}
+{"test":{"id":258,"name":"Amount: test 999 mg < 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":698}
+{"testID":258,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":698}
+{"test":{"id":259,"name":"Amount: test 1 mg >= 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":698}
+{"testID":259,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":698}
+{"test":{"id":260,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":699}
+{"testID":260,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":699}
+{"test":{"id":261,"name":"Amount: test 1 kg > 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":699}
+{"testID":261,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":700}
+{"test":{"id":262,"name":"Amount: test 1 kg >= 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":700}
+{"testID":262,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":700}
+{"test":{"id":263,"name":"Amount: test 1 mg < 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":700}
+{"testID":263,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":701}
+{"test":{"id":264,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":701}
+{"testID":264,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":702}
+{"test":{"id":265,"name":"Amount: test 999 g > 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":702}
+{"testID":265,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":702}
+{"test":{"id":266,"name":"Amount: test 999 g >= 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":703}
+{"testID":266,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":703}
+{"test":{"id":267,"name":"Amount: test 1 mg < 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":704}
+{"testID":267,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":704}
+{"test":{"id":268,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":704}
+{"testID":268,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":705}
+{"test":{"id":269,"name":"Amount: test 1 g > 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":705}
+{"testID":269,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":706}
+{"test":{"id":270,"name":"Amount: test 1 g >= 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":706}
+{"testID":270,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":706}
+{"test":{"id":271,"name":"Amount: test 1 mg < 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":707}
+{"testID":271,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":707}
+{"test":{"id":272,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":708}
+{"testID":272,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":708}
+{"test":{"id":273,"name":"Amount: test 999 mg > 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":709}
+{"testID":273,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":709}
+{"test":{"id":274,"name":"Amount: test 999 mg >= 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":709}
+{"testID":274,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":710}
+{"test":{"id":275,"name":"Amount: test 1 mg < 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":710}
+{"testID":275,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":711}
+{"test":{"id":276,"name":"Amount: test 999 mcg >= 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":711}
+{"testID":276,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":711}
+{"test":{"id":277,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":712}
+{"testID":277,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":712}
+{"test":{"id":278,"name":"Amount: test 1 kg > 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":712}
+{"testID":278,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":713}
+{"test":{"id":279,"name":"Amount: test 1 kg >= 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":713}
+{"testID":279,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":714}
+{"test":{"id":280,"name":"Amount: test 999 mcg < 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":714}
+{"testID":280,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":715}
+{"test":{"id":281,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":715}
+{"testID":281,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":716}
+{"test":{"id":282,"name":"Amount: test 999 g > 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":716}
+{"testID":282,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":716}
+{"test":{"id":283,"name":"Amount: test 999 g >= 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":717}
+{"testID":283,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":717}
+{"test":{"id":284,"name":"Amount: test 999 mcg < 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":717}
+{"testID":284,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":717}
+{"test":{"id":285,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":718}
+{"testID":285,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":718}
+{"test":{"id":286,"name":"Amount: test 1 g > 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":718}
+{"testID":286,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":719}
+{"test":{"id":287,"name":"Amount: test 1 g >= 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":719}
+{"testID":287,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":720}
+{"test":{"id":288,"name":"Amount: test 999 mcg < 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":720}
+{"testID":288,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":720}
+{"test":{"id":289,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":720}
+{"testID":289,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":722}
+{"test":{"id":290,"name":"Amount: test 999 mg > 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":722}
+{"testID":290,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":723}
+{"test":{"id":291,"name":"Amount: test 999 mg >= 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":723}
+{"testID":291,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":725}
+{"test":{"id":292,"name":"Amount: test 999 mcg < 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":725}
+{"testID":292,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":726}
+{"test":{"id":293,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":727}
+{"testID":293,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":728}
+{"test":{"id":294,"name":"Amount: test 1 mg > 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":728}
+{"testID":294,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":729}
+{"test":{"id":295,"name":"Amount: test 1 mg >= 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":729}
+{"testID":295,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":730}
+{"test":{"id":296,"name":"Amount: test 999 mcg < 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":731}
+{"testID":296,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":731}
+{"test":{"id":297,"name":"Amount: test 1 mcg >= 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":731}
+{"testID":297,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":732}
+{"test":{"id":298,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":732}
+{"testID":298,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":732}
+{"test":{"id":299,"name":"Amount: test 1 kg > 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":732}
+{"testID":299,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":733}
+{"test":{"id":300,"name":"Amount: test 1 kg >= 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":733}
+{"testID":300,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":734}
+{"test":{"id":301,"name":"Amount: test 1 mcg < 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":734}
+{"testID":301,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":735}
+{"test":{"id":302,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":735}
+{"testID":302,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":736}
+{"test":{"id":303,"name":"Amount: test 999 g > 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":736}
+{"testID":303,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":736}
+{"test":{"id":304,"name":"Amount: test 999 g >= 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":736}
+{"testID":304,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":737}
+{"test":{"id":305,"name":"Amount: test 1 mcg < 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":737}
+{"testID":305,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":737}
+{"test":{"id":306,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":738}
+{"testID":306,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":738}
+{"test":{"id":307,"name":"Amount: test 1 g > 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":738}
+{"testID":307,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":738}
+{"test":{"id":308,"name":"Amount: test 1 g >= 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":739}
+{"testID":308,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":739}
+{"test":{"id":309,"name":"Amount: test 1 mcg < 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":739}
+{"testID":309,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":740}
+{"test":{"id":310,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":740}
+{"testID":310,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":740}
+{"test":{"id":311,"name":"Amount: test 999 mg > 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":740}
+{"testID":311,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":741}
+{"test":{"id":312,"name":"Amount: test 999 mg >= 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":741}
+{"testID":312,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":741}
+{"test":{"id":313,"name":"Amount: test 1 mcg < 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":742}
+{"testID":313,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":742}
+{"test":{"id":314,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":742}
+{"testID":314,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":743}
+{"test":{"id":315,"name":"Amount: test 1 mg > 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":743}
+{"testID":315,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":743}
+{"test":{"id":316,"name":"Amount: test 1 mg >= 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":743}
+{"testID":316,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":744}
+{"test":{"id":317,"name":"Amount: test 1 mcg < 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":744}
+{"testID":317,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":744}
+{"test":{"id":318,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":745}
+{"testID":318,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":745}
+{"test":{"id":319,"name":"Amount: test 999 mcg > 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":745}
+{"testID":319,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":745}
+{"test":{"id":320,"name":"Amount: test 999 mcg >= 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":746}
+{"testID":320,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":746}
+{"test":{"id":321,"name":"Amount: test 1 mcg < 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":746}
+{"testID":321,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":746}
+{"test":{"id":322,"name":"Amount: test 999 nanogr >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":97,"column":7,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":747}
+{"testID":322,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":747}
+{"test":{"id":323,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":747}
+{"testID":323,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":747}
+{"test":{"id":324,"name":"Amount: test 1 kg > 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":748}
+{"testID":324,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":748}
+{"test":{"id":325,"name":"Amount: test 1 kg >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":748}
+{"testID":325,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":748}
+{"test":{"id":326,"name":"Amount: test 999 nanogr < 1 kg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":749}
+{"testID":326,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":749}
+{"test":{"id":327,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":749}
+{"testID":327,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":749}
+{"test":{"id":328,"name":"Amount: test 999 g > 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":750}
+{"testID":328,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":750}
+{"test":{"id":329,"name":"Amount: test 999 g >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":750}
+{"testID":329,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":750}
+{"test":{"id":330,"name":"Amount: test 999 nanogr < 999 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":751}
+{"testID":330,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":751}
+{"test":{"id":331,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":751}
+{"testID":331,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":751}
+{"test":{"id":332,"name":"Amount: test 1 g > 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":751}
+{"testID":332,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":752}
+{"test":{"id":333,"name":"Amount: test 1 g >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":752}
+{"testID":333,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":752}
+{"test":{"id":334,"name":"Amount: test 999 nanogr < 1 g","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":752}
+{"testID":334,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":753}
+{"test":{"id":335,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":753}
+{"testID":335,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":753}
+{"test":{"id":336,"name":"Amount: test 999 mg > 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":753}
+{"testID":336,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":754}
+{"test":{"id":337,"name":"Amount: test 999 mg >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":754}
+{"testID":337,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":754}
+{"test":{"id":338,"name":"Amount: test 999 nanogr < 999 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":754}
+{"testID":338,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":754}
+{"test":{"id":339,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":755}
+{"testID":339,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":755}
+{"test":{"id":340,"name":"Amount: test 1 mg > 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":755}
+{"testID":340,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":755}
+{"test":{"id":341,"name":"Amount: test 1 mg >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":755}
+{"testID":341,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":756}
+{"test":{"id":342,"name":"Amount: test 999 nanogr < 1 mg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":756}
+{"testID":342,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":756}
+{"test":{"id":343,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":756}
+{"testID":343,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":757}
+{"test":{"id":344,"name":"Amount: test 999 mcg > 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":757}
+{"testID":344,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":757}
+{"test":{"id":345,"name":"Amount: test 999 mcg >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":757}
+{"testID":345,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":758}
+{"test":{"id":346,"name":"Amount: test 999 nanogr < 999 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":758}
+{"testID":346,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":758}
+{"test":{"id":347,"name":"Amount: hashcode not equal","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":103,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":758}
+{"testID":347,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":759}
+{"test":{"id":348,"name":"Amount: test 1 mcg > 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":106,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":759}
+{"testID":348,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":759}
+{"test":{"id":349,"name":"Amount: test 1 mcg >= 999 nanogr","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":109,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":759}
+{"testID":349,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":760}
+{"test":{"id":350,"name":"Amount: test 999 nanogr < 1 mcg","suiteID":100,"groupIDs":[198,199],"metadata":{"skip":false,"skipReason":null},"line":113,"column":9,"url":"file:///Users/bent/Documents/GitHub/unit-calc/test/calc/numbers/mass_test.dart"},"type":"testStart","time":760}
+{"testID":350,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":760}
+{"success":true,"type":"done","time":764}
