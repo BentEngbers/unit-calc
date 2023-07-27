@@ -58,6 +58,9 @@ jobs:
         with:
           path: ${{env.PUB_CACHE}}
           key: ${{ runner.os }}-${{env.DART_HOME}}
-
+      - name: get dependencies
+        run: dart pub get
+      - name: REMOVE
+        run: ls ${{env.PUB_CACHE}}
       - name: analyse code
         run: dart format . --set-exit-if-changed
