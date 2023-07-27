@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  report:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -17,8 +17,10 @@ jobs:
 
       - name: install dart
         uses: dart-lang/setup-dart@v1
+
       - name: run tests
-        run: dart test --file-reporter="json:test-results.json"
+        run: dart test --file-reporter="json:test-results.json" --coverage=./coverage
+
       - name: Cache pub dependencies
         id: cache-pub-dependencies
         uses: actions/cache@v3
@@ -34,3 +36,10 @@ jobs:
           path: ./test-results.json # Path to test results
           reporter: dart-json # Format of test results
 
+      - name: gen coverage
+        run: dart run coverage:format_coverage --lcov --in coverage --out ./coverage/lcov.info
+
+      - uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          delete-old-comments: true
+          lcov-file: ./coverage/lcov.info
