@@ -10,6 +10,7 @@ jobs:
       pull-requests: write
       contents: write
       actions: write
+      checks: write
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
