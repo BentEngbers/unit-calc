@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/numbers/mass_per_mass_time.dart';
 
 import 'package:unit_calc/src/calc/numbers/number.dart';
 
@@ -13,6 +12,11 @@ final class MassPerTime implements Number {
   final MassUnit massUnit;
   const MassPerTime(this._value, this.massUnit, this.perTimeUnit)
       : assert(_value >= 0);
+
+  const MassPerTime.zero([MassUnit? massUnit, TimeUnit? perTimeUnit])
+      : _value = 0,
+        massUnit = massUnit ?? kiloGram,
+        perTimeUnit = perTimeUnit ?? TimeUnit.seconds;
 
   @override
   bool operator ==(Object other) =>
@@ -52,7 +56,7 @@ final class MassPerTime implements Number {
         perTimeUnit,
       );
   MassPerTime _toTimeUnit(TimeUnit perTimeUnit) => MassPerTime(
-        _value *
+        _value /
             this.perTimeUnit.convertFactor(
                   toTime: perTimeUnit,
                 ),
@@ -60,16 +64,16 @@ final class MassPerTime implements Number {
         perTimeUnit,
       );
 
-  MassPerTime as({MassUnit? massUnit, TimeUnit? perTimeUnit}) =>
+  MassPerTime as([MassUnit? massUnit, TimeUnit? perTimeUnit]) =>
       _toMassUnit(massUnit ?? this.massUnit)
           ._toTimeUnit(perTimeUnit ?? this.perTimeUnit);
 
-  num asNumber({MassUnit? massUnit, TimeUnit? perTimeUnit}) =>
-      as(massUnit: massUnit, perTimeUnit: perTimeUnit)._value;
+  num asNumber([MassUnit? massUnit, TimeUnit? perTimeUnit]) =>
+      as(massUnit, perTimeUnit)._value;
 
   VolumePerTime operator /(MassPerVolume volume) => VolumePerTime(
-        asNumber(massUnit: volume.massUnit) /
-            volume.asNumber(volumeUnit: volume.volumeUnit),
+        asNumber(volume.massUnit) /
+            volume.asNumber(volume.massUnit, volume.volumeUnit),
         volume.volumeUnit,
         perTimeUnit,
       );

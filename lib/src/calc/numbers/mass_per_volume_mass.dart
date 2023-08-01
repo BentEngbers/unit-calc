@@ -77,14 +77,14 @@ class MassPerVolumeMass implements Number {
       );
 
   MassPerVolumeMass _toPerMassUnit(MassUnit toMass) => MassPerVolumeMass(
-        _value * perMassUnit.convertFactor(to: toMass),
+        _value / perMassUnit.convertFactor(to: toMass),
         toMass,
         perVolumeUnit,
         perMassUnit,
       );
 
   MassPerVolumeMass _toVolumeUnit(VolumeUnit toVolume) => MassPerVolumeMass(
-        _value * perVolumeUnit.convertFactor(to: toVolume),
+        _value / perVolumeUnit.convertFactor(to: toVolume),
         massUnit,
         perVolumeUnit,
         perMassUnit,

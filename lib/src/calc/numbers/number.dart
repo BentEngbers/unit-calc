@@ -1,7 +1,9 @@
+import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 
 @immutable
+@JsonSerializable(explicitToJson: true)
 abstract interface class Number {
   @override
   String toString();

@@ -9,7 +9,7 @@ import 'package:unit_calc/src/calc/utils.dart';
 @immutable
 
 /// An amount of mass divided by a mass unit per time unit\
-/// e.g. 5 mg / (kg * hour)
+/// Example: 5 mg/kg/hour
 class MassPerMassTime implements Number {
   final num _value;
   final MassUnit massUnit;
@@ -20,10 +20,10 @@ class MassPerMassTime implements Number {
     this.massUnit,
     this.perMassUnit,
     this.perTimeUnit,
-  ) : assert(_value > 0);
+  ) : assert(_value >= 0);
   const MassPerMassTime.perKg(this._value, this.massUnit, this.perTimeUnit)
       : perMassUnit = kiloGram,
-        assert(_value > 0);
+        assert(_value >= 0);
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
@@ -77,14 +77,14 @@ class MassPerMassTime implements Number {
       );
 
   MassPerMassTime _toPerMassUnit(MassUnit toPerMass) => MassPerMassTime(
-        _value * perMassUnit.convertFactor(to: toPerMass),
+        _value / perMassUnit.convertFactor(to: toPerMass),
         massUnit,
         toPerMass,
         perTimeUnit,
       );
 
-  MassPerMassTime _toTimeUnit(TimeUnit toPerTime) => MassPerMassTime(
-        _value *
+  MassPerMassTime _toPerTimeUnit(TimeUnit toPerTime) => MassPerMassTime(
+        _value /
             perTimeUnit.convertFactor(
               toTime: toPerTime,
             ),
@@ -100,7 +100,7 @@ class MassPerMassTime implements Number {
   }) =>
       _toMassUnit(massUnit ?? this.massUnit)
           ._toPerMassUnit(perMassUnit ?? this.perMassUnit)
-          ._toTimeUnit(perTimeUnit ?? this.perTimeUnit);
+          ._toPerTimeUnit(perTimeUnit ?? this.perTimeUnit);
 
   num asNumber({
     MassUnit? massUnit,

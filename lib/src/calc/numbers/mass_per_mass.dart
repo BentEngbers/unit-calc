@@ -20,13 +20,13 @@ class MassPerMass implements Number {
     this._value,
     this.massUnit,
     this.perMassUnit,
-  ) : assert(_value > 0);
+  ) : assert(_value >= 0);
 
   const MassPerMass.perKg(
     this._value,
     this.massUnit,
   )   : perMassUnit = kiloGram,
-        assert(_value > 0);
+        assert(_value >= 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perMassUnit.displayName}";
@@ -64,7 +64,7 @@ class MassPerMass implements Number {
       );
 
   MassPerMass _toPerMassUnit(MassUnit toPerMass) => MassPerMass(
-        _value * perMassUnit.convertFactor(to: toPerMass),
+        _value / perMassUnit.convertFactor(to: toPerMass),
         massUnit,
         toPerMass,
       );

@@ -17,8 +17,8 @@ void main() {
   const hr = TimeUnit.hr;
   const timeTests = <_TimeUnitConversionTestCase>[
     (unit1: min, unit2: min, value: 1),
-    (unit1: hr, unit2: min, value: 1 / 60),
-    (unit1: min, unit2: hr, value: 60),
+    (unit1: hr, unit2: min, value: 60),
+    (unit1: min, unit2: hr, value: 1 / 60),
     (unit1: hr, unit2: hr, value: 1),
   ];
   for (final tuple in timeTests) {

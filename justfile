@@ -13,4 +13,4 @@ coverage-html: test-coverage
 
 
 auto-refresh-coverage: 
-    watchexec --restart  --exts dart just refresh-coverage
+    watchexec --restart  --exts dart "just coverage-html"

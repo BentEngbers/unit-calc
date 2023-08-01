@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/unit_calc.dart';
@@ -13,11 +12,16 @@ class MassPerVolume implements Number {
   const MassPerVolume(this._value, this.massUnit, this.volumeUnit)
       : assert(_value >= 0);
 
+  const MassPerVolume.zero([MassUnit? massUnit, VolumeUnit? volumeUnit])
+      : _value = 0,
+        massUnit = massUnit ?? kiloGram,
+        volumeUnit = volumeUnit ?? VolumeUnit.ml;
+
   Mass operator *(Volume volume) =>
       Mass(volume.asNumber(volume.unit) * _value, massUnit);
 
   MassPerTime multiply(VolumePerTime volumePerTime) => MassPerTime(
-        _value * volumePerTime.asNumber(volumeUnit: volumeUnit),
+        _value * volumePerTime.asNumber(volumeUnit),
         massUnit,
         volumePerTime.timeUnit,
       );
@@ -28,18 +32,24 @@ class MassPerVolume implements Number {
         volumeUnit,
       );
 
-  MassPerVolume _toVolumeUnit(VolumeUnit toVolume) => MassPerVolume(
-        _value * volumeUnit.convertFactor(to: toVolume),
+  MassPerVolume _toPerVolumeUnit(VolumeUnit toVolume) => MassPerVolume(
+        _value / volumeUnit.convertFactor(to: toVolume),
         massUnit,
         toVolume,
       );
 
-  MassPerVolume as({VolumeUnit? volumeUnit, MassUnit? massUnit}) =>
+  MassPerVolume as(
+    MassUnit? massUnit,
+    VolumeUnit? volumeUnit,
+  ) =>
       _toMassUnit(massUnit ?? this.massUnit)
-          ._toVolumeUnit(volumeUnit ?? this.volumeUnit);
+          ._toPerVolumeUnit(volumeUnit ?? this.volumeUnit);
 
-  num asNumber({VolumeUnit? volumeUnit, MassUnit? massUnit}) =>
-      as(volumeUnit: volumeUnit, massUnit: massUnit)._value;
+  num asNumber([
+    MassUnit? massUnit,
+    VolumeUnit? volumeUnit,
+  ]) =>
+      as(massUnit, volumeUnit)._value;
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) {
@@ -65,21 +75,22 @@ class MassPerVolume implements Number {
       identical(this, other) ||
       other is MassPerVolume &&
           runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) ==
-              other.asNumber();
+          asNumber(other.massUnit, other.volumeUnit) == other.asNumber();
 
   bool operator >(MassPerVolume other) =>
-      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
-      other.asNumber();
+      asNumber(other.massUnit, other.volumeUnit) > other.asNumber();
 
   bool operator <(MassPerVolume other) =>
-      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) <
-      other.asNumber();
+      asNumber(other.massUnit, other.volumeUnit) < other.asNumber();
 
   bool operator >=(MassPerVolume other) =>
       identical(this, other) ||
-      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >=
-          other.asNumber();
+      asNumber(other.massUnit, other.volumeUnit) >= other.asNumber();
+
+  bool operator <=(MassPerVolume other) =>
+      identical(this, other) ||
+      asNumber(other.massUnit, other.volumeUnit) <= other.asNumber();
+
   @override
   String toString() => toDisplayString();
 

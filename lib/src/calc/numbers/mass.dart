@@ -17,6 +17,14 @@ class Mass implements Number {
       : unit = kiloGram,
         assert(_value >= 0);
 
+  const Mass.milliGram(this._value)
+      : unit = milliGram,
+        assert(_value >= 0);
+
+  const Mass.zero([MassUnit? unit])
+      : _value = 0,
+        unit = unit ?? kiloGram;
+
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
@@ -36,7 +44,10 @@ class Mass implements Number {
         asNumber(concentration.massUnit) / concentration.asNumber(),
         concentration.volumeUnit,
       );
-
+  Mass operator +(Mass other) =>
+      Mass(asNumber(other.unit) + other._value, other.unit);
+  Mass operator -(Mass other) =>
+      Mass(asNumber(other.unit) - other._value, other.unit);
   @override
   String toJson() => "$_value ${unit.toJson()}";
 
@@ -65,6 +76,9 @@ class Mass implements Number {
   bool operator >=(Mass other) =>
       identical(this, other) ||
       asNumber(other.unit) >= other.asNumber(other.unit);
+  bool operator <=(Mass other) =>
+      identical(this, other) ||
+      asNumber(other.unit) <= other.asNumber(other.unit);
 
   @override
   int get hashCode => Object.hash(_value, unit);

@@ -1,13 +1,14 @@
 enum TimeUnit {
-  min(1, "min"),
-  hr(60, "hr");
+  seconds(1, "seconds"),
+  min(60, "min"),
+  hr(60 * 60, "hr");
 
-  final int factorMin;
+  final int factorSeconds;
   final String displayName;
-  const TimeUnit(this.factorMin, this.displayName);
+  const TimeUnit(this.factorSeconds, this.displayName);
 
   double convertFactor({required TimeUnit toTime}) =>
-      toTime.factorMin / factorMin;
+      factorSeconds / toTime.factorSeconds;
 
   String toJson() => name;
 

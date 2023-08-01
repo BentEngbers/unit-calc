@@ -74,7 +74,7 @@ void main() {
     test("roundTrip json", () {
       const massPerTime = MassPerTime(60, kiloGram, TimeUnit.min);
       expect(
-        massPerTime.asNumber(massUnit: gram, perTimeUnit: TimeUnit.hr),
+        massPerTime.asNumber(gram, TimeUnit.hr),
         equals(3600000),
       );
     });

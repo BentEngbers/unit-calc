@@ -43,7 +43,7 @@ void main() {
       });
       test("test time conversion", () {
         expect(
-          val.asNumber(timeUnit: unit),
+          val.asNumber(VolumeUnit.ml, unit),
           VolumePerTime.fromJson(result).asNumber(),
         );
       });
@@ -54,7 +54,8 @@ void main() {
         VolumeUnit.ml,
         TimeUnit.min,
       );
-      expect(volumePerTime.as(timeUnit: TimeUnit.hr).toString(), "120 ml/hr");
+      expect(
+          volumePerTime.as(VolumeUnit.ml, TimeUnit.hr).toString(), "120 ml/hr");
     });
     test("test time conversion", () {
       const volumePerTime = VolumePerTime(
@@ -62,7 +63,8 @@ void main() {
         VolumeUnit.ml,
         TimeUnit.hr,
       );
-      expect(volumePerTime.as(timeUnit: TimeUnit.hr).toString(), "10 ml/hr");
+      expect(
+          volumePerTime.as(VolumeUnit.ml, TimeUnit.hr).toString(), "10 ml/hr");
     });
   });
 }
