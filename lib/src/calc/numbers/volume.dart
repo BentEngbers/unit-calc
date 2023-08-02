@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 import 'number.dart';
 
@@ -65,4 +66,6 @@ final class Volume implements Number {
 
   @override
   String toJson() => "$_value ${unit.toJson()}";
+
+  Mass multiplyWithDilution(MassPerVolume dilution) => dilution * this;
 }

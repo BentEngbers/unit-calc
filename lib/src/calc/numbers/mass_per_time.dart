@@ -84,4 +84,6 @@ final class MassPerTime implements Number {
         patientWeight.unit,
         perTimeUnit,
       );
+  Mass multiplyByTime(Time time) => Mass.milliGram(
+      asNumber(milliGram, TimeUnit.hr) * time.asNumber(TimeUnit.hr));
 }

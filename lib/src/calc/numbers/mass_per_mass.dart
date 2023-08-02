@@ -2,6 +2,7 @@ import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 @immutable
 
@@ -75,4 +76,12 @@ class MassPerMass implements Number {
 
   num asNumber({MassUnit? massUnit, MassUnit? perMassUnit}) =>
       as(massUnit: massUnit, perMassUnit: perMassUnit)._value;
+
+  Mass multiplyWithMass(Mass mass) {
+    // (mg / kg) * kg = mg
+    return Mass.milliGram(
+      asNumber(massUnit: milliGram, perMassUnit: kiloGram) *
+          mass.asNumber(kiloGram),
+    );
+  }
 }

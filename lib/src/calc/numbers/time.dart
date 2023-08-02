@@ -33,7 +33,7 @@ class Time implements Number, Comparable<Time> {
   num asNumber([TimeUnit? toTime]) => as(toTime)._value;
   Time operator -(Time other) =>
       Time(asNumber() - other.asNumber(unit), other.unit);
-      
+
   Time operator +(Time other) =>
       Time(asNumber() + other.asNumber(unit), other.unit);
 
@@ -72,4 +72,26 @@ class Time implements Number, Comparable<Time> {
 
   @override
   int get hashCode => Object.hash(_value, unit);
+
+  String get asHHmmSS {
+    final fullHours = asNumber(TimeUnit.hr).floor();
+    final fullMinutes = (asNumber(TimeUnit.min) % 60).floor();
+    final fullSeconds = (asNumber(TimeUnit.seconds) % 60).floor();
+
+    final hourString = fullHours < 10 ? "0$fullHours" : "$fullHours";
+    final minutesString = fullMinutes < 10 ? "0$fullMinutes" : "$fullMinutes";
+    final secondsString = fullSeconds < 10 ? "0$fullSeconds" : "$fullSeconds";
+    return '$hourString:$minutesString:$secondsString';
+  }
+
+  String get asHHmmSS_short {
+    final hhmmss = asHHmmSS;
+    return hhmmss.startsWith("00:") ? hhmmss.substring(3) : hhmmss;
+  }
+
+  ///Returns the amount of complete seconds in [Time]
+  int get toFullSeconds => asNumber(TimeUnit.seconds).floor();
+
+  Time truncatedDivision(num other) =>
+      Time.seconds(asNumber(TimeUnit.seconds) ~/ other);
 }
