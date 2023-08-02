@@ -2,7 +2,6 @@ import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/unit_calc.dart';
 
-//@JsonSerializable(explicitToJson: true)
 class Time implements Number, Comparable<Time> {
   final num _value;
   final TimeUnit unit;
@@ -18,17 +17,26 @@ class Time implements Number, Comparable<Time> {
   const Time.zero([TimeUnit? unit])
       : _value = 0,
         unit = unit ?? TimeUnit.seconds;
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Time &&
+          runtimeType == other.runtimeType &&
+          asNumber(other.unit) == other.asNumber(other.unit);
+
   factory Time.ofDuration(Duration duration) =>
-      Time(duration.inSeconds, TimeUnit.seconds);
+      Time(duration.inMilliseconds / 1000, TimeUnit.seconds);
   get asDuration =>
       Duration(milliseconds: (asNumber(TimeUnit.seconds) * 1000).round());
   Time as([TimeUnit? toTime]) =>
       Time(_value * unit.convertFactor(toTime: toTime ?? unit), toTime ?? unit);
   num asNumber([TimeUnit? toTime]) => as(toTime)._value;
   Time operator -(Time other) =>
-      Time(asNumber(other.unit) - other.asNumber(), other.unit);
+      Time(asNumber() - other.asNumber(unit), other.unit);
+      
   Time operator +(Time other) =>
-      Time(asNumber(other.unit) + other.asNumber(), other.unit);
+      Time(asNumber() + other.asNumber(unit), other.unit);
+
   bool operator >(Time other) => asNumber(other.unit) > other.asNumber();
   bool operator <(Time other) => asNumber(other.unit) < other.asNumber();
   bool operator <=(Time other) =>
@@ -61,4 +69,7 @@ class Time implements Number, Comparable<Time> {
           ),
         _ => throw FormatException("invalid json: \"$json\""),
       };
+
+  @override
+  int get hashCode => Object.hash(_value, unit);
 }

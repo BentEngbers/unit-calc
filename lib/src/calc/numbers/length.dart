@@ -7,9 +7,9 @@ class Length implements Number {
   final LengthUnit unit;
 
   const Length(this._value, this.unit) : assert(_value >= 0);
-  const Length.zero()
+  const Length.zero([LengthUnit? unit])
       : _value = 0,
-        unit = LengthUnit.meter;
+        unit = unit ?? LengthUnit.meter;
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
@@ -50,4 +50,14 @@ class Length implements Number {
   bool operator <=(Length other) =>
       identical(this, other) ||
       asNumber(other.unit) <= other.asNumber(other.unit);
+
+  @override
+  int get hashCode => Object.hash(_value, unit);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Length &&
+          runtimeType == other.runtimeType &&
+          asNumber(other.unit) == other.asNumber(other.unit);
 }
