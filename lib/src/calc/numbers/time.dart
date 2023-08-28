@@ -6,14 +6,16 @@ class Time implements Number, Comparable<Time> {
   final num _value;
   final TimeUnit unit;
 
-  const Time(this._value, this.unit);
-  //assert(_value >= 0);
-  const Time.seconds(this._value) : unit = TimeUnit.seconds;
-  //assert(_value >= 0);
-  const Time.hour(this._value) : unit = TimeUnit.hr;
-  //assert(_value >= 0);
-  const Time.minutes(this._value) : unit = TimeUnit.min;
-  //assert(_value >= 0);
+  const Time(this._value, this.unit) : assert(_value >= 0);
+  const Time.seconds(this._value)
+      : unit = TimeUnit.seconds,
+        assert(_value >= 0);
+  const Time.hour(this._value)
+      : unit = TimeUnit.hr,
+        assert(_value >= 0);
+  const Time.minutes(this._value)
+      : unit = TimeUnit.min,
+        assert(_value >= 0);
   const Time.zero([TimeUnit? unit])
       : _value = 0,
         unit = unit ?? TimeUnit.seconds;
@@ -32,22 +34,25 @@ class Time implements Number, Comparable<Time> {
       Time(_value * unit.convertFactor(toTime: toTime ?? unit), toTime ?? unit);
   num asNumber([TimeUnit? toTime]) => as(toTime)._value;
   Time operator -(Time other) =>
-      Time(asNumber() - other.asNumber(unit), other.unit);
+      Time(asNumber(other.unit) - other.asNumber(other.unit), other.unit);
 
   Time operator +(Time other) =>
-      Time(asNumber() + other.asNumber(unit), other.unit);
+      Time(asNumber(other.unit) + other.asNumber(other.unit), other.unit);
 
-  bool operator >(Time other) => asNumber(other.unit) > other.asNumber();
-  bool operator <(Time other) => asNumber(other.unit) < other.asNumber();
+  bool operator >(Time other) =>
+      asNumber(other.unit) > other.asNumber(other.unit);
+  bool operator <(Time other) =>
+      asNumber(other.unit) < other.asNumber(other.unit);
+
   bool operator <=(Time other) =>
-      identical(this, other) || asNumber(other.unit) <= other.asNumber();
+      identical(this, other) ||
+      asNumber(other.unit) <= other.asNumber(other.unit);
   bool operator >=(Time other) =>
-      identical(this, other) || asNumber(other.unit) >= other.asNumber();
+      identical(this, other) ||
+      asNumber(other.unit) >= other.asNumber(other.unit);
 
   @override
-  int compareTo(Time other) {
-    throw asNumber(unit).compareTo(other.asNumber(unit));
-  }
+  int compareTo(Time other) => asNumber(unit).compareTo(other.asNumber(unit));
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>

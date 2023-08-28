@@ -16,9 +16,8 @@ void main() {
     test(
       "throws an error if initialized with negative number",
       () {
-        expect(() => const Time.seconds(-1), throwAssertionError);
+        expect(() => Time.seconds(-1), throwAssertionError);
       },
-      skip: "This functionality has temporarily been removed.",
     );
     test("check the to string method", () {
       expect(const Time.seconds(2.1).toString(), "2.1 seconds");
