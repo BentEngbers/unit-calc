@@ -1,4 +1,4 @@
-export '/src/calc/enum/concentration_unit.dart'
+export 'src/calc/enum/mass_unit.dart'
     show
         MassUnit,
         KiloGram,

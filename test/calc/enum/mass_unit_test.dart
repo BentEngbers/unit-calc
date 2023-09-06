@@ -1,6 +1,6 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 typedef _UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});

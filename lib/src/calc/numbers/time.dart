@@ -47,6 +47,7 @@ class Time implements Number, Comparable<Time> {
   bool operator <=(Time other) =>
       identical(this, other) ||
       asNumber(other.unit) <= other.asNumber(other.unit);
+      
   bool operator >=(Time other) =>
       identical(this, other) ||
       asNumber(other.unit) >= other.asNumber(other.unit);
