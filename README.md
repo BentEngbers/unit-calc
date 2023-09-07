@@ -14,8 +14,12 @@ and the Flutter guide for
 Perform calculations with numbers, while unit-calc takes care of the units.
 
 # Development
-There are a few dependencies that we use.
-
+## Dependencies 
+There are a few dependencies that this project uses.
+Recommended installation is through [Cargo](https://doc.rust-lang.org/stable/cargo/).
 - [just](https://github.com/casey/just), to run certain commands 
 - [grcov](https://github.com/mozilla/grcov), to aggregates code coverage information.
 - [watchexec](https://github.com/watchexec/watchexec), to run commands when file changes.
+
+## Available commands
+view the [justfile](./justfile) for a list of available commands.
