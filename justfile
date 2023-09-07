@@ -1,16 +1,18 @@
 
 
-
+# run the tests of this project
 test:
     dart test
 
+# run the tests of this project, with coverage.
 test-coverage: 
-    dart test --file-reporter="json:test-results.json" --coverage=./coverage/
+    dart test --coverage=./coverage/
     dart run coverage:format_coverage --base-directory=. --report-on=./lib --lcov --in coverage --out coverage/lcov.info
 
+# run the tests with coverage, and generate a html page from the coverage.
 coverage-html: test-coverage
     grcov ./coverage/lcov.info -t html
 
-
-auto-refresh-coverage: 
+# run the tests with coverage, and generate a html page from the coverage.
+coverage-html-refresh: 
     watchexec --restart  --exts dart "just coverage-html"
