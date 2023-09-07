@@ -5,6 +5,7 @@ import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_time.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 
 @immutable
 
@@ -45,7 +46,7 @@ class MassPerMassTime implements Number {
             MassUnit.fromJson(perMass),
             TimeUnit.fromJson(perTime),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override

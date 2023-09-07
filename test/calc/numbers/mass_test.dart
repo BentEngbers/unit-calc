@@ -61,27 +61,27 @@ void main() {
       (
         amount: Mass(5, milliGram),
         divisor: MassPerVolume(5, milliGram, VolumeUnit.ml),
-        result: Volume.ml(1),
+        result: Volume.milliliter(1),
       ),
       (
         amount: Mass(7, microGram),
         divisor: MassPerVolume(0.007, milliGram, VolumeUnit.ml),
-        result: Volume.ml(1)
+        result: Volume.milliliter(1)
       ),
       (
         amount: Mass(7, microGram),
         divisor: MassPerVolume(0.007, milliGram, VolumeUnit.ml),
-        result: Volume.ml(1)
+        result: Volume.milliliter(1)
       ),
       (
         amount: Mass(60, nanoGram),
         divisor: MassPerVolume(0.004, microGram, VolumeUnit.ml),
-        result: Volume.ml(15)
+        result: Volume.milliliter(15)
       ),
       (
         amount: Mass(60000000, nanoGram),
         divisor: MassPerVolume(6, milliGram, VolumeUnit.ml),
-        result: Volume.ml(10)
+        result: Volume.milliliter(10)
       ),
     ];
     for (final tuple in divisionTestCases) {

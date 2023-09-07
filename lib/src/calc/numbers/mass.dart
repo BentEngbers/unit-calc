@@ -2,6 +2,7 @@ import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 
 import 'number.dart';
 import 'volume.dart';
@@ -57,7 +58,7 @@ class Mass implements Number {
             num.parse(value),
             MassUnit.fromJson(mass),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override

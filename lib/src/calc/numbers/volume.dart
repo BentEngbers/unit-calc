@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 import 'number.dart';
@@ -12,10 +13,13 @@ final class Volume implements Number {
 
   const Volume(this._value, this.unit) : assert(_value >= 0);
 
-  const Volume.ml(this._value)
+  const Volume.milliliter(this._value)
       : unit = VolumeUnit.ml,
         assert(_value >= 0);
 
+  const Volume.liter(this._value)
+      : unit = VolumeUnit.ml,
+        assert(_value >= 0);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -46,7 +50,7 @@ final class Volume implements Number {
             num.parse(number),
             VolumeUnit.fromJson(volume),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override

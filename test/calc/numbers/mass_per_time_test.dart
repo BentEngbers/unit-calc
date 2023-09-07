@@ -11,48 +11,48 @@ void main() {
   group('AmountPerKGTime', () {
     test("throws an error if initialized with negative number", () {
       expect(
-        () => MassPerTime(-6, microGram, TimeUnit.hr),
+        () => MassPerTime(-6, microGram, TimeUnit.hour),
         throwAssertionError,
       );
     });
     test("check the to string method", () {
       expect(
-        '${const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr)}',
+        '${const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hour)}',
         "2.4 U/hr",
       );
     });
     test("equality true", () {
       expect(
-        const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr) ==
-            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr),
+        const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hour) ==
+            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hour),
         true,
       );
     });
     test("equality different value", () {
       expect(
-        const MassPerTime(2.5, U(factorToNg: 1), TimeUnit.hr) ==
-            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr),
+        const MassPerTime(2.5, U(factorToNg: 1), TimeUnit.hour) ==
+            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hour),
         false,
       );
     });
     test("equality different unit", () {
       expect(
-        const MassPerTime(2.4, microGram, TimeUnit.hr) ==
-            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr),
+        const MassPerTime(2.4, microGram, TimeUnit.hour) ==
+            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hour),
         false,
       );
     });
     test("equality different time unit", () {
       expect(
-        const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.min) ==
-            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hr),
+        const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.minute) ==
+            const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hour),
         false,
       );
     });
     test("equality different class", () {
       expect(
         // ignore: unrelated_type_equality_checks
-        const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.min) ==
+        const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.minute) ==
             const Mass(
               2.4,
               U(factorToNg: 1),
@@ -62,19 +62,19 @@ void main() {
     });
     test("equality different unit Time", () {
       expect(
-        const MassPerTime(5, U(factorToNg: 1), TimeUnit.hr) ==
-            const MassPerTime(60, U(factorToNg: 1), TimeUnit.min),
+        const MassPerTime(5, U(factorToNg: 1), TimeUnit.hour) ==
+            const MassPerTime(60, U(factorToNg: 1), TimeUnit.minute),
         false,
       );
     });
     test("roundTrip json", () {
-      const massPerTime = MassPerTime(60, U(factorToNg: 1), TimeUnit.min);
+      const massPerTime = MassPerTime(60, U(factorToNg: 1), TimeUnit.minute);
       expect(MassPerTime.fromJson(massPerTime.toJson()), massPerTime);
     });
     test("roundTrip json", () {
-      const massPerTime = MassPerTime(60, kiloGram, TimeUnit.min);
+      const massPerTime = MassPerTime(60, kiloGram, TimeUnit.minute);
       expect(
-        massPerTime.asNumber(gram, TimeUnit.hr),
+        massPerTime.asNumber(gram, TimeUnit.hour),
         equals(3600000),
       );
     });
@@ -85,40 +85,40 @@ void main() {
       );
     });
     test("HashCode", () {
-      const massPerTime = MassPerTime(60, U(factorToNg: 1), TimeUnit.min);
-      const massPerTime2 = MassPerTime(60, U(factorToNg: 2), TimeUnit.min);
+      const massPerTime = MassPerTime(60, U(factorToNg: 1), TimeUnit.minute);
+      const massPerTime2 = MassPerTime(60, U(factorToNg: 2), TimeUnit.minute);
 
       expect(massPerTime.hashCode, isNot(massPerTime2.hashCode));
       expect(massPerTime.hashCode, massPerTime.hashCode);
     });
     test("equality different unit Time", () {
       expect(
-        const MassPerTime(60, U(factorToNg: 1), TimeUnit.min) ==
-            const MassPerTime(5, U(factorToNg: 1), TimeUnit.hr),
+        const MassPerTime(60, U(factorToNg: 1), TimeUnit.minute) ==
+            const MassPerTime(5, U(factorToNg: 1), TimeUnit.hour),
         false,
       );
     });
     test("equality different MassUnit and time unit", () {
       expect(
-        const MassPerTime(60, milliGram, TimeUnit.min) ==
-            const MassPerTime(5000, microGram, TimeUnit.hr),
+        const MassPerTime(60, milliGram, TimeUnit.minute) ==
+            const MassPerTime(5000, microGram, TimeUnit.hour),
         false,
       );
     });
     test("divide by volume", () {
       const concentration5mgPerMl = MassPerVolume(5, milliGram, VolumeUnit.ml);
-      const massPerTime = MassPerTime(10000, microGram, TimeUnit.hr);
+      const massPerTime = MassPerTime(10000, microGram, TimeUnit.hour);
       expect(
         massPerTime / concentration5mgPerMl,
-        const VolumePerTime(2, VolumeUnit.ml, TimeUnit.hr),
+        const VolumePerTime(2, VolumeUnit.ml, TimeUnit.hour),
       );
     });
     test("divide by mass", () {
       const mass5Kg = Mass(5, kiloGram);
-      const massPerTime = MassPerTime(100, gram, TimeUnit.hr);
+      const massPerTime = MassPerTime(100, gram, TimeUnit.hour);
       expect(
         massPerTime.divide(mass5Kg),
-        const MassPerMassTime(20, gram, kiloGram, TimeUnit.hr),
+        const MassPerMassTime(20, gram, kiloGram, TimeUnit.hour),
       );
     });
   });

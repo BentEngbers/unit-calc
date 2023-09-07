@@ -19,18 +19,18 @@ void main() {
         val: VolumePerTime(
           2,
           VolumeUnit.ml,
-          TimeUnit.min,
+          TimeUnit.minute,
         ),
-        unit: TimeUnit.hr,
+        unit: TimeUnit.hour,
         result: "120 ml/hr"
       ),
       (
         val: VolumePerTime(
           60,
           VolumeUnit.ml,
-          TimeUnit.hr,
+          TimeUnit.hour,
         ),
-        unit: TimeUnit.min,
+        unit: TimeUnit.minute,
         result: "1 ml/min"
       )
     ];
@@ -52,19 +52,19 @@ void main() {
       const volumePerTime = VolumePerTime(
         2,
         VolumeUnit.ml,
-        TimeUnit.min,
+        TimeUnit.minute,
       );
-      expect(
-          volumePerTime.as(VolumeUnit.ml, TimeUnit.hr).toString(), "120 ml/hr");
+      expect(volumePerTime.as(VolumeUnit.ml, TimeUnit.hour).toString(),
+          "120 ml/hr");
     });
     test("test time conversion", () {
       const volumePerTime = VolumePerTime(
         10,
         VolumeUnit.ml,
-        TimeUnit.hr,
+        TimeUnit.hour,
       );
-      expect(
-          volumePerTime.as(VolumeUnit.ml, TimeUnit.hr).toString(), "10 ml/hr");
+      expect(volumePerTime.as(VolumeUnit.ml, TimeUnit.hour).toString(),
+          "10 ml/hr");
     });
   });
 }

@@ -1,5 +1,6 @@
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 class Time implements Number, Comparable<Time> {
@@ -8,17 +9,17 @@ class Time implements Number, Comparable<Time> {
 
   const Time(this._value, this.unit) : assert(_value >= 0);
   const Time.seconds(this._value)
-      : unit = TimeUnit.seconds,
+      : unit = TimeUnit.second,
         assert(_value >= 0);
   const Time.hour(this._value)
-      : unit = TimeUnit.hr,
+      : unit = TimeUnit.hour,
         assert(_value >= 0);
   const Time.minutes(this._value)
-      : unit = TimeUnit.min,
+      : unit = TimeUnit.minute,
         assert(_value >= 0);
   const Time.zero([TimeUnit? unit])
       : _value = 0,
-        unit = unit ?? TimeUnit.seconds;
+        unit = unit ?? TimeUnit.second;
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -27,9 +28,9 @@ class Time implements Number, Comparable<Time> {
           asNumber(other.unit) == other.asNumber(other.unit);
 
   factory Time.ofDuration(Duration duration) =>
-      Time(duration.inMilliseconds / 1000, TimeUnit.seconds);
+      Time(duration.inMilliseconds / 1000, TimeUnit.second);
   get asDuration =>
-      Duration(milliseconds: (asNumber(TimeUnit.seconds) * 1000).round());
+      Duration(milliseconds: (asNumber(TimeUnit.second) * 1000).round());
   Time as([TimeUnit? toTime]) =>
       Time(_value * unit.convertFactor(toTime: toTime ?? unit), toTime ?? unit);
   num asNumber([TimeUnit? toTime]) => as(toTime)._value;
@@ -47,7 +48,7 @@ class Time implements Number, Comparable<Time> {
   bool operator <=(Time other) =>
       identical(this, other) ||
       asNumber(other.unit) <= other.asNumber(other.unit);
-      
+
   bool operator >=(Time other) =>
       identical(this, other) ||
       asNumber(other.unit) >= other.asNumber(other.unit);
@@ -73,16 +74,16 @@ class Time implements Number, Comparable<Time> {
             num.parse(value),
             TimeUnit.fromJson(mass),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override
   int get hashCode => Object.hash(_value, unit);
 
   String get asHHmmSS {
-    final fullHours = asNumber(TimeUnit.hr).floor();
-    final fullMinutes = (asNumber(TimeUnit.min) % 60).floor();
-    final fullSeconds = (asNumber(TimeUnit.seconds) % 60).floor();
+    final fullHours = asNumber(TimeUnit.hour).floor();
+    final fullMinutes = (asNumber(TimeUnit.minute) % 60).floor();
+    final fullSeconds = (asNumber(TimeUnit.second) % 60).floor();
 
     final hourString = fullHours < 10 ? "0$fullHours" : "$fullHours";
     final minutesString = fullMinutes < 10 ? "0$fullMinutes" : "$fullMinutes";
@@ -96,8 +97,8 @@ class Time implements Number, Comparable<Time> {
   }
 
   ///Returns the amount of complete seconds in [Time]
-  int get toFullSeconds => asNumber(TimeUnit.seconds).floor();
+  int get toFullSeconds => asNumber(TimeUnit.second).floor();
 
   Time truncatedDivision(num other) =>
-      Time.seconds(asNumber(TimeUnit.seconds) ~/ other);
+      Time.seconds(asNumber(TimeUnit.second) ~/ other);
 }

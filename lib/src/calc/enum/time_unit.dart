@@ -1,7 +1,7 @@
 enum TimeUnit {
-  seconds(1, "seconds"),
-  min(60, "min"),
-  hr(60 * 60, "hr");
+  second(1, "seconds"),
+  minute(60, "min"),
+  hour(60 * 60, "hr");
 
   final int factorSeconds;
   final String displayName;

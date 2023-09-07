@@ -40,7 +40,7 @@ void main() {
     );
     const cases = <UnitConversion>[
       (from: Time.seconds(5), to: Time.minutes(5 / 60)),
-      (from: Time.seconds(7), to: Time(7 / 3600, TimeUnit.hr)),
+      (from: Time.seconds(7), to: Time(7 / 3600, TimeUnit.hour)),
       (from: Time.minutes(9), to: Time.seconds(9 * 60)),
       (from: Time.minutes(11), to: Time.hour(11 / 60)),
       (from: Time.hour(1), to: Time.seconds(3600)),

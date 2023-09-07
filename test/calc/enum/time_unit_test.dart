@@ -9,12 +9,12 @@ typedef _TimeUnitConversionTestCase = ({
   num value,
 });
 const List<_testCase> _testCases = [
-  (unit: TimeUnit.hr, name: "hr"),
-  (unit: TimeUnit.min, name: "min")
+  (unit: TimeUnit.hour, name: "hr"),
+  (unit: TimeUnit.minute, name: "min")
 ];
 void main() {
-  const min = TimeUnit.min;
-  const hr = TimeUnit.hr;
+  const min = TimeUnit.minute;
+  const hr = TimeUnit.hour;
   const timeTests = <_TimeUnitConversionTestCase>[
     (unit1: min, unit2: min, value: 1),
     (unit1: hr, unit2: min, value: 60),

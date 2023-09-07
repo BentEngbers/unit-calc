@@ -2,6 +2,7 @@ import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 @immutable
@@ -44,7 +45,7 @@ class MassPerMass implements Number {
             MassUnit.fromJson(mass),
             MassUnit.fromJson(perMass),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override

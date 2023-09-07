@@ -68,8 +68,8 @@ void main() {
     test("", () {
       expect(
         const MassPerVolume(5, milliGram, VolumeUnit.ml)
-            .multiply(const VolumePerTime(3, VolumeUnit.ml, TimeUnit.hr)),
-        const MassPerTime(15, milliGram, TimeUnit.hr),
+            .multiply(const VolumePerTime(3, VolumeUnit.ml, TimeUnit.hour)),
+        const MassPerTime(15, milliGram, TimeUnit.hour),
       );
     });
     test("throws an error if initialized with negative number", () {

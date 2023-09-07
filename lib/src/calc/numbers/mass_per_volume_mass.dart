@@ -5,6 +5,7 @@ import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 
 @immutable
 class MassPerVolumeMass implements Number {
@@ -44,7 +45,7 @@ class MassPerVolumeMass implements Number {
             VolumeUnit.fromJson(perVolume),
             MassUnit.fromJson(perMass),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   MassPerVolume operator *(Mass mass) => MassPerVolume(

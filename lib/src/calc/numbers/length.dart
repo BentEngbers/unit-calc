@@ -1,6 +1,7 @@
 import 'package:unit_calc/src/calc/enum/length_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 
 class Length implements Number {
   final num _value;
@@ -26,7 +27,7 @@ class Length implements Number {
             num.parse(value),
             LengthUnit.fromJson(length),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
   Length.cm(this._value)
       : unit = LengthUnit.centiMeter,

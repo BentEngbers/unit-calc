@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 @immutable
@@ -16,7 +17,7 @@ final class MassPerTime implements Number {
   const MassPerTime.zero([MassUnit? massUnit, TimeUnit? perTimeUnit])
       : _value = 0,
         massUnit = massUnit ?? kiloGram,
-        perTimeUnit = perTimeUnit ?? TimeUnit.seconds;
+        perTimeUnit = perTimeUnit ?? TimeUnit.second;
 
   @override
   bool operator ==(Object other) =>
@@ -47,7 +48,7 @@ final class MassPerTime implements Number {
             MassUnit.fromJson(mass),
             TimeUnit.fromJson(time),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   MassPerTime _toMassUnit(MassUnit toMass) => MassPerTime(
@@ -85,5 +86,5 @@ final class MassPerTime implements Number {
         perTimeUnit,
       );
   Mass multiplyByTime(Time time) => Mass.milliGram(
-      asNumber(milliGram, TimeUnit.hr) * time.asNumber(TimeUnit.hr));
+      asNumber(milliGram, TimeUnit.hour) * time.asNumber(TimeUnit.hour));
 }

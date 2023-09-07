@@ -3,6 +3,7 @@ import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 @immutable
@@ -39,7 +40,7 @@ class VolumePerTime implements Number {
             VolumeUnit.fromJson(volume),
             TimeUnit.fromJson(timeUnit),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
   VolumePerTime _toPerTimeUnit(TimeUnit toTime) => VolumePerTime(
         _value / timeUnit.convertFactor(toTime: toTime),

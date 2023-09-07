@@ -10,41 +10,42 @@ import 'mass_per_volume_test.dart';
 void main() {
   group('Volume:', () {
     test("throws an error if initialized with negative number", () {
-      expect(() => Volume.ml(-1), throwAssertionError);
+      expect(() => Volume.milliliter(-1), throwAssertionError);
     });
     test("throws error when result is negative", () {
       expect(
-        () => {const Volume.ml(1) - SyringeSizes.ml20.volume},
+        () => {const Volume.milliliter(1) - SyringeSizes.ml20.volume},
         throwAssertionError,
       );
     });
     test("check addition", () {
-      final a = const Volume.ml(1) + SyringeSizes.ml10.volume;
-      expect(a, const Volume.ml(11));
+      final a = const Volume.milliliter(1) + SyringeSizes.ml10.volume;
+      expect(a, const Volume.milliliter(11));
     });
     test("check equality", () {
-      expect(const Mass.kiloGram(5), isNot(const Volume.ml(5)));
+      expect(const Mass.kiloGram(5), isNot(const Volume.milliliter(5)));
     });
     test("check the tostring method", () {
-      expect(const Volume.ml(10).toString(), "10 ml");
+      expect(const Volume.milliliter(10).toString(), "10 ml");
     });
     test("check the tostring method", () {
-      expect(const Volume.ml(10.14).toString(), "10.1 ml");
+      expect(const Volume.milliliter(10.14).toString(), "10.1 ml");
     });
     test("check the toFixedDecimalString method", () {
       expect(
-        const Volume.ml(10).toDisplayString((minDigit: 2, maxDigit: 2)),
+        const Volume.milliliter(10).toDisplayString((minDigit: 2, maxDigit: 2)),
         "10.00 ml",
       );
     });
     test("check the toFixedDecimalString method", () {
       expect(
-        const Volume.ml(5.5).toDisplayString((minDigit: 0, maxDigit: 0)),
+        const Volume.milliliter(5.5)
+            .toDisplayString((minDigit: 0, maxDigit: 0)),
         "6 ml",
       );
     });
     test("test equals", () {
-      expect(const Volume.ml(1), const Volume.ml(1));
+      expect(const Volume.milliliter(1), const Volume.milliliter(1));
     });
     test("json ", () {
       expect(() => Volume.fromJson("2 ml/mg"), throwsFormatException);

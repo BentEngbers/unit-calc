@@ -8,24 +8,27 @@ import 'mass_per_volume_test.dart';
 void main() {
   group("MassPerMassTime", () {
     test("roundTrip json", () {
-      const massPerMassTime = MassPerMassTime(20, gram, kiloGram, TimeUnit.hr);
+      const massPerMassTime =
+          MassPerMassTime(20, gram, kiloGram, TimeUnit.hour);
       expect(
         MassPerMassTime.fromJson(massPerMassTime.toJson()),
         massPerMassTime,
       );
     });
     test("roundTrip json", () {
-      const massPerMassTime = MassPerMassTime(20, gram, kiloGram, TimeUnit.hr);
+      const massPerMassTime =
+          MassPerMassTime(20, gram, kiloGram, TimeUnit.hour);
       const massPerMassTime2 =
-          MassPerMassTime(20.22, gram, kiloGram, TimeUnit.hr);
+          MassPerMassTime(20.22, gram, kiloGram, TimeUnit.hour);
       expect(massPerMassTime.hashCode, isNot(massPerMassTime2.hashCode));
       expect(massPerMassTime.hashCode, massPerMassTime.hashCode);
     });
     test("multiply by mass", () {
-      const massPerMassTime = MassPerMassTime(20, gram, kiloGram, TimeUnit.hr);
+      const massPerMassTime =
+          MassPerMassTime(20, gram, kiloGram, TimeUnit.hour);
       expect(
         massPerMassTime * const Mass(5, kiloGram),
-        const MassPerTime(100, gram, TimeUnit.hr),
+        const MassPerTime(100, gram, TimeUnit.hour),
       );
     });
     test("roundTrip json", () {
@@ -33,16 +36,16 @@ void main() {
     });
     test("toDisplayString", () {
       const massPerMassTime =
-          MassPerMassTime(20.22, gram, kiloGram, TimeUnit.hr);
+          MassPerMassTime(20.22, gram, kiloGram, TimeUnit.hour);
       expect(massPerMassTime.toString(), "20.2 g/kg/hr");
     });
     test("perKg constructor", () {
       expect(
-        const MassPerMassTime.perKg(20, gram, TimeUnit.hr),
-        const MassPerMassTime(20, gram, kiloGram, TimeUnit.hr),
+        const MassPerMassTime.perKg(20, gram, TimeUnit.hour),
+        const MassPerMassTime(20, gram, kiloGram, TimeUnit.hour),
       );
       expect(
-        () => MassPerMassTime.perKg(-1, gram, TimeUnit.hr),
+        () => MassPerMassTime.perKg(-1, gram, TimeUnit.hour),
         throwAssertionError,
       );
     });

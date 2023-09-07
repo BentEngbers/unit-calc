@@ -2,7 +2,14 @@ class InvalidMassUnitException implements Exception {
   const InvalidMassUnitException();
 
   @override
-  String toString() {
-    return 'InvalidMassUnitException:The given string was an invalid MassUnit';
-  }
+  String toString() =>
+      'InvalidMassUnitException:The given string was an invalid MassUnit';
+}
+
+class InvalidJsonException implements Exception {
+  final String json;
+  InvalidJsonException(this.json);
+
+  @override
+  String toString() => "Invalid json: \"$json\"";
 }
