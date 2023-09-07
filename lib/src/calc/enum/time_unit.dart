@@ -10,7 +10,7 @@ enum TimeUnit {
   double convertFactor({required TimeUnit toTime}) =>
       factorSeconds / toTime.factorSeconds;
 
-  String toJson() => name;
+  String toJson() => displayName;
 
   factory TimeUnit.fromJson(String json) =>
       TimeUnit.values.firstWhere((e) => e.displayName == json);

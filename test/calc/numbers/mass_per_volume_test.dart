@@ -2,6 +2,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
+import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 // ignore: camel_case_types
@@ -12,6 +13,8 @@ typedef _testCaseMultiplyVolume = ({
 });
 
 final throwAssertionError = throwsA(isA<AssertionError>());
+final throwsInvalidJsonException = throwsA(isA<InvalidJsonException>());
+
 void main() {
   const List<_testCaseMultiplyVolume> testCases = [
     (
@@ -26,7 +29,8 @@ void main() {
     )
   ];
   test("Check extra units fail", () {
-    expect(() => MassPerVolume.fromJson("5 mg/ml/hr"), throwsFormatException);
+    expect(
+        () => MassPerVolume.fromJson("5 mg/ml/hr"), throwsInvalidJsonException);
   });
   group('MassPerVolume', () {
     for (final (:val, :multiply, :result) in testCases) {

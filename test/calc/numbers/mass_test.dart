@@ -19,7 +19,7 @@ void main() {
       expect(() => Mass.fromJson("FOO"), throwsFormatException);
     });
     test("bad json test", () {
-      expect(() => Mass.fromJson("3.2 mg/ml"), throwsFormatException);
+      expect(() => Mass.fromJson("3.2 mg/ml"), throwsInvalidJsonException);
     });
     test("throws an error if initialized with negative number", () {
       expect(() => Mass(-1, microGram), throwAssertionError);

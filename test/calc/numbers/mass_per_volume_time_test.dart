@@ -56,7 +56,7 @@ void main() {
     test("wrong json", () {
       expect(
         () => MassPerVolumeTime.fromJson("5 mg/ml"),
-        throwsFormatException,
+        throwsInvalidJsonException,
       );
     });
   });

@@ -44,7 +44,8 @@ void main() {
       expect(MassPerMass.fromJson(massPerMass.toJson()), massPerMass);
     });
     test("bad json", () {
-      expect(() => MassPerMass.fromJson("3.5 mg/kg/hr"), throwsFormatException);
+      expect(() => MassPerMass.fromJson("3.5 mg/kg/hr"),
+          throwsInvalidJsonException);
     });
   });
 }

@@ -32,7 +32,8 @@ void main() {
       );
     });
     test("roundTrip json", () {
-      expect(() => MassPerMassTime.fromJson("20 gr/kg"), throwsFormatException);
+      expect(() => MassPerMassTime.fromJson("20 gr/kg"),
+          throwsInvalidJsonException);
     });
     test("toDisplayString", () {
       const massPerMassTime =

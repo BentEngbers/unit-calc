@@ -10,6 +10,7 @@ import 'mass_per_volume_test.dart';
 
 // ignore: camel_case_types
 typedef _testCase = ({double amountPerMlKg, double mass, double result});
+
 void main() {
   group('AmountPerMLKG', () {
     test("throws an error if initialized with negative number", () {
@@ -21,7 +22,7 @@ void main() {
     test("bad json", () {
       expect(
         () => MassPerVolumeMass.fromJson("4.2 mg/ml/kg/hr"),
-        throwsFormatException,
+        throwsInvalidJsonException,
       );
     });
     test("check the to string method", () {

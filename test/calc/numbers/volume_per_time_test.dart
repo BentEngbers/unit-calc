@@ -4,6 +4,8 @@ import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
 
+import 'mass_per_volume_test.dart';
+
 // ignore: camel_case_types
 typedef _testCase = ({VolumePerTime val, TimeUnit unit, String result});
 void main() {
@@ -11,7 +13,7 @@ void main() {
     test("invalid json", () {
       expect(
         () => VolumePerTime.fromJson("120 ml/hr/kg"),
-        throwsFormatException,
+        throwsInvalidJsonException,
       );
     });
     const List<_testCase> testCases = [

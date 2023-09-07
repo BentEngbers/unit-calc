@@ -48,7 +48,7 @@ void main() {
       expect(const Volume.milliliter(1), const Volume.milliliter(1));
     });
     test("json ", () {
-      expect(() => Volume.fromJson("2 ml/mg"), throwsFormatException);
+      expect(() => Volume.fromJson("2 ml/mg"), throwsInvalidJsonException);
     });
     const decreasingVolumeList = [
       Volume(2, VolumeUnit.ml),

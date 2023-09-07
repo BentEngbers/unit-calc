@@ -11,7 +11,7 @@ void main() {
       expect(() => Time.fromJson("FOO"), throwsFormatException);
     });
     test("bad json test", () {
-      expect(() => Time.fromJson("3.2 mg/ml"), throwsFormatException);
+      expect(() => Time.fromJson("3.2 mg/ml"), throwsInvalidJsonException);
     });
     test(
       "throws an error if initialized with negative number",

@@ -81,7 +81,7 @@ void main() {
     test("wrong json", () {
       expect(
         () => MassPerTime.fromJson("4.5 mg/min/ml"),
-        throwsFormatException,
+        throwsInvalidJsonException,
       );
     });
     test("HashCode", () {
