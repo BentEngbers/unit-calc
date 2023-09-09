@@ -13,5 +13,5 @@ enum SyringeSizes {
 
   final double value;
   const SyringeSizes(this.value);
-  Volume get volume => Volume(value, VolumeUnit.ml);
+  Volume get volume => Volume(value, VolumeUnit.milliLiters);
 }

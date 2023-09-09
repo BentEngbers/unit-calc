@@ -11,5 +11,5 @@ class InvalidJsonException implements Exception {
   InvalidJsonException(this.json);
 
   @override
-  String toString() => "Invalid json: \"$json\"";
+  String toString() => "InvalidJsonException: \"$json\"";
 }

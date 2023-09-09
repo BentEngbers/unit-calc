@@ -1,13 +1,12 @@
 import 'package:test/test.dart';
-import 'package:unit_calc/src/calc/enum/mass_unit.dart';
-import 'package:unit_calc/src/calc/numbers/mass_per_mass.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 import 'mass_per_volume_test.dart';
 
 void main() {
   group('AmountPerKG', () {
     test("throws an error if initialized with negative number", () {
-      expect(() => MassPerMass.perKg(-1, microGram), throwAssertionError);
+      expect(() => MassPerMass.perKg(-1, microGram), throwsAssertionError);
     });
     test("check the to string method", () {
       expect('${const MassPerMass.perKg(2.56, microGram)}', "2.56 mcg/kg");
@@ -46,6 +45,12 @@ void main() {
     test("bad json", () {
       expect(() => MassPerMass.fromJson("3.5 mg/kg/hr"),
           throwsInvalidJsonException);
+    });
+    test("multiply with mass", () {
+      expect(
+          const MassPerMass(7, kiloGram, milliGram)
+              .multiplyWithMass(const Mass.milliGrams(5)),
+          const Mass.kiloGrams(35));
     });
   });
 }

@@ -47,9 +47,7 @@ void main() {
         "throws an error if trying to create a ConcentrationUnit from an invalid string",
         () {
       expect(
-        () {
-          MassUnit.fromJson("FOO");
-        },
+        () => MassUnit.fromJson("FOO"),
         throwsA(
           predicate(
             (x) =>

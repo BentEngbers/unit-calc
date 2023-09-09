@@ -78,11 +78,9 @@ class MassPerMass implements Number {
   num asNumber({MassUnit? massUnit, MassUnit? perMassUnit}) =>
       as(massUnit: massUnit, perMassUnit: perMassUnit)._value;
 
-  Mass multiplyWithMass(Mass mass) {
-    // (mg / kg) * kg = mg
-    return Mass.milliGram(
-      asNumber(massUnit: milliGram, perMassUnit: kiloGram) *
-          mass.asNumber(kiloGram),
-    );
-  }
+  ///Example:  (5 mg/kg).multiplyWithMass(3 kg) = 15 mg
+  Mass multiplyWithMass(Mass mass) => Mass.milliGrams(
+        asNumber(massUnit: milliGram, perMassUnit: kiloGram) *
+            mass.asNumber(kiloGram),
+      );
 }

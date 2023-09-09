@@ -47,7 +47,7 @@ void main() {
       );
       expect(
         () => MassPerMassTime.perKg(-1, gram, TimeUnit.hour),
-        throwAssertionError,
+        throwsAssertionError,
       );
     });
   });

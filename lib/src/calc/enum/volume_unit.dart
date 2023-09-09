@@ -1,5 +1,6 @@
 enum VolumeUnit {
-  ml(1, "ml");
+  milliLiters(1, "ml"),
+  liter(1000, "l");
 
   final int factorMl;
   final String displayName;

@@ -1,18 +1,28 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/enum/mass_unit.dart';
-import 'package:unit_calc/src/calc/enum/volume_unit.dart';
-import 'package:unit_calc/src/calc/numbers/mass_per_mass_time.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 import 'mass_per_volume_test.dart';
 
 void main() {
-  group('AmountPerKGTime', () {
+  group('MassPerTime', () {
+    test("zero value", () {
+      expect(
+        const MassPerTime.zero(),
+        const MassPerTime(0, kiloGram, TimeUnit.second),
+      );
+    });
+    test("multiply by time", () {
+      expect(
+        const MassPerTime(60, kiloGram, TimeUnit.hour)
+            .multiplyByTime(const Time.minutes(2)),
+        const Mass(2, kiloGram),
+      );
+    });
     test("throws an error if initialized with negative number", () {
       expect(
         () => MassPerTime(-6, microGram, TimeUnit.hour),
-        throwAssertionError,
+        throwsAssertionError,
       );
     });
     test("check the to string method", () {
@@ -106,11 +116,12 @@ void main() {
       );
     });
     test("divide by volume", () {
-      const concentration5mgPerMl = MassPerVolume(5, milliGram, VolumeUnit.ml);
+      const concentration5mgPerMl =
+          MassPerVolume(5, milliGram, VolumeUnit.milliLiters);
       const massPerTime = MassPerTime(10000, microGram, TimeUnit.hour);
       expect(
         massPerTime / concentration5mgPerMl,
-        const VolumePerTime(2, VolumeUnit.ml, TimeUnit.hour),
+        const VolumePerTime(2, VolumeUnit.milliLiters, TimeUnit.hour),
       );
     });
     test("divide by mass", () {

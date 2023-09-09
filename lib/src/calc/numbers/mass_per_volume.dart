@@ -16,7 +16,7 @@ class MassPerVolume implements Number {
   const MassPerVolume.zero([MassUnit? massUnit, VolumeUnit? volumeUnit])
       : _value = 0,
         massUnit = massUnit ?? kiloGram,
-        volumeUnit = volumeUnit ?? VolumeUnit.ml;
+        volumeUnit = volumeUnit ?? VolumeUnit.milliLiters;
 
   Mass operator *(Volume volume) =>
       Mass(volume.asNumber(volume.unit) * _value, massUnit);

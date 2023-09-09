@@ -14,9 +14,21 @@ void main() {
       expect(() => Time.fromJson("3.2 mg/ml"), throwsInvalidJsonException);
     });
     test(
-      "throws an error if initialized with negative number",
+      "seconds: throws an error if initialized with negative number",
       () {
-        expect(() => Time.seconds(-1), throwAssertionError);
+        expect(() => Time.seconds(-1), throwsAssertionError);
+      },
+    );
+    test(
+      "hour: throws an error if initialized with negative number",
+      () {
+        expect(() => Time.hours(-1000), throwsAssertionError);
+      },
+    );
+    test(
+      "minutes: throws an error if initialized with negative number",
+      () {
+        expect(() => Time.minutes(-1000), throwsAssertionError);
       },
     );
     test("check the to string method", () {
@@ -36,15 +48,45 @@ void main() {
     );
     test(
       "equality true",
-      () => {expect(const Time.hour(6) == const Time.hour(6), true)},
+      () => {expect(const Time.hours(6) == const Time.hours(6), true)},
     );
+    test("subtraction", () {
+      expect(
+        const Time.hours(2) - const Time.minutes(10),
+        const Time.minutes(110),
+      );
+    });
+    test("addition", () {
+      expect(
+        const Time.minutes(2) + const Time.seconds(10),
+        const Time.seconds(130),
+      );
+    });
+    test("toFullSeconds", () {
+      expect(const Time.seconds(5).toFullSeconds, 5);
+      expect(const Time.seconds(5.9).toFullSeconds, 5);
+    });
+    test("truncatedDivision", () {
+      expect(
+        const Time.seconds(5).truncatedDivision(2),
+        equals(const Time.seconds(2)),
+      );
+      expect(
+        const Time.seconds(5.9).truncatedDivision(2),
+        equals(const Time.seconds(2)),
+      );
+      expect(
+        const Time.seconds(9).truncatedDivision(2),
+        equals(const Time.seconds(4)),
+      );
+    });
     const cases = <UnitConversion>[
       (from: Time.seconds(5), to: Time.minutes(5 / 60)),
       (from: Time.seconds(7), to: Time(7 / 3600, TimeUnit.hour)),
       (from: Time.minutes(9), to: Time.seconds(9 * 60)),
-      (from: Time.minutes(11), to: Time.hour(11 / 60)),
-      (from: Time.hour(1), to: Time.seconds(3600)),
-      (from: Time.hour(2), to: Time.minutes(120)),
+      (from: Time.minutes(11), to: Time.hours(11 / 60)),
+      (from: Time.hours(1), to: Time.seconds(3600)),
+      (from: Time.hours(2), to: Time.minutes(120)),
     ];
 
     for (final testCase in cases) {
@@ -58,35 +100,50 @@ void main() {
     }
 
     const decreasingTimeList = [
-      Time.hour(1),
+      Time.hours(1),
       Time.minutes(59.9),
       Time.seconds(3500),
       Time.seconds(999),
       Time.minutes(12),
-      Time.hour(1 / 10),
+      Time.hours(1 / 10),
       Time.seconds(10),
-      Time.minutes(1 / 10)
+      Time.minutes(1 / 10),
     ];
     for (final currentTime in decreasingTimeList) {
+      test("to and from duration", () {
+        expect(Time.ofDuration(currentTime.asDuration), currentTime);
+      });
+
       test("test $currentTime >= $currentTime", () {
         expect(currentTime >= currentTime, isTrue);
       });
-      final elementsBefore =
+      test("test $currentTime <= $currentTime", () {
+        expect(currentTime <= currentTime, isTrue);
+      });
+      final largerTimes =
           decreasingTimeList.takeWhile((value) => value != currentTime);
-      for (final massBefore in elementsBefore) {
+      for (final largerTime in largerTimes) {
         test("hashcode not equal", () {
-          expect(currentTime.hashCode, isNot(equals(massBefore.hashCode)));
+          expect(currentTime.hashCode, isNot(equals(largerTime.hashCode)));
         });
-        test("test $massBefore > $currentTime", () {
-          expect(massBefore > currentTime, isTrue);
+        test("compareTo", () {
+          expect(largerTime.compareTo(currentTime), equals(1));
+          expect(currentTime.compareTo(largerTime), equals(-1));
         });
-        test("test $massBefore >= $currentTime", () {
-          expect(currentTime >= massBefore, isFalse);
-          expect(massBefore >= currentTime, isTrue);
+        test("test $largerTime > $currentTime", () {
+          expect(largerTime > currentTime, isTrue);
         });
-        test("test $currentTime < $massBefore", () {
-          expect(massBefore < currentTime, isFalse);
-          expect(currentTime < massBefore, isTrue);
+        test("test $largerTime >= $currentTime", () {
+          expect(currentTime >= largerTime, isFalse);
+          expect(largerTime >= currentTime, isTrue);
+        });
+        test("test $currentTime < $largerTime", () {
+          expect(largerTime < currentTime, isFalse);
+          expect(currentTime < largerTime, isTrue);
+        });
+        test("test $currentTime <= $largerTime", () {
+          expect(largerTime <= currentTime, isFalse);
+          expect(currentTime <= largerTime, isTrue);
         });
       }
     }

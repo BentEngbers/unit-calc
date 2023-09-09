@@ -15,7 +15,7 @@ final List<TestCase> tests = [
 final List<TestCase> testsShort = [
   (time: const Time.zero(), result: "00:00"),
   (time: const Time.minutes(10), result: "10:00"),
-  (time: const Time.hour(1), result: "01:00:00"),
+  (time: const Time.hours(1), result: "01:00:00"),
   (time: const Time.minutes(9), result: "09:00"),
   (time: const Time.minutes(61), result: "01:01:00"),
   (time: const Time.minutes(61), result: "01:01:00"),

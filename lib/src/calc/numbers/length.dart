@@ -3,6 +3,7 @@ import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 
+/// Examples: "170 cm", "30 m"
 class Length implements Number {
   final num _value;
   final LengthUnit unit;
@@ -11,6 +12,14 @@ class Length implements Number {
   const Length.zero([LengthUnit? unit])
       : _value = 0,
         unit = unit ?? LengthUnit.meter;
+
+  const Length.centiMeters(this._value)
+      : unit = LengthUnit.centiMeter,
+        assert(_value >= 0);
+
+  const Length.meters(this._value)
+      : unit = LengthUnit.meter,
+        assert(_value >= 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
@@ -23,21 +32,20 @@ class Length implements Number {
 
   factory Length.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
-        (String value, [String length]) => Length(
+        (String value, [String lengthUnit]) => Length(
             num.parse(value),
-            LengthUnit.fromJson(length),
+            LengthUnit.fromJson(lengthUnit),
           ),
         _ => throw InvalidJsonException(json),
       };
-  Length.cm(this._value)
-      : unit = LengthUnit.centiMeter,
-        assert(_value >= 0);
+
   Length as([LengthUnit? unit]) => Length(
         _value * this.unit.convertFactor(toLength: unit ?? this.unit),
-        this.unit,
+        unit ?? this.unit,
       );
 
   num asNumber([LengthUnit? unit]) => as(unit)._value;
+
   bool operator >(Length other) =>
       asNumber(other.unit) > other.asNumber(other.unit);
 

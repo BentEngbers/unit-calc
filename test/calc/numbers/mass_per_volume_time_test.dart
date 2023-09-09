@@ -11,19 +11,20 @@ void main() {
   group('AmountPerMLTime', () {
     test("throws an error if initialized with negative number", () {
       expect(
-        () => MassPerVolumeTime(-4, microGram, VolumeUnit.ml, TimeUnit.hour),
-        throwAssertionError,
+        () => MassPerVolumeTime(
+            -4, microGram, VolumeUnit.milliLiters, TimeUnit.hour),
+        throwsAssertionError,
       );
     });
     test("check the to string method", () {
       expect(
-        '${const MassPerVolumeTime(1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.minute)}',
+        '${const MassPerVolumeTime(1.2, U(factorToNg: 1), VolumeUnit.milliLiters, TimeUnit.minute)}',
         "1.2 U/ml/min",
       );
     });
     test("json round trips", () {
       const massPerVolumeTime = MassPerVolumeTime(
-          1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.minute);
+          1.2, U(factorToNg: 1), VolumeUnit.milliLiters, TimeUnit.minute);
       expect(
         MassPerVolumeTime.fromJson(massPerVolumeTime.toJson()),
         massPerVolumeTime,
@@ -31,15 +32,15 @@ void main() {
     });
     test("hashCode", () {
       const massPerVolumeTime = MassPerVolumeTime(
-          1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.minute);
+          1.2, U(factorToNg: 1), VolumeUnit.milliLiters, TimeUnit.minute);
       const massPerVolumeTime2 = MassPerVolumeTime(
-          1.2, U(factorToNg: 1), VolumeUnit.ml, TimeUnit.hour);
+          1.2, U(factorToNg: 1), VolumeUnit.milliLiters, TimeUnit.hour);
       expect(massPerVolumeTime.hashCode, isNot(massPerVolumeTime2.hashCode));
     });
     const List<MassPerVolumeTime> decreasingMassPerVolumeTime = [
-      MassPerVolumeTime(5, gram, VolumeUnit.ml, TimeUnit.hour),
-      MassPerVolumeTime(5, gram, VolumeUnit.ml, TimeUnit.minute),
-      MassPerVolumeTime(5, milliGram, VolumeUnit.ml, TimeUnit.minute)
+      MassPerVolumeTime(5, gram, VolumeUnit.milliLiters, TimeUnit.hour),
+      MassPerVolumeTime(5, gram, VolumeUnit.milliLiters, TimeUnit.minute),
+      MassPerVolumeTime(5, milliGram, VolumeUnit.milliLiters, TimeUnit.minute)
     ];
     for (final current in decreasingMassPerVolumeTime) {
       final previousValues =

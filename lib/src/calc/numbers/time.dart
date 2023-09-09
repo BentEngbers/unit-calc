@@ -11,7 +11,7 @@ class Time implements Number, Comparable<Time> {
   const Time.seconds(this._value)
       : unit = TimeUnit.second,
         assert(_value >= 0);
-  const Time.hour(this._value)
+  const Time.hours(this._value)
       : unit = TimeUnit.hour,
         assert(_value >= 0);
   const Time.minutes(this._value)
@@ -29,10 +29,13 @@ class Time implements Number, Comparable<Time> {
 
   factory Time.ofDuration(Duration duration) =>
       Time(duration.inMilliseconds / 1000, TimeUnit.second);
+
   get asDuration =>
       Duration(milliseconds: (asNumber(TimeUnit.second) * 1000).round());
+
   Time as([TimeUnit? toTime]) =>
       Time(_value * unit.convertFactor(toTime: toTime ?? unit), toTime ?? unit);
+
   num asNumber([TimeUnit? toTime]) => as(toTime)._value;
   Time operator -(Time other) =>
       Time(asNumber(other.unit) - other.asNumber(other.unit), other.unit);
@@ -97,6 +100,7 @@ class Time implements Number, Comparable<Time> {
   }
 
   ///Returns the amount of complete seconds in [Time]
+  /// Example: (5.9 seconds).toFullSeconds=5
   int get toFullSeconds => asNumber(TimeUnit.second).floor();
 
   Time truncatedDivision(num other) =>

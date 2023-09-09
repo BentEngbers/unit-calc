@@ -19,5 +19,5 @@ abstract interface class Number {
 
   @override
   @mustBeOverridden
-  int get hashCode => super.hashCode;
+  int get hashCode;
 }

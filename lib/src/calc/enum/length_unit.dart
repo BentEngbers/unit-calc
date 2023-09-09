@@ -7,7 +7,7 @@ enum LengthUnit {
   const LengthUnit(this.factorToCentiMeter, this.displayName);
 
   double convertFactor({required LengthUnit toLength}) =>
-      toLength.factorToCentiMeter / factorToCentiMeter;
+      factorToCentiMeter / toLength.factorToCentiMeter;
 
   String toJson() => displayName;
   factory LengthUnit.fromJson(String json) =>

@@ -32,9 +32,9 @@ final class NumberUtils {
     intl.NumberFormat? format,
   ) {
     final formatter = format ?? intl.NumberFormat();
-    final (:minDigit, :maxDigit) = override;
-    formatter.minimumFractionDigits = minDigit;
-    formatter.maximumFractionDigits = maxDigit;
+    formatter.currencyName;
+    formatter.minimumFractionDigits = override.minDigit;
+    formatter.maximumFractionDigits = override.maxDigit;
     return formatter.format(value);
   }
 }

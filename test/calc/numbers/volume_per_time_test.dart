@@ -1,8 +1,6 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/enum/time_unit.dart';
-import 'package:unit_calc/src/calc/enum/volume_unit.dart';
-import 'package:unit_calc/src/calc/numbers/volume_per_time.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 import 'mass_per_volume_test.dart';
 
@@ -16,11 +14,20 @@ void main() {
         throwsInvalidJsonException,
       );
     });
+    test("multiply by volumePerTime", () {
+      expect(
+        const VolumePerTime(3, VolumeUnit.milliLiters, TimeUnit.minute)
+            .multiplyWithDilution(
+          const MassPerVolume(5, milliGram, VolumeUnit.milliLiters),
+        ),
+        const MassPerTime(15, milliGram, TimeUnit.minute),
+      );
+    });
     const List<_testCase> testCases = [
       (
         val: VolumePerTime(
           2,
-          VolumeUnit.ml,
+          VolumeUnit.milliLiters,
           TimeUnit.minute,
         ),
         unit: TimeUnit.hour,
@@ -29,7 +36,7 @@ void main() {
       (
         val: VolumePerTime(
           60,
-          VolumeUnit.ml,
+          VolumeUnit.milliLiters,
           TimeUnit.hour,
         ),
         unit: TimeUnit.minute,
@@ -45,7 +52,7 @@ void main() {
       });
       test("test time conversion", () {
         expect(
-          val.asNumber(VolumeUnit.ml, unit),
+          val.asNumber(VolumeUnit.milliLiters, unit),
           VolumePerTime.fromJson(result).asNumber(),
         );
       });
@@ -53,20 +60,22 @@ void main() {
     test("test time conversion", () {
       const volumePerTime = VolumePerTime(
         2,
-        VolumeUnit.ml,
+        VolumeUnit.milliLiters,
         TimeUnit.minute,
       );
-      expect(volumePerTime.as(VolumeUnit.ml, TimeUnit.hour).toString(),
+      expect(volumePerTime.as(VolumeUnit.milliLiters, TimeUnit.hour).toString(),
           "120 ml/hr");
     });
     test("test time conversion", () {
       const volumePerTime = VolumePerTime(
         10,
-        VolumeUnit.ml,
+        VolumeUnit.milliLiters,
         TimeUnit.hour,
       );
-      expect(volumePerTime.as(VolumeUnit.ml, TimeUnit.hour).toString(),
-          "10 ml/hr");
+      expect(
+        volumePerTime.as(VolumeUnit.milliLiters, TimeUnit.hour).toString(),
+        "10 ml/hr",
+      );
     });
   });
 }

@@ -14,11 +14,11 @@ class Mass implements Number {
 
   const Mass(this._value, this.unit) : assert(_value >= 0);
 
-  const Mass.kiloGram(this._value)
+  const Mass.kiloGrams(this._value)
       : unit = kiloGram,
         assert(_value >= 0);
 
-  const Mass.milliGram(this._value)
+  const Mass.milliGrams(this._value)
       : unit = milliGram,
         assert(_value >= 0);
 
