@@ -13,11 +13,11 @@ jobs:
       checks: write
     steps:
       - name: checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: install dart
         uses: dart-lang/setup-dart@v1
-        
+
       - name: setup just
         uses: extractions/setup-just@v1
 

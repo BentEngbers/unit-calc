@@ -4,11 +4,11 @@ on:
   push:
 
 jobs:
-  mimimal-test-coverage:
+  minimal-test-coverage:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: install dart
         uses: dart-lang/setup-dart@v1
@@ -29,13 +29,13 @@ jobs:
       - uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: "./coverage/lcov.info"
-          min_coverage: 99
+          min_coverage: 100
 
   analyse:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: install dart
         uses: dart-lang/setup-dart@v1
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: install dart
         uses: dart-lang/setup-dart@v1
