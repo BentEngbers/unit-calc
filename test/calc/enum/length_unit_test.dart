@@ -2,6 +2,7 @@
 import 'package:test/test.dart';
 import 'package:unit_calc/unit_calc.dart';
 
+// ignore: camel_case_types
 typedef _testCase = ({LengthUnit unit, String name});
 typedef _TimeUnitConversionTestCase = ({
   LengthUnit unit1,
