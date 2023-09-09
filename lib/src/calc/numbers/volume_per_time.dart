@@ -64,6 +64,5 @@ class VolumePerTime implements Number {
     return "${NumberUtils.toDecimalString(_value, override, format)} ${volumeUnit.displayName}/${timeUnit.displayName}";
   }
 
-  MassPerTime multiplyWithDilution(MassPerVolume dilution) =>
-      dilution.multiply(this);
+  MassPerTime operator *(MassPerVolume dilution) => dilution.multiply(this);
 }

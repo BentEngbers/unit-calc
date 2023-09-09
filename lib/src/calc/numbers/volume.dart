@@ -70,5 +70,5 @@ final class Volume implements Number {
   @override
   String toJson() => "$_value ${unit.toJson()}";
 
-  Mass multiplyWithDilution(MassPerVolume dilution) => dilution * this;
+  Mass operator *(MassPerVolume dilution) => dilution * this;
 }

@@ -81,7 +81,7 @@ void main() {
         expect(val * multiply, equals(result));
       });
       test("multiply $multiply with $val", () {
-        expect(multiply.multiplyWithDilution(val), equals(result));
+        expect(multiply * val, equals(result));
       });
     }
     test("multiply by volumePerTime", () {

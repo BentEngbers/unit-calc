@@ -56,8 +56,8 @@ void main() {
     });
     test("multiply with mass", () {
       expect(
-        const MassPerMass(7, MassUnit.kiloGram, MassUnit.milliGram)
-            .multiplyWithMass(const Mass.milliGrams(5)),
+        const MassPerMass(7, MassUnit.kiloGram, MassUnit.milliGram) *
+            (const Mass.milliGrams(5)),
         const Mass.kiloGrams(35),
       );
     });

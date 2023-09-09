@@ -14,8 +14,8 @@ void main() {
     });
     test("multiply by time", () {
       expect(
-        const MassPerTime(60, MassUnit.kiloGram, TimeUnit.hour)
-            .multiplyByTime(const Time.minutes(2)),
+        const MassPerTime(60, MassUnit.kiloGram, TimeUnit.hour) *
+            (const Time.minutes(2)),
         const Mass(2, MassUnit.kiloGram),
       );
     });

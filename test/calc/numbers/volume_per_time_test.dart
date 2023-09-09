@@ -16,10 +16,12 @@ void main() {
     });
     test("multiply by volumePerTime", () {
       expect(
-        const VolumePerTime(3, VolumeUnit.milliLiters, TimeUnit.minute)
-            .multiplyWithDilution(
-          const MassPerVolume(5, MassUnit.milliGram, VolumeUnit.milliLiters),
-        ),
+        const VolumePerTime(3, VolumeUnit.milliLiters, TimeUnit.minute) *
+            const MassPerVolume(
+              5,
+              MassUnit.milliGram,
+              VolumeUnit.milliLiters,
+            ),
         const MassPerTime(15, MassUnit.milliGram, TimeUnit.minute),
       );
     });

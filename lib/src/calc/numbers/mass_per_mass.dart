@@ -78,7 +78,7 @@ class MassPerMass implements Number {
       as(massUnit: massUnit, perMassUnit: perMassUnit)._value;
 
   ///Example:  (5 mg/kg).multiplyWithMass(3 kg) = 15 mg
-  Mass multiplyWithMass(Mass mass) => Mass.milliGrams(
+  Mass operator *(Mass mass) => Mass.milliGrams(
         asNumber(massUnit: MassUnit.milliGram, perMassUnit: MassUnit.kiloGram) *
             mass.asNumber(MassUnit.kiloGram),
       );
