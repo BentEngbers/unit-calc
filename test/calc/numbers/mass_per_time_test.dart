@@ -130,7 +130,11 @@ void main() {
       expect(
         massPerTime.divide(mass5Kg),
         const MassPerMassTime(
-            20, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour),
+          20,
+          MassUnit.gram,
+          MassUnit.kiloGram,
+          TimeUnit.hour,
+        ),
       );
     });
   });

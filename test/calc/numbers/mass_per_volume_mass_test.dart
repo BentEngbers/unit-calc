@@ -16,7 +16,10 @@ void main() {
     test("throws an error if initialized with negative number", () {
       expect(
         () => MassPerVolumeMass.perKg(
-            -4, MassUnit.microGram, VolumeUnit.milliLiters),
+          -4,
+          MassUnit.microGram,
+          VolumeUnit.milliLiters,
+        ),
         throwsAssertionError,
       );
     });

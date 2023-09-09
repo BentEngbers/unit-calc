@@ -17,7 +17,11 @@ void main() {
       const massPerMassTime =
           MassPerMassTime(20, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour);
       const massPerMassTime2 = MassPerMassTime(
-          20.22, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour);
+        20.22,
+        MassUnit.gram,
+        MassUnit.kiloGram,
+        TimeUnit.hour,
+      );
       expect(massPerMassTime.hashCode, isNot(massPerMassTime2.hashCode));
       expect(massPerMassTime.hashCode, massPerMassTime.hashCode);
     });
@@ -37,14 +41,22 @@ void main() {
     });
     test("toDisplayString", () {
       const massPerMassTime = MassPerMassTime(
-          20.22, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour);
+        20.22,
+        MassUnit.gram,
+        MassUnit.kiloGram,
+        TimeUnit.hour,
+      );
       expect(massPerMassTime.toString(), "20.2 g/kg/hr");
     });
     test("perKg constructor", () {
       expect(
         const MassPerMassTime.perKg(20, MassUnit.gram, TimeUnit.hour),
         const MassPerMassTime(
-            20, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour),
+          20,
+          MassUnit.gram,
+          MassUnit.kiloGram,
+          TimeUnit.hour,
+        ),
       );
       expect(
         () => MassPerMassTime.perKg(-1, MassUnit.gram, TimeUnit.hour),

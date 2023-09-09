@@ -37,26 +37,29 @@ void main() {
       "equality different MassUnit",
       () => {
         expect(
-            const Mass(1000, MassUnit.gram) == const Mass(1, MassUnit.kiloGram),
-            isTrue)
+          const Mass(1000, MassUnit.gram) == const Mass(1, MassUnit.kiloGram),
+          isTrue,
+        ),
       },
     );
     test(
       "equality different value",
       () => {
         expect(
-            const Mass(5, MassUnit.milliGram) ==
-                const Mass(6, MassUnit.milliGram),
-            isFalse),
+          const Mass(5, MassUnit.milliGram) ==
+              const Mass(6, MassUnit.milliGram),
+          isFalse,
+        ),
       },
     );
     test(
       "equality true",
       () => {
         expect(
-            const Mass(6, MassUnit.milliGram) ==
-                const Mass(6, MassUnit.milliGram),
-            isTrue),
+          const Mass(6, MassUnit.milliGram) ==
+              const Mass(6, MassUnit.milliGram),
+          isTrue,
+        ),
       },
     );
     test(

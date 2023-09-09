@@ -55,11 +55,23 @@ void main() {
     });
     const List<MassPerVolumeTime> decreasingMassPerVolumeTime = [
       MassPerVolumeTime(
-          5, MassUnit.gram, VolumeUnit.milliLiters, TimeUnit.hour),
+        5,
+        MassUnit.gram,
+        VolumeUnit.milliLiters,
+        TimeUnit.hour,
+      ),
       MassPerVolumeTime(
-          5, MassUnit.gram, VolumeUnit.milliLiters, TimeUnit.minute),
+        5,
+        MassUnit.gram,
+        VolumeUnit.milliLiters,
+        TimeUnit.minute,
+      ),
       MassPerVolumeTime(
-          5, MassUnit.milliGram, VolumeUnit.milliLiters, TimeUnit.minute),
+        5,
+        MassUnit.milliGram,
+        VolumeUnit.milliLiters,
+        TimeUnit.minute,
+      ),
     ];
     for (final current in decreasingMassPerVolumeTime) {
       final previousValues =

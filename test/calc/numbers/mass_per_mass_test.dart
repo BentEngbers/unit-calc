@@ -6,12 +6,16 @@ import 'mass_per_volume_test.dart';
 void main() {
   group('AmountPerKG', () {
     test("throws an error if initialized with negative number", () {
-      expect(() => MassPerMass.perKg(-1, MassUnit.microGram),
-          throwsAssertionError);
+      expect(
+        () => MassPerMass.perKg(-1, MassUnit.microGram),
+        throwsAssertionError,
+      );
     });
     test("check the to string method", () {
-      expect('${const MassPerMass.perKg(2.56, MassUnit.microGram)}',
-          "2.56 mcg/kg");
+      expect(
+        '${const MassPerMass.perKg(2.56, MassUnit.microGram)}',
+        "2.56 mcg/kg",
+      );
     });
     test("equality false", () {
       expect(
