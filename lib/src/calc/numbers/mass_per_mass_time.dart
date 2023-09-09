@@ -9,8 +9,8 @@ import 'package:unit_calc/src/exceptions.dart';
 
 @immutable
 
-/// An amount of mass divided by a mass unit per time unit\
-/// Example: 5 mg/kg/hour
+/// An amount of mass divided by a mass unit per time unit \
+/// Example: `5 mg/kg/hour`
 class MassPerMassTime implements Number {
   final num _value;
   final MassUnit massUnit;

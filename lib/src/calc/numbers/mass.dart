@@ -7,6 +7,8 @@ import 'package:unit_calc/src/exceptions.dart';
 import 'number.dart';
 import 'volume.dart';
 
+/// A mass \
+/// Example: `5 mg`
 @immutable
 class Mass implements Number {
   final num _value;

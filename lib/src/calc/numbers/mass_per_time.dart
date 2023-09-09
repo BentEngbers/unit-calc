@@ -6,6 +6,8 @@ import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
+/// An amount of mass divided by a time unit\
+/// Example: `5 mg/min`
 @immutable
 final class MassPerTime implements Number {
   final num _value;

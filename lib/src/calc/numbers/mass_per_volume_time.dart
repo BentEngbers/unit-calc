@@ -6,7 +6,8 @@ import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 
-/// Example: 5 mg/ml/min
+/// A mass divided by a volume and by time\
+/// Example: `5 mg/ml/min`
 @immutable
 class MassPerVolumeTime implements Number {
   final num _value;

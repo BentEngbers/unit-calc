@@ -3,6 +3,8 @@ import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
+/// A given Time \
+/// Examples: `5 min`, `7 hr`
 class Time implements Number, Comparable<Time> {
   final num _value;
   final TimeUnit unit;

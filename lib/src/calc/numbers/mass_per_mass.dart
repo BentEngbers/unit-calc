@@ -7,7 +7,7 @@ import 'package:unit_calc/unit_calc.dart';
 @immutable
 
 /// An amount of mass divided by another mass unit\
-/// e.g. 5 mg / kg
+/// Example: `5 mg / kg`
 class MassPerMass implements Number {
   final num _value;
 

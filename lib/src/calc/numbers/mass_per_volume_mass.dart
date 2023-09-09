@@ -7,6 +7,8 @@ import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 
+/// An amount of mass divided by a volume and another mass unit\
+/// Example: `5 mg/ml/kg`
 @immutable
 class MassPerVolumeMass implements Number {
   final num _value;

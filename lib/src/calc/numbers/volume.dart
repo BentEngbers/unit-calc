@@ -5,6 +5,8 @@ import 'package:unit_calc/unit_calc.dart';
 
 import 'number.dart';
 
+/// A volume
+/// Example: `5 ml`
 @immutable
 final class Volume implements Number {
   final VolumeUnit unit;

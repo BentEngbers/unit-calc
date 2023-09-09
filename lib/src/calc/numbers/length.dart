@@ -1,9 +1,12 @@
+import 'package:meta/meta.dart';
 import 'package:unit_calc/src/calc/enum/length_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 
-/// Examples: "170 cm", "30 m"
+/// A length \
+/// Example: `170 cm`, `30 m`
+@immutable
 class Length implements Number {
   final num _value;
   final LengthUnit unit;

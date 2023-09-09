@@ -4,6 +4,8 @@ import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
+/// A volume divided by time \
+/// Example: `5 ml/min`
 @immutable
 class VolumePerTime implements Number {
   final num _value;
