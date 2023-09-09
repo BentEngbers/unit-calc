@@ -10,7 +10,7 @@ final List<TestCase> tests = [
   (time: const Time.minutes(61), result: "01:01:00"),
   (time: const Time.minutes(61), result: "01:01:00"),
   (time: const Time.seconds(8274), result: "02:17:54"),
-  (time: const Time.seconds(214367), result: "59:32:47")
+  (time: const Time.seconds(214367), result: "59:32:47"),
 ];
 final List<TestCase> testsShort = [
   (time: const Time.zero(), result: "00:00"),
@@ -20,7 +20,7 @@ final List<TestCase> testsShort = [
   (time: const Time.minutes(61), result: "01:01:00"),
   (time: const Time.minutes(61), result: "01:01:00"),
   (time: const Time.seconds(8274), result: "02:17:54"),
-  (time: const Time.seconds(214367), result: "59:32:47")
+  (time: const Time.seconds(214367), result: "59:32:47"),
 ];
 main() {
   for (final testCase in tests) {

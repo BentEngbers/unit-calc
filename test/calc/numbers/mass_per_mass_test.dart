@@ -44,13 +44,13 @@ void main() {
     });
     test("bad json", () {
       expect(() => MassPerMass.fromJson("3.5 mg/kg/hr"),
-          throwsInvalidJsonException);
+          throwsInvalidJsonException,);
     });
     test("multiply with mass", () {
       expect(
           const MassPerMass(7, kiloGram, milliGram)
               .multiplyWithMass(const Mass.milliGrams(5)),
-          const Mass.kiloGrams(35));
+          const Mass.kiloGrams(35),);
     });
   });
 }

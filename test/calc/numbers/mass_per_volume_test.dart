@@ -24,7 +24,7 @@ void main() {
       val: MassPerVolume(2.56, kiloGram, VolumeUnit.milliLiters),
       multiply: Volume(5, VolumeUnit.milliLiters),
       result: Mass(12.8, kiloGram)
-    )
+    ),
   ];
   group('MassPerVolume', () {
     test("Zero constructor", () {

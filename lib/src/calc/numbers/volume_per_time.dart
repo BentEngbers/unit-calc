@@ -1,6 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/time_unit.dart';
-import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';

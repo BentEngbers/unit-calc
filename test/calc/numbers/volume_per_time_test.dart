@@ -41,7 +41,7 @@ void main() {
         ),
         unit: TimeUnit.minute,
         result: "1 ml/min"
-      )
+      ),
     ];
     for (final (:val, :unit, :result) in testCases) {
       test("json roundTrip", () {
@@ -64,7 +64,7 @@ void main() {
         TimeUnit.minute,
       );
       expect(volumePerTime.as(VolumeUnit.milliLiters, TimeUnit.hour).toString(),
-          "120 ml/hr");
+          "120 ml/hr",);
     });
     test("test time conversion", () {
       const volumePerTime = VolumePerTime(

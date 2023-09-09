@@ -57,7 +57,7 @@ void main() {
     const decreasingVolumeList = [
       Volume(2, VolumeUnit.milliLiters),
       Volume(0.2, VolumeUnit.milliLiters),
-      Volume(0.1, VolumeUnit.milliLiters)
+      Volume(0.1, VolumeUnit.milliLiters),
     ];
     for (final currentVolume in decreasingVolumeList) {
       test("test $currentVolume >= $currentVolume", () {

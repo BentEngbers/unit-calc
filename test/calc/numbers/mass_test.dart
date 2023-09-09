@@ -40,13 +40,13 @@ void main() {
     test(
       "equality different value",
       () => {
-        expect(const Mass(5, milliGram) == const Mass(6, milliGram), isFalse)
+        expect(const Mass(5, milliGram) == const Mass(6, milliGram), isFalse),
       },
     );
     test(
       "equality true",
       () => {
-        expect(const Mass(6, milliGram) == const Mass(6, milliGram), isTrue)
+        expect(const Mass(6, milliGram) == const Mass(6, milliGram), isTrue),
       },
     );
     test(
@@ -129,7 +129,7 @@ void main() {
       Mass(1, milliGram),
       Mass(999, microGram),
       Mass(1, microGram),
-      Mass(999, nanoGram)
+      Mass(999, nanoGram),
     ];
     for (final currentMass in decreasingMassList) {
       test("test $currentMass >= $currentMass", () {

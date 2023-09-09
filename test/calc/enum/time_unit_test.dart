@@ -10,7 +10,7 @@ typedef _TimeUnitConversionTestCase = ({
 });
 const List<_testCase> _testCases = [
   (unit: TimeUnit.hour, name: "hr"),
-  (unit: TimeUnit.minute, name: "min")
+  (unit: TimeUnit.minute, name: "min"),
 ];
 void main() {
   const min = TimeUnit.minute;

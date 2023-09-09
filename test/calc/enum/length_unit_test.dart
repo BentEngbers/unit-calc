@@ -10,7 +10,7 @@ typedef _TimeUnitConversionTestCase = ({
 });
 const List<_testCase> _testCases = [
   (unit: LengthUnit.centiMeter, name: "cm"),
-  (unit: LengthUnit.meter, name: "m")
+  (unit: LengthUnit.meter, name: "m"),
 ];
 void main() {
   const centiMeter = LengthUnit.centiMeter;
