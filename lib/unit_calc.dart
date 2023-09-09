@@ -1,17 +1,5 @@
 export 'src/calc/enum/mass_unit.dart'
-    show
-        MassUnit,
-        KiloGram,
-        kiloGram,
-        gram,
-        Gram,
-        MicroGram,
-        microGram,
-        MilliGram,
-        milliGram,
-        NanoGram,
-        nanoGram,
-        U;
+    show MassUnit, KiloGram, Gram, MicroGram, MilliGram, NanoGram, U;
 export "/src/calc/enum/diluent.dart" show Diluent;
 export "/src/calc/enum/length_unit.dart" show LengthUnit;
 

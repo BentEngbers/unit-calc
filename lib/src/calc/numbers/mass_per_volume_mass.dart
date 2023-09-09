@@ -23,7 +23,7 @@ class MassPerVolumeMass implements Number {
     this.perMassUnit,
   ) : assert(_value >= 0);
   const MassPerVolumeMass.perKg(this._value, this.massUnit, this.perVolumeUnit)
-      : perMassUnit = kiloGram,
+      : perMassUnit = MassUnit.kiloGram,
         assert(_value >= 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>

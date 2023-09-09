@@ -15,16 +15,16 @@ class Mass implements Number {
   const Mass(this._value, this.unit) : assert(_value >= 0);
 
   const Mass.kiloGrams(this._value)
-      : unit = kiloGram,
+      : unit = MassUnit.kiloGram,
         assert(_value >= 0);
 
   const Mass.milliGrams(this._value)
-      : unit = milliGram,
+      : unit = MassUnit.milliGram,
         assert(_value >= 0);
 
   const Mass.zero([MassUnit? unit])
       : _value = 0,
-        unit = unit ?? kiloGram;
+        unit = unit ?? MassUnit.kiloGram;
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>

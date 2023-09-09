@@ -23,7 +23,7 @@ class MassPerMassTime implements Number {
     this.perTimeUnit,
   ) : assert(_value >= 0);
   const MassPerMassTime.perKg(this._value, this.massUnit, this.perTimeUnit)
-      : perMassUnit = kiloGram,
+      : perMassUnit = MassUnit.kiloGram,
         assert(_value >= 0);
 
   @override

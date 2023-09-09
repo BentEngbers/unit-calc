@@ -9,19 +9,19 @@ void main() {
     test("zero value", () {
       expect(
         const MassPerTime.zero(),
-        const MassPerTime(0, kiloGram, TimeUnit.second),
+        const MassPerTime(0, MassUnit.kiloGram, TimeUnit.second),
       );
     });
     test("multiply by time", () {
       expect(
-        const MassPerTime(60, kiloGram, TimeUnit.hour)
+        const MassPerTime(60, MassUnit.kiloGram, TimeUnit.hour)
             .multiplyByTime(const Time.minutes(2)),
-        const Mass(2, kiloGram),
+        const Mass(2, MassUnit.kiloGram),
       );
     });
     test("throws an error if initialized with negative number", () {
       expect(
-        () => MassPerTime(-6, microGram, TimeUnit.hour),
+        () => MassPerTime(-6, MassUnit.microGram, TimeUnit.hour),
         throwsAssertionError,
       );
     });
@@ -47,7 +47,7 @@ void main() {
     });
     test("equality different unit", () {
       expect(
-        const MassPerTime(2.4, microGram, TimeUnit.hour) ==
+        const MassPerTime(2.4, MassUnit.microGram, TimeUnit.hour) ==
             const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.hour),
         false,
       );
@@ -82,9 +82,9 @@ void main() {
       expect(MassPerTime.fromJson(massPerTime.toJson()), massPerTime);
     });
     test("roundTrip json", () {
-      const massPerTime = MassPerTime(60, kiloGram, TimeUnit.minute);
+      const massPerTime = MassPerTime(60, MassUnit.kiloGram, TimeUnit.minute);
       expect(
-        massPerTime.asNumber(gram, TimeUnit.hour),
+        massPerTime.asNumber(MassUnit.gram, TimeUnit.hour),
         equals(3600000),
       );
     });
@@ -110,26 +110,27 @@ void main() {
     });
     test("equality different MassUnit and time unit", () {
       expect(
-        const MassPerTime(60, milliGram, TimeUnit.minute) ==
-            const MassPerTime(5000, microGram, TimeUnit.hour),
+        const MassPerTime(60, MassUnit.milliGram, TimeUnit.minute) ==
+            const MassPerTime(5000, MassUnit.microGram, TimeUnit.hour),
         false,
       );
     });
     test("divide by volume", () {
       const concentration5mgPerMl =
-          MassPerVolume(5, milliGram, VolumeUnit.milliLiters);
-      const massPerTime = MassPerTime(10000, microGram, TimeUnit.hour);
+          MassPerVolume(5, MassUnit.milliGram, VolumeUnit.milliLiters);
+      const massPerTime = MassPerTime(10000, MassUnit.microGram, TimeUnit.hour);
       expect(
         massPerTime / concentration5mgPerMl,
         const VolumePerTime(2, VolumeUnit.milliLiters, TimeUnit.hour),
       );
     });
     test("divide by mass", () {
-      const mass5Kg = Mass(5, kiloGram);
-      const massPerTime = MassPerTime(100, gram, TimeUnit.hour);
+      const mass5Kg = Mass(5, MassUnit.kiloGram);
+      const massPerTime = MassPerTime(100, MassUnit.gram, TimeUnit.hour);
       expect(
         massPerTime.divide(mass5Kg),
-        const MassPerMassTime(20, gram, kiloGram, TimeUnit.hour),
+        const MassPerMassTime(
+            20, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour),
       );
     });
   });

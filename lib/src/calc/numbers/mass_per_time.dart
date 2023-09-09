@@ -16,7 +16,7 @@ final class MassPerTime implements Number {
 
   const MassPerTime.zero([MassUnit? massUnit, TimeUnit? perTimeUnit])
       : _value = 0,
-        massUnit = massUnit ?? kiloGram,
+        massUnit = massUnit ?? MassUnit.kiloGram,
         perTimeUnit = perTimeUnit ?? TimeUnit.second;
 
   @override

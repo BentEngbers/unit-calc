@@ -18,9 +18,9 @@ void main() {
       expect(
         const VolumePerTime(3, VolumeUnit.milliLiters, TimeUnit.minute)
             .multiplyWithDilution(
-          const MassPerVolume(5, milliGram, VolumeUnit.milliLiters),
+          const MassPerVolume(5, MassUnit.milliGram, VolumeUnit.milliLiters),
         ),
-        const MassPerTime(15, milliGram, TimeUnit.minute),
+        const MassPerTime(15, MassUnit.milliGram, TimeUnit.minute),
       );
     });
     const List<_testCase> testCases = [
@@ -63,8 +63,10 @@ void main() {
         VolumeUnit.milliLiters,
         TimeUnit.minute,
       );
-      expect(volumePerTime.as(VolumeUnit.milliLiters, TimeUnit.hour).toString(),
-          "120 ml/hr",);
+      expect(
+        volumePerTime.as(VolumeUnit.milliLiters, TimeUnit.hour).toString(),
+        "120 ml/hr",
+      );
     });
     test("test time conversion", () {
       const volumePerTime = VolumePerTime(

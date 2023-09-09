@@ -26,7 +26,7 @@ class MassPerMass implements Number {
   const MassPerMass.perKg(
     this._value,
     this.massUnit,
-  )   : perMassUnit = kiloGram,
+  )   : perMassUnit = MassUnit.kiloGram,
         assert(_value >= 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
@@ -79,7 +79,7 @@ class MassPerMass implements Number {
 
   ///Example:  (5 mg/kg).multiplyWithMass(3 kg) = 15 mg
   Mass multiplyWithMass(Mass mass) => Mass.milliGrams(
-        asNumber(massUnit: milliGram, perMassUnit: kiloGram) *
-            mass.asNumber(kiloGram),
+        asNumber(massUnit: MassUnit.milliGram, perMassUnit: MassUnit.kiloGram) *
+            mass.asNumber(MassUnit.kiloGram),
       );
 }

@@ -15,7 +15,8 @@ void main() {
   group('AmountPerMLKG', () {
     test("throws an error if initialized with negative number", () {
       expect(
-        () => MassPerVolumeMass.perKg(-4, microGram, VolumeUnit.milliLiters),
+        () => MassPerVolumeMass.perKg(
+            -4, MassUnit.microGram, VolumeUnit.milliLiters),
         throwsAssertionError,
       );
     });
@@ -27,7 +28,7 @@ void main() {
     });
     test("check the to string method", () {
       expect(
-        '${const MassPerVolumeMass.perKg(0.0, microGram, VolumeUnit.milliLiters)}',
+        '${const MassPerVolumeMass.perKg(0.0, MassUnit.microGram, VolumeUnit.milliLiters)}',
         "0 mcg/ml/kg",
       );
     });
@@ -55,7 +56,10 @@ void main() {
           massPerMlKg * Mass(mass, const U(factorToNg: 1)),
           equals(
             MassPerVolume(
-                result, const U(factorToNg: 1), VolumeUnit.milliLiters,),
+              result,
+              const U(factorToNg: 1),
+              VolumeUnit.milliLiters,
+            ),
           ),
         );
       });

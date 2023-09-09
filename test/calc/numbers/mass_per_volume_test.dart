@@ -21,16 +21,16 @@ void main() {
       result: Mass(12.8, U(factorToNg: 1))
     ),
     (
-      val: MassPerVolume(2.56, kiloGram, VolumeUnit.milliLiters),
+      val: MassPerVolume(2.56, MassUnit.kiloGram, VolumeUnit.milliLiters),
       multiply: Volume(5, VolumeUnit.milliLiters),
-      result: Mass(12.8, kiloGram)
+      result: Mass(12.8, MassUnit.kiloGram)
     ),
   ];
   group('MassPerVolume', () {
     test("Zero constructor", () {
       expect(
         const MassPerVolume.zero(),
-        const MassPerVolume(0, milliGram, VolumeUnit.liter),
+        const MassPerVolume(0, MassUnit.milliGram, VolumeUnit.liter),
       );
     });
     test("Check extra units fail", () {
@@ -86,15 +86,16 @@ void main() {
     }
     test("multiply by volumePerTime", () {
       expect(
-        const MassPerVolume(5, milliGram, VolumeUnit.milliLiters).multiply(
+        const MassPerVolume(5, MassUnit.milliGram, VolumeUnit.milliLiters)
+            .multiply(
           const VolumePerTime(3, VolumeUnit.milliLiters, TimeUnit.hour),
         ),
-        const MassPerTime(15, milliGram, TimeUnit.hour),
+        const MassPerTime(15, MassUnit.milliGram, TimeUnit.hour),
       );
     });
     test("throws an error if initialized with negative number", () {
       expect(
-        () => MassPerVolume(-1, microGram, VolumeUnit.milliLiters),
+        () => MassPerVolume(-1, MassUnit.microGram, VolumeUnit.milliLiters),
         throwsAssertionError,
       );
     });

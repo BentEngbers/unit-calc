@@ -26,7 +26,8 @@ void main() {
       expect(a, const Volume.milliLiters(11));
     });
     test("check equality", () {
-      expect(const Mass.kiloGrams(5), isNot(const Volume.milliLiters(5)));
+      expect(
+          const Mass.kiloGrams(5), isNot(const Volume.milliLiters(5)));
     });
     test("check the tostring method", () {
       expect(const Volume.milliLiters(10).toString(), "10 ml");
