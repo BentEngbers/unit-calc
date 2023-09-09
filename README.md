@@ -12,7 +12,8 @@ and the Flutter guide for
 -->
 # Unit-calc 
 Perform calculations with numbers, while unit-calc takes care of the units.
-
+![format & analyse passing](https://github.com/BentEngbers/unit-calc/actions/workflows/push-checks.yaml/badge.svg?branch=master)
+![100% code coverage](https://github.com/BentEngbers/unit-calc/actions/workflows/full-code-coverage.yaml/badge.svg?branch=master)
 # Development
 ## Dependencies 
 There are a few dependencies that this project uses.
