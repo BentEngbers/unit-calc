@@ -83,21 +83,22 @@ class Time implements Number, Comparable<Time> {
   @override
   int get hashCode => Object.hash(_value, unit);
 
-  String get asHHmmSS {
-    final fullHours = asNumber(TimeUnit.hour).floor();
-    final fullMinutes = (asNumber(TimeUnit.minute) % 60).floor();
-    final fullSeconds = (asNumber(TimeUnit.second) % 60).floor();
+  String _timeDigits(TimeUnit unit) => switch (unit) {
+        TimeUnit.hour => asNumber(unit),
+        _ => asNumber(unit) % 60
+      }
+          .floor()
+          .toString()
+          .padLeft(2, "0");
 
-    final hourString = fullHours < 10 ? "0$fullHours" : "$fullHours";
-    final minutesString = fullMinutes < 10 ? "0$fullMinutes" : "$fullMinutes";
-    final secondsString = fullSeconds < 10 ? "0$fullSeconds" : "$fullSeconds";
-    return '$hourString:$minutesString:$secondsString';
-  }
+  String get asHHmmSS =>
+      '${_timeDigits(TimeUnit.hour)}:${_timeDigits(TimeUnit.minute)}:${_timeDigits(TimeUnit.second)}';
 
-  String get asHHmmSS_short {
-    final hhmmss = asHHmmSS;
-    return hhmmss.startsWith("00:") ? hhmmss.substring(3) : hhmmss;
-  }
+  // ignore: non_constant_identifier_names
+  String get asHHmmSS_short => switch (asHHmmSS) {
+        final hHmmSS when hHmmSS.startsWith("00:") => hHmmSS.substring(3),
+        final hHmmSS => hHmmSS
+      };
 
   ///Returns the amount of complete seconds in [Time]
   /// Example: (5.9 seconds).toFullSeconds=5
