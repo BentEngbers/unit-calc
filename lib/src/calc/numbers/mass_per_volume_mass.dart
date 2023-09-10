@@ -1,11 +1,14 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 
+/// An amount of mass divided by a volume and another mass unit\
+/// Example: `5 mg/ml/kg`
 @immutable
 class MassPerVolumeMass implements Number {
   final num _value;
@@ -22,7 +25,7 @@ class MassPerVolumeMass implements Number {
     this.perMassUnit,
   ) : assert(_value >= 0);
   const MassPerVolumeMass.perKg(this._value, this.massUnit, this.perVolumeUnit)
-      : perMassUnit = kiloGram,
+      : perMassUnit = MassUnit.kiloGram,
         assert(_value >= 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
@@ -44,7 +47,7 @@ class MassPerVolumeMass implements Number {
             VolumeUnit.fromJson(perVolume),
             MassUnit.fromJson(perMass),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   MassPerVolume operator *(Mass mass) => MassPerVolume(
@@ -77,14 +80,14 @@ class MassPerVolumeMass implements Number {
       );
 
   MassPerVolumeMass _toPerMassUnit(MassUnit toMass) => MassPerVolumeMass(
-        _value * perMassUnit.convertFactor(to: toMass),
+        _value / perMassUnit.convertFactor(to: toMass),
         toMass,
         perVolumeUnit,
         perMassUnit,
       );
 
   MassPerVolumeMass _toVolumeUnit(VolumeUnit toVolume) => MassPerVolumeMass(
-        _value * perVolumeUnit.convertFactor(to: toVolume),
+        _value / perVolumeUnit.convertFactor(to: toVolume),
         massUnit,
         perVolumeUnit,
         perMassUnit,

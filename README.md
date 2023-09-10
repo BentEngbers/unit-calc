@@ -10,30 +10,19 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
+# Unit-calc 
+![format & analyse passing](https://github.com/BentEngbers/unit-calc/actions/workflows/push-checks.yaml/badge.svg?branch=master)
+![100% code coverage](https://github.com/BentEngbers/unit-calc/actions/workflows/full-code-coverage.yaml/badge.svg?branch=master)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Perform calculations with numbers, while unit-calc takes care of the units.
 
-## Features
+# Development
+## Dependencies 
+There are a few dependencies that this project uses.
+Recommended installation is through [Cargo](https://doc.rust-lang.org/stable/cargo/).
+- [just](https://github.com/casey/just), to run certain commands 
+- [grcov](https://github.com/mozilla/grcov), to aggregates code coverage information.
+- [watchexec](https://github.com/watchexec/watchexec), to run commands when file changes.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Available commands
+view the [justfile](./justfile) for a list of available commands.

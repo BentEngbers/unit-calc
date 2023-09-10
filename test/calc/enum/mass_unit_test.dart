@@ -1,6 +1,5 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 typedef _UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});
@@ -19,11 +18,11 @@ void main() {
     });
 
     const testCases = <_UnitTestCases>[
-      (unit: kiloGram, name: "kg", factorNanoGr: 1000000000000),
-      (unit: gram, name: "g", factorNanoGr: 1000000000),
-      (unit: milliGram, name: "mg", factorNanoGr: 1000000),
-      (unit: microGram, name: "mcg", factorNanoGr: 1000),
-      (unit: nanoGram, name: "nanogr", factorNanoGr: 1),
+      (unit: MassUnit.kiloGram, name: "kg", factorNanoGr: 1000000000000),
+      (unit: MassUnit.gram, name: "g", factorNanoGr: 1000000000),
+      (unit: MassUnit.milliGram, name: "mg", factorNanoGr: 1000000),
+      (unit: MassUnit.microGram, name: "mcg", factorNanoGr: 1000),
+      (unit: MassUnit.nanoGram, name: "nanogr", factorNanoGr: 1),
       (unit: U(factorToNg: 11), name: "U(factorNanoGr: 11)", factorNanoGr: 11),
     ];
     for (final (:unit, :name, :factorNanoGr) in testCases) {
@@ -47,25 +46,31 @@ void main() {
         "throws an error if trying to create a ConcentrationUnit from an invalid string",
         () {
       expect(
-        () {
-          MassUnit.fromJson("FOO");
-        },
+        () => MassUnit.fromJson("FOO"),
         throwsA(
           predicate(
             (x) =>
                 x is InvalidMassUnitException &&
                 x.toString() ==
-                    "InvalidMassUnitException:The given string was an invalid MassUnit",
+                    "InvalidMassUnitException: The given string was an invalid MassUnit",
           ),
         ),
       );
     });
   });
   const unitTests = <_MassUnitConversionTestCase>[
-    (unit1: milliGram, unit2: milliGram, convertFactor: 1.0),
-    (unit1: milliGram, unit2: microGram, convertFactor: 1000.0),
-    (unit1: microGram, unit2: nanoGram, convertFactor: 1000.0),
-    (unit1: nanoGram, unit2: microGram, convertFactor: 0.001),
+    (unit1: MassUnit.milliGram, unit2: MassUnit.milliGram, convertFactor: 1.0),
+    (
+      unit1: MassUnit.milliGram,
+      unit2: MassUnit.microGram,
+      convertFactor: 1000.0
+    ),
+    (
+      unit1: MassUnit.microGram,
+      unit2: MassUnit.nanoGram,
+      convertFactor: 1000.0
+    ),
+    (unit1: MassUnit.nanoGram, unit2: MassUnit.microGram, convertFactor: 0.001),
     (unit1: U(factorToNg: 1), unit2: U(factorToNg: 1), convertFactor: 1),
   ];
   for (final (:unit1, :unit2, :convertFactor) in unitTests) {

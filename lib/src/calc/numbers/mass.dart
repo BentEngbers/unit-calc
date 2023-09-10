@@ -1,11 +1,14 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 
 import 'number.dart';
 import 'volume.dart';
 
+/// A mass \
+/// Example: `5 mg`
 @immutable
 class Mass implements Number {
   final num _value;
@@ -13,9 +16,17 @@ class Mass implements Number {
 
   const Mass(this._value, this.unit) : assert(_value >= 0);
 
-  const Mass.kiloGram(this._value)
-      : unit = kiloGram,
+  const Mass.kiloGrams(this._value)
+      : unit = MassUnit.kiloGram,
         assert(_value >= 0);
+
+  const Mass.milliGrams(this._value)
+      : unit = MassUnit.milliGram,
+        assert(_value >= 0);
+
+  const Mass.zero([MassUnit? unit])
+      : _value = 0,
+        unit = unit ?? MassUnit.kiloGram;
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
@@ -36,7 +47,10 @@ class Mass implements Number {
         asNumber(concentration.massUnit) / concentration.asNumber(),
         concentration.volumeUnit,
       );
-
+  Mass operator +(Mass other) =>
+      Mass(asNumber(other.unit) + other._value, other.unit);
+  Mass operator -(Mass other) =>
+      Mass(asNumber(other.unit) - other._value, other.unit);
   @override
   String toJson() => "$_value ${unit.toJson()}";
 
@@ -46,7 +60,7 @@ class Mass implements Number {
             num.parse(value),
             MassUnit.fromJson(mass),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override
@@ -65,6 +79,9 @@ class Mass implements Number {
   bool operator >=(Mass other) =>
       identical(this, other) ||
       asNumber(other.unit) >= other.asNumber(other.unit);
+  bool operator <=(Mass other) =>
+      identical(this, other) ||
+      asNumber(other.unit) <= other.asNumber(other.unit);
 
   @override
   int get hashCode => Object.hash(_value, unit);

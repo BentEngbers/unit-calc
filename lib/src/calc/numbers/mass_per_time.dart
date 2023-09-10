@@ -1,11 +1,13 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/numbers/mass_per_mass_time.dart';
 
 import 'package:unit_calc/src/calc/numbers/number.dart';
 
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
+/// An amount of mass divided by a time unit\
+/// Example: `5 mg/min`
 @immutable
 final class MassPerTime implements Number {
   final num _value;
@@ -13,6 +15,11 @@ final class MassPerTime implements Number {
   final MassUnit massUnit;
   const MassPerTime(this._value, this.massUnit, this.perTimeUnit)
       : assert(_value >= 0);
+
+  const MassPerTime.zero([MassUnit? massUnit, TimeUnit? perTimeUnit])
+      : _value = 0,
+        massUnit = massUnit ?? MassUnit.kiloGram,
+        perTimeUnit = perTimeUnit ?? TimeUnit.second;
 
   @override
   bool operator ==(Object other) =>
@@ -43,7 +50,7 @@ final class MassPerTime implements Number {
             MassUnit.fromJson(mass),
             TimeUnit.fromJson(time),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   MassPerTime _toMassUnit(MassUnit toMass) => MassPerTime(
@@ -52,7 +59,7 @@ final class MassPerTime implements Number {
         perTimeUnit,
       );
   MassPerTime _toTimeUnit(TimeUnit perTimeUnit) => MassPerTime(
-        _value *
+        _value /
             this.perTimeUnit.convertFactor(
                   toTime: perTimeUnit,
                 ),
@@ -60,16 +67,16 @@ final class MassPerTime implements Number {
         perTimeUnit,
       );
 
-  MassPerTime as({MassUnit? massUnit, TimeUnit? perTimeUnit}) =>
+  MassPerTime as([MassUnit? massUnit, TimeUnit? perTimeUnit]) =>
       _toMassUnit(massUnit ?? this.massUnit)
           ._toTimeUnit(perTimeUnit ?? this.perTimeUnit);
 
-  num asNumber({MassUnit? massUnit, TimeUnit? perTimeUnit}) =>
-      as(massUnit: massUnit, perTimeUnit: perTimeUnit)._value;
+  num asNumber([MassUnit? massUnit, TimeUnit? perTimeUnit]) =>
+      as(massUnit, perTimeUnit)._value;
 
   VolumePerTime operator /(MassPerVolume volume) => VolumePerTime(
-        asNumber(massUnit: volume.massUnit) /
-            volume.asNumber(volumeUnit: volume.volumeUnit),
+        asNumber(volume.massUnit) /
+            volume.asNumber(volume.massUnit, volume.volumeUnit),
         volume.volumeUnit,
         perTimeUnit,
       );
@@ -79,5 +86,9 @@ final class MassPerTime implements Number {
         massUnit,
         patientWeight.unit,
         perTimeUnit,
+      );
+  Mass operator *(Time time) => Mass(
+        asNumber(massUnit, TimeUnit.hour) * time.asNumber(TimeUnit.hour),
+        massUnit,
       );
 }

@@ -1,12 +1,13 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 @immutable
 
 /// An amount of mass divided by another mass unit\
-/// e.g. 5 mg / kg
+/// Example: `5 mg / kg`
 class MassPerMass implements Number {
   final num _value;
 
@@ -20,13 +21,13 @@ class MassPerMass implements Number {
     this._value,
     this.massUnit,
     this.perMassUnit,
-  ) : assert(_value > 0);
+  ) : assert(_value >= 0);
 
   const MassPerMass.perKg(
     this._value,
     this.massUnit,
-  )   : perMassUnit = kiloGram,
-        assert(_value > 0);
+  )   : perMassUnit = MassUnit.kiloGram,
+        assert(_value >= 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} ${massUnit.displayName}/${perMassUnit.displayName}";
@@ -43,7 +44,7 @@ class MassPerMass implements Number {
             MassUnit.fromJson(mass),
             MassUnit.fromJson(perMass),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override
@@ -64,7 +65,7 @@ class MassPerMass implements Number {
       );
 
   MassPerMass _toPerMassUnit(MassUnit toPerMass) => MassPerMass(
-        _value * perMassUnit.convertFactor(to: toPerMass),
+        _value / perMassUnit.convertFactor(to: toPerMass),
         massUnit,
         toPerMass,
       );
@@ -75,4 +76,10 @@ class MassPerMass implements Number {
 
   num asNumber({MassUnit? massUnit, MassUnit? perMassUnit}) =>
       as(massUnit: massUnit, perMassUnit: perMassUnit)._value;
+
+  ///Example:  (5 mg/kg).multiplyWithMass(3 kg) = 15 mg
+  Mass operator *(Mass mass) => Mass.milliGrams(
+        asNumber(massUnit: MassUnit.milliGram, perMassUnit: MassUnit.kiloGram) *
+            mass.asNumber(MassUnit.kiloGram),
+      );
 }

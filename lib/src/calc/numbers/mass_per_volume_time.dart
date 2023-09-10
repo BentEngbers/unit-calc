@@ -1,10 +1,13 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/enum/time_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
 
+/// A mass divided by a volume and by time\
+/// Example: `5 mg/ml/min`
 @immutable
 class MassPerVolumeTime implements Number {
   final num _value;
@@ -16,7 +19,7 @@ class MassPerVolumeTime implements Number {
     this.massUnit,
     this.volumeUnit,
     this.timeUnit,
-  ) : assert(_value > 0);
+  ) : assert(_value >= 0);
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
@@ -35,7 +38,7 @@ class MassPerVolumeTime implements Number {
             VolumeUnit.fromJson(volume),
             TimeUnit.fromJson(time),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
 
   @override
@@ -43,18 +46,15 @@ class MassPerVolumeTime implements Number {
       identical(this, other) ||
       other is MassPerVolumeTime &&
           runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) ==
-              other.asNumber();
+          asNumber(other.volumeUnit, other.massUnit) == other.asNumber();
 
   bool operator >(MassPerVolumeTime other) =>
       runtimeType == other.runtimeType &&
-      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >
-          other.asNumber();
+      asNumber(other.volumeUnit, other.massUnit) > other.asNumber();
 
   bool operator >=(MassPerVolumeTime other) =>
       identical(this, other) ||
-      asNumber(volumeUnit: other.volumeUnit, massUnit: other.massUnit) >=
-          other.asNumber();
+      asNumber(other.volumeUnit, other.massUnit) >= other.asNumber();
 
   @override
   String toString() => toDisplayString();
@@ -66,19 +66,19 @@ class MassPerVolumeTime implements Number {
         timeUnit,
       );
 
-  MassPerVolumeTime _toVolumeUnit(VolumeUnit toVolume) => MassPerVolumeTime(
-        _value * volumeUnit.convertFactor(to: toVolume),
+  MassPerVolumeTime _toPerVolumeUnit(VolumeUnit toVolume) => MassPerVolumeTime(
+        _value / volumeUnit.convertFactor(to: toVolume),
         massUnit,
         volumeUnit,
         timeUnit,
       );
 
-  MassPerVolumeTime as({VolumeUnit? volumeUnit, MassUnit? massUnit}) =>
+  MassPerVolumeTime as(VolumeUnit? volumeUnit, MassUnit? massUnit) =>
       _toMassUnit(massUnit ?? this.massUnit)
-          ._toVolumeUnit(volumeUnit ?? this.volumeUnit);
+          ._toPerVolumeUnit(volumeUnit ?? this.volumeUnit);
 
-  num asNumber({VolumeUnit? volumeUnit, MassUnit? massUnit}) =>
-      as(volumeUnit: volumeUnit, massUnit: massUnit)._value;
+  num asNumber([VolumeUnit? volumeUnit, MassUnit? massUnit]) =>
+      as(volumeUnit, massUnit)._value;
 
   @override
   int get hashCode => Object.hash(_value, massUnit, timeUnit, volumeUnit);

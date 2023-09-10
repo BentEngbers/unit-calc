@@ -1,6 +1,6 @@
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
-import 'package:unit_calc/src/calc/enum/concentration_unit.dart';
+import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
@@ -10,23 +10,28 @@ import 'mass_per_volume_test.dart';
 
 // ignore: camel_case_types
 typedef _testCase = ({double amountPerMlKg, double mass, double result});
+
 void main() {
   group('AmountPerMLKG', () {
     test("throws an error if initialized with negative number", () {
       expect(
-        () => MassPerVolumeMass.perKg(-4, microGram, VolumeUnit.ml),
-        throwAssertionError,
+        () => MassPerVolumeMass.perKg(
+          -4,
+          MassUnit.microGram,
+          VolumeUnit.milliLiters,
+        ),
+        throwsAssertionError,
       );
     });
     test("bad json", () {
       expect(
         () => MassPerVolumeMass.fromJson("4.2 mg/ml/kg/hr"),
-        throwsFormatException,
+        throwsInvalidJsonException,
       );
     });
     test("check the to string method", () {
       expect(
-        '${const MassPerVolumeMass.perKg(0.0, microGram, VolumeUnit.ml)}',
+        '${const MassPerVolumeMass.perKg(0.0, MassUnit.microGram, VolumeUnit.milliLiters)}',
         "0 mcg/ml/kg",
       );
     });
@@ -40,7 +45,7 @@ void main() {
       final massPerMlKg = MassPerVolumeMass.perKg(
         amountPerMlKg,
         const U(factorToNg: 1),
-        VolumeUnit.ml,
+        VolumeUnit.milliLiters,
       );
       test("json round trip", () {
         expect(
@@ -53,7 +58,11 @@ void main() {
         expect(
           massPerMlKg * Mass(mass, const U(factorToNg: 1)),
           equals(
-            MassPerVolume(result, const U(factorToNg: 1), VolumeUnit.ml),
+            MassPerVolume(
+              result,
+              const U(factorToNg: 1),
+              VolumeUnit.milliLiters,
+            ),
           ),
         );
       });
@@ -66,7 +75,7 @@ void main() {
         final previousMassPerMlKg = MassPerVolumeMass.perKg(
           previousElement.amountPerMlKg,
           const U(factorToNg: 1),
-          VolumeUnit.ml,
+          VolumeUnit.milliLiters,
         );
         test("Check $previousMassPerMlKg > $massPerMlKg ", () {
           expect(previousMassPerMlKg > massPerMlKg, isTrue);

@@ -6,17 +6,16 @@ const _mgName = "mg";
 const _kgName = "kg";
 const _gramName = "g";
 const _uName = "U";
-const kiloGram = KiloGram._();
-const gram = Gram._();
-const milliGram = MilliGram._();
-const microGram = MicroGram._();
-const nanoGram = NanoGram._();
 
 sealed class MassUnit {
   final String displayName;
   final num factorNanoGr;
   const MassUnit({required this.displayName, required this.factorNanoGr});
-
+  static const kiloGram = KiloGram._();
+  static const gram = Gram._();
+  static const milliGram = MilliGram._();
+  static const microGram = MicroGram._();
+  static const nanoGram = NanoGram._();
   factory MassUnit.fromJson(String json) => switch (json) {
         _mgName => milliGram,
         _mcgName => microGram,

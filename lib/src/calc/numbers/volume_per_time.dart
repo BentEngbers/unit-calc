@@ -1,9 +1,11 @@
 import 'package:meta/meta.dart';
-import 'package:unit_calc/src/calc/enum/time_unit.dart';
-import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/number.dart';
 import 'package:unit_calc/src/calc/utils.dart';
+import 'package:unit_calc/src/exceptions.dart';
+import 'package:unit_calc/unit_calc.dart';
 
+/// A volume divided by time \
+/// Example: `5 ml/min`
 @immutable
 class VolumePerTime implements Number {
   final num _value;
@@ -23,8 +25,7 @@ class VolumePerTime implements Number {
       identical(this, other) ||
       other is VolumePerTime &&
           runtimeType == other.runtimeType &&
-          asNumber(volumeUnit: other.volumeUnit, timeUnit: other.timeUnit) ==
-              other.asNumber();
+          asNumber(other.volumeUnit, other.timeUnit) == other.asNumber();
 
   @override
   int get hashCode => Object.hash(_value, timeUnit);
@@ -39,10 +40,10 @@ class VolumePerTime implements Number {
             VolumeUnit.fromJson(volume),
             TimeUnit.fromJson(timeUnit),
           ),
-        _ => throw FormatException("invalid json: \"$json\""),
+        _ => throw InvalidJsonException(json),
       };
-  VolumePerTime _toTimeUnit(TimeUnit toTime) => VolumePerTime(
-        _value * timeUnit.convertFactor(toTime: toTime),
+  VolumePerTime _toPerTimeUnit(TimeUnit toTime) => VolumePerTime(
+        _value / timeUnit.convertFactor(toTime: toTime),
         volumeUnit,
         toTime,
       );
@@ -53,15 +54,17 @@ class VolumePerTime implements Number {
         timeUnit,
       );
 
-  VolumePerTime as({VolumeUnit? volumeUnit, TimeUnit? timeUnit}) =>
-      _toTimeUnit(timeUnit ?? this.timeUnit)
+  VolumePerTime as([VolumeUnit? volumeUnit, TimeUnit? timeUnit]) =>
+      _toPerTimeUnit(timeUnit ?? this.timeUnit)
           ._toVolumeUnit(volumeUnit ?? this.volumeUnit);
 
-  num asNumber({VolumeUnit? volumeUnit, TimeUnit? timeUnit}) =>
-      as(volumeUnit: volumeUnit, timeUnit: timeUnit)._value;
+  num asNumber([VolumeUnit? volumeUnit, TimeUnit? timeUnit]) =>
+      as(volumeUnit, timeUnit)._value;
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) {
     return "${NumberUtils.toDecimalString(_value, override, format)} ${volumeUnit.displayName}/${timeUnit.displayName}";
   }
+
+  MassPerTime operator *(MassPerVolume dilution) => dilution.multiply(this);
 }
