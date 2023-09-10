@@ -90,7 +90,8 @@ class U extends MassUnit {
   const U({required num factorToNg})
       : super(displayName: _uName, factorNanoGr: factorToNg);
   @override
-  bool operator ==(Object other) => other is U && other.factorNanoGr == factorNanoGr;
+  bool operator ==(Object other) =>
+      other is U && other.factorNanoGr == factorNanoGr;
 
   @override
   int get hashCode => Object.hash(displayName, factorNanoGr);
