@@ -52,7 +52,7 @@ void main() {
             (x) =>
                 x is InvalidMassUnitException &&
                 x.toString() ==
-                    "InvalidMassUnitException:The given string was an invalid MassUnit",
+                    "InvalidMassUnitException: The given string was an invalid MassUnit",
           ),
         ),
       );

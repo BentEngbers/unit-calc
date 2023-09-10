@@ -1,5 +1,5 @@
 enum TimeUnit {
-  second(1, "seconds"),
+  second(1, "sec"),
   minute(60, "min"),
   hour(60 * 60, "hr");
 

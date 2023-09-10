@@ -32,7 +32,7 @@ void main() {
       },
     );
     test("check the to string method", () {
-      expect(const Time.seconds(2.1).toString(), "2.1 seconds");
+      expect(const Time.seconds(2.1).toString(), "2.1 sec");
     });
     test(
       "equality different TimeUnit",

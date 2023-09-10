@@ -3,7 +3,7 @@ class InvalidMassUnitException implements Exception {
 
   @override
   String toString() =>
-      'InvalidMassUnitException:The given string was an invalid MassUnit';
+      'InvalidMassUnitException: The given string was an invalid MassUnit';
 }
 
 class InvalidJsonException implements Exception {
