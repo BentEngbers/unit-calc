@@ -93,6 +93,14 @@ void main() {
         const MassPerTime(15, MassUnit.milliGram, TimeUnit.hour),
       );
     });
+    test("multiply with volume from readme", () {
+      expect(
+        const MassPerVolume(50, MassUnit.milliGram, VolumeUnit.liter) *
+            const Volume(100, VolumeUnit.milliLiters),
+        equals(const Mass.milliGrams(5)),
+      );
+    });
+
     test("throws an error if initialized with negative number", () {
       expect(
         () => MassPerVolume(-1, MassUnit.microGram, VolumeUnit.milliLiters),
