@@ -31,3 +31,4 @@ include: package:flutter_lints/flutter.yaml
 linter:
   rules:
     require_trailing_commas: true
+    always_declare_return_types: true

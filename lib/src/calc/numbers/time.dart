@@ -32,7 +32,7 @@ class Time implements Number, Comparable<Time> {
   factory Time.ofDuration(Duration duration) =>
       Time(duration.inMilliseconds / 1000, TimeUnit.second);
 
-  get asDuration =>
+  Duration get asDuration =>
       Duration(milliseconds: (asNumber(TimeUnit.second) * 1000).round());
 
   Time as([TimeUnit? toTime]) =>

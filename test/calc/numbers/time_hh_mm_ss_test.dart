@@ -22,7 +22,7 @@ final List<TestCase> testsShort = [
   (time: const Time.seconds(8274), result: "02:17:54"),
   (time: const Time.seconds(214367), result: "59:32:47"),
 ];
-main() {
+void main() {
   for (final testCase in tests) {
     test("asHHmmSS for a concentrationPoint with time ${testCase.time}", () {
       expect(testCase.time.asHHmmSS, testCase.result);
