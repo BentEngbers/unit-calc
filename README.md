@@ -15,7 +15,13 @@ and the Flutter guide for
 ![100% code coverage](https://github.com/BentEngbers/unit-calc/actions/workflows/full-code-coverage.yaml/badge.svg?branch=master)
 
 Perform calculations with numbers, while unit-calc takes care of the units.
-
+With full type-safety.
+# Example: 
+```dart 
+/// 50 mg/l * 100 ml = 5 mg
+const MassPerVolume(50, MassUnit.milliGram, VolumeUnit.liter) *
+            const Volume(100, VolumeUnit.milliLiters) == const Mass.milliGrams(5) // true
+```
 # Development
 ## Dependencies 
 There are a few dependencies that this project uses.

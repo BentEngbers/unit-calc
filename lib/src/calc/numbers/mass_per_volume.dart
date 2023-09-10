@@ -21,7 +21,7 @@ class MassPerVolume implements Number {
         volumeUnit = volumeUnit ?? VolumeUnit.milliLiters;
 
   Mass operator *(Volume volume) =>
-      Mass(volume.asNumber(volume.unit) * _value, massUnit);
+      Mass(volume.asNumber(volumeUnit) * _value, massUnit);
 
   MassPerTime multiply(VolumePerTime volumePerTime) => MassPerTime(
         _value * volumePerTime.asNumber(volumeUnit),
