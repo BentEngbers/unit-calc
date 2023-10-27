@@ -4,6 +4,7 @@ import 'package:unit_calc/src/calc/enum/volume_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/numbers/volume.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 import 'mass_per_volume_test.dart';
 
@@ -13,6 +14,13 @@ typedef UnitConversionDivision = ({
   MassPerVolume divisor,
   Volume result,
 });
+
+typedef MassDivisionTestCase = ({
+  Mass dividend,
+  Mass divisor,
+  MassPerMass answer
+});
+
 void main() {
   group('Amount:', () {
     test("bad json test", () {
@@ -176,6 +184,45 @@ void main() {
           expect(currentMass < largerMass, isTrue);
         });
       }
+    }
+    const List<MassDivisionTestCase> massDividingTestCases = [
+      (
+        dividend: Mass.kiloGrams(5),
+        divisor: Mass.kiloGrams(5),
+        answer: MassPerMass.perKg(1, MassUnit.kiloGram)
+      ),
+      (
+        dividend: Mass.kiloGrams(10),
+        divisor: Mass.kiloGrams(5),
+        answer: MassPerMass.perKg(2, MassUnit.kiloGram)
+      ),
+      (
+        dividend: Mass.milliGrams(30),
+        divisor: Mass.kiloGrams(3),
+        answer: MassPerMass.perKg(10, MassUnit.milliGram)
+      ),
+      (
+        dividend: Mass.kiloGrams(30),
+        divisor: Mass.milliGrams(3),
+        answer: MassPerMass(10, MassUnit.kiloGram, MassUnit.milliGram)
+      ),
+    ];
+
+    for (final (:dividend, :divisor, :answer) in massDividingTestCases) {
+      test("expect $dividend / $divisor == $answer", () {
+        expect(dividend.divideMass(divisor), equals(answer));
+      });
+      test("expect $dividend / $divisor has massUnit ${answer.massUnit}", () {
+        expect(dividend.divideMass(divisor).massUnit, equals(answer.massUnit));
+      });
+      test("expect $dividend / $divisor has perMassUnit ${answer.massUnit}",
+          () {
+        print("FOO");
+        expect(
+          dividend.divideMass(divisor).perMassUnit,
+          equals(answer.perMassUnit),
+        );
+      });
     }
   });
 }

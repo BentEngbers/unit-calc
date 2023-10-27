@@ -3,6 +3,7 @@ import 'package:unit_calc/src/calc/enum/mass_unit.dart';
 import 'package:unit_calc/src/calc/numbers/mass_per_volume.dart';
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
+import 'package:unit_calc/unit_calc.dart';
 
 import 'number.dart';
 import 'volume.dart';
@@ -46,6 +47,15 @@ class Mass implements Number {
   Volume operator /(MassPerVolume concentration) => Volume(
         asNumber(concentration.massUnit) / concentration.asNumber(),
         concentration.volumeUnit,
+      );
+  MassPerMass divideMass(Mass mass) =>
+      // ignore: unnecessary_this
+      MassPerMass(
+        // ignore: unnecessary_this
+        this.asNumber(this.unit) / mass.asNumber(mass.unit),
+        // ignore: unnecessary_this
+        this.unit,
+        mass.unit,
       );
   Mass operator +(Mass other) =>
       Mass(asNumber(other.unit) + other._value, other.unit);
