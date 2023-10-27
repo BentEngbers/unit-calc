@@ -7,6 +7,8 @@ export "/src/calc/enum/syringe_sizes.dart" show SyringeSizes;
 export "/src/calc/enum/time_unit.dart" show TimeUnit;
 export "/src/calc/enum/volume_unit.dart" show VolumeUnit;
 
+export 'src/calc/numbers/number.dart' show Number;
+
 export 'src/calc/numbers/mass.dart' show Mass;
 export '/src/calc/numbers/volume.dart' show Volume;
 export '/src/calc/numbers/time.dart' show Time;
