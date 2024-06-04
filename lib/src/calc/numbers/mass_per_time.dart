@@ -1,7 +1,5 @@
 import 'package:meta/meta.dart';
 
-import 'package:unit_calc/src/calc/numbers/number.dart';
-
 import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
