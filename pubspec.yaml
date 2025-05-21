@@ -4,7 +4,7 @@ version: 2.1.0
 repository: https://github.com/BentEngbers/unit-calc
 
 environment:
-  sdk: ^3.4.1
+  sdk: ^3.7.0
 
 # Add regular dependencies here.
 dependencies:
