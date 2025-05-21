@@ -1,6 +1,6 @@
 name: unit_calc
 description: perform calculations with automatic unit conversion. Simple code, with 100% code coverage.
-version: 2.0.0
+version: 2.1.0
 repository: https://github.com/BentEngbers/unit-calc
 
 environment:
