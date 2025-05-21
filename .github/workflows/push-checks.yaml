@@ -33,5 +33,8 @@ jobs:
       - name: install dart
         uses: dart-lang/setup-dart@v1
 
-      - name: analyse code
+      - name: install dependencies
+        run: dart pub get
+
+      - name: format code
         run: dart format . --set-exit-if-changed
