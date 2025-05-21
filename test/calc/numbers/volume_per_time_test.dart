@@ -17,32 +17,20 @@ void main() {
     test("multiply by volumePerTime", () {
       expect(
         const VolumePerTime(3, VolumeUnit.milliLiters, TimeUnit.minute) *
-            const MassPerVolume(
-              5,
-              MassUnit.milliGram,
-              VolumeUnit.milliLiters,
-            ),
+            const MassPerVolume(5, MassUnit.milliGram, VolumeUnit.milliLiters),
         const MassPerTime(15, MassUnit.milliGram, TimeUnit.minute),
       );
     });
     const List<_testCase> testCases = [
       (
-        val: VolumePerTime(
-          2,
-          VolumeUnit.milliLiters,
-          TimeUnit.minute,
-        ),
+        val: VolumePerTime(2, VolumeUnit.milliLiters, TimeUnit.minute),
         unit: TimeUnit.hour,
-        result: "120 ml/hr"
+        result: "120 ml/hr",
       ),
       (
-        val: VolumePerTime(
-          60,
-          VolumeUnit.milliLiters,
-          TimeUnit.hour,
-        ),
+        val: VolumePerTime(60, VolumeUnit.milliLiters, TimeUnit.hour),
         unit: TimeUnit.minute,
-        result: "1 ml/min"
+        result: "1 ml/min",
       ),
     ];
     for (final (:val, :unit, :result) in testCases) {

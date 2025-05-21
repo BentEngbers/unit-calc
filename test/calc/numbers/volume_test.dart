@@ -26,10 +26,7 @@ void main() {
       expect(a, const Volume.milliLiters(11));
     });
     test("check equality", () {
-      expect(
-        const Mass.kiloGrams(5),
-        isNot(const Volume.milliLiters(5)),
-      );
+      expect(const Mass.kiloGrams(5), isNot(const Volume.milliLiters(5)));
     });
     test("check the tostring method", () {
       expect(const Volume.milliLiters(10).toString(), "10 ml");
@@ -39,15 +36,17 @@ void main() {
     });
     test("check the toFixedDecimalString method", () {
       expect(
-        const Volume.milliLiters(10)
-            .toDisplayString((minDigit: 2, maxDigit: 2)),
+        const Volume.milliLiters(
+          10,
+        ).toDisplayString((minDigit: 2, maxDigit: 2)),
         "10.00 ml",
       );
     });
     test("check the toFixedDecimalString method", () {
       expect(
-        const Volume.milliLiters(5.5)
-            .toDisplayString((minDigit: 0, maxDigit: 0)),
+        const Volume.milliLiters(
+          5.5,
+        ).toDisplayString((minDigit: 0, maxDigit: 0)),
         "6 ml",
       );
     });
@@ -72,8 +71,9 @@ void main() {
       test("check as", () {
         expect(currentVolume.as(), currentVolume);
       });
-      final elementsBefore =
-          decreasingVolumeList.takeWhile((value) => value != currentVolume);
+      final elementsBefore = decreasingVolumeList.takeWhile(
+        (value) => value != currentVolume,
+      );
       for (final volumeBefore in elementsBefore) {
         test("hashcode not equal", () {
           expect(currentVolume.hashCode, isNot(equals(volumeBefore.hashCode)));

@@ -6,16 +6,24 @@ import 'mass_per_volume_test.dart';
 void main() {
   group("MassPerMassTime", () {
     test("roundTrip json", () {
-      const massPerMassTime =
-          MassPerMassTime(20, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour);
+      const massPerMassTime = MassPerMassTime(
+        20,
+        MassUnit.gram,
+        MassUnit.kiloGram,
+        TimeUnit.hour,
+      );
       expect(
         MassPerMassTime.fromJson(massPerMassTime.toJson()),
         massPerMassTime,
       );
     });
     test("roundTrip json", () {
-      const massPerMassTime =
-          MassPerMassTime(20, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour);
+      const massPerMassTime = MassPerMassTime(
+        20,
+        MassUnit.gram,
+        MassUnit.kiloGram,
+        TimeUnit.hour,
+      );
       const massPerMassTime2 = MassPerMassTime(
         20.22,
         MassUnit.gram,
@@ -26,8 +34,12 @@ void main() {
       expect(massPerMassTime.hashCode, massPerMassTime.hashCode);
     });
     test("multiply by mass", () {
-      const massPerMassTime =
-          MassPerMassTime(20, MassUnit.gram, MassUnit.kiloGram, TimeUnit.hour);
+      const massPerMassTime = MassPerMassTime(
+        20,
+        MassUnit.gram,
+        MassUnit.kiloGram,
+        TimeUnit.hour,
+      );
       expect(
         massPerMassTime * const Mass(5, MassUnit.kiloGram),
         const MassPerTime(100, MassUnit.gram, TimeUnit.hour),

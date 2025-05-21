@@ -74,8 +74,9 @@ void main() {
       ),
     ];
     for (final current in decreasingMassPerVolumeTime) {
-      final previousValues =
-          decreasingMassPerVolumeTime.takeWhile((value) => value != current);
+      final previousValues = decreasingMassPerVolumeTime.takeWhile(
+        (value) => value != current,
+      );
       for (final previous in previousValues) {
         test("$previous > $current", () {
           expect(previous > current, isTrue);

@@ -10,11 +10,8 @@ class VolumePerTime implements Number {
   final num _value;
   final TimeUnit timeUnit;
   final VolumeUnit volumeUnit;
-  const VolumePerTime(
-    this._value,
-    this.volumeUnit,
-    this.timeUnit,
-  ) : assert(_value >= 0);
+  const VolumePerTime(this._value, this.volumeUnit, this.timeUnit)
+    : assert(_value >= 0);
 
   @override
   String toString() => toDisplayString();
@@ -35,27 +32,28 @@ class VolumePerTime implements Number {
   factory VolumePerTime.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
         (String value, [String volume, String timeUnit]) => VolumePerTime(
-            num.parse(value),
-            VolumeUnit.fromJson(volume),
-            TimeUnit.fromJson(timeUnit),
-          ),
+          num.parse(value),
+          VolumeUnit.fromJson(volume),
+          TimeUnit.fromJson(timeUnit),
+        ),
         _ => throw InvalidJsonException(json),
       };
   VolumePerTime _toPerTimeUnit(TimeUnit toTime) => VolumePerTime(
-        _value / timeUnit.convertFactor(toTime: toTime),
-        volumeUnit,
-        toTime,
-      );
+    _value / timeUnit.convertFactor(toTime: toTime),
+    volumeUnit,
+    toTime,
+  );
 
   VolumePerTime _toVolumeUnit(VolumeUnit toVolume) => VolumePerTime(
-        _value * volumeUnit.convertFactor(to: toVolume),
-        toVolume,
-        timeUnit,
-      );
+    _value * volumeUnit.convertFactor(to: toVolume),
+    toVolume,
+    timeUnit,
+  );
 
   VolumePerTime as([VolumeUnit? volumeUnit, TimeUnit? timeUnit]) =>
-      _toPerTimeUnit(timeUnit ?? this.timeUnit)
-          ._toVolumeUnit(volumeUnit ?? this.volumeUnit);
+      _toPerTimeUnit(
+        timeUnit ?? this.timeUnit,
+      )._toVolumeUnit(volumeUnit ?? this.volumeUnit);
 
   num asNumber([VolumeUnit? volumeUnit, TimeUnit? timeUnit]) =>
       as(volumeUnit, timeUnit)._value;

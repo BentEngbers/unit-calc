@@ -15,17 +15,16 @@ final class NumberUtils {
     return _toDynamicDecimalString(value, format);
   }
 
-  static String _toDynamicDecimalString(num value, NumberFormat? format) =>
-      switch (value) {
-        < 0.1 =>
-          _toFixedDecimalString(value, (minDigit: 0, maxDigit: 4), format),
-        < 1 => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 3), format),
-        < 10 =>
-          _toFixedDecimalString(value, (minDigit: 0, maxDigit: 2), format),
-        < 100 =>
-          _toFixedDecimalString(value, (minDigit: 0, maxDigit: 1), format),
-        _ => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 0), format)
-      };
+  static String _toDynamicDecimalString(
+    num value,
+    NumberFormat? format,
+  ) => switch (value) {
+    < 0.1 => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 4), format),
+    < 1 => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 3), format),
+    < 10 => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 2), format),
+    < 100 => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 1), format),
+    _ => _toFixedDecimalString(value, (minDigit: 0, maxDigit: 0), format),
+  };
   static String _toFixedDecimalString(
     num value,
     DigitPrecision override,

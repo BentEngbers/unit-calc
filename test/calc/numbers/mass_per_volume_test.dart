@@ -7,7 +7,7 @@ import 'package:unit_calc/unit_calc.dart';
 typedef _testCaseMultiplyVolume = ({
   MassPerVolume val,
   Volume multiply,
-  Mass result
+  Mass result,
 });
 
 final throwsAssertionError = throwsA(isA<AssertionError>());
@@ -18,12 +18,12 @@ void main() {
     (
       val: MassPerVolume(2.56, U(factorToNg: 1), VolumeUnit.milliLiters),
       multiply: Volume(5, VolumeUnit.milliLiters),
-      result: Mass(12.8, U(factorToNg: 1))
+      result: Mass(12.8, U(factorToNg: 1)),
     ),
     (
       val: MassPerVolume(2.56, MassUnit.kiloGram, VolumeUnit.milliLiters),
       multiply: Volume(5, VolumeUnit.milliLiters),
-      result: Mass(12.8, MassUnit.kiloGram)
+      result: Mass(12.8, MassUnit.kiloGram),
     ),
   ];
   group('MassPerVolume', () {
@@ -86,8 +86,11 @@ void main() {
     }
     test("multiply by volumePerTime", () {
       expect(
-        const MassPerVolume(5, MassUnit.milliGram, VolumeUnit.milliLiters)
-            .multiply(
+        const MassPerVolume(
+          5,
+          MassUnit.milliGram,
+          VolumeUnit.milliLiters,
+        ).multiply(
           const VolumePerTime(3, VolumeUnit.milliLiters, TimeUnit.hour),
         ),
         const MassPerTime(15, MassUnit.milliGram, TimeUnit.hour),

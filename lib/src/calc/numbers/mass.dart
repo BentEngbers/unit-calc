@@ -13,16 +13,16 @@ class Mass implements Number {
   const Mass(this._value, this.unit) : assert(_value >= 0);
 
   const Mass.kiloGrams(this._value)
-      : unit = MassUnit.kiloGram,
-        assert(_value >= 0);
+    : unit = MassUnit.kiloGram,
+      assert(_value >= 0);
 
   const Mass.milliGrams(this._value)
-      : unit = MassUnit.milliGram,
-        assert(_value >= 0);
+    : unit = MassUnit.milliGram,
+      assert(_value >= 0);
 
   const Mass.zero([MassUnit? unit])
-      : _value = 0,
-        unit = unit ?? MassUnit.kiloGram;
+    : _value = 0,
+      unit = unit ?? MassUnit.kiloGram;
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
@@ -40,9 +40,9 @@ class Mass implements Number {
   num asNumber([MassUnit? toUnit]) => as(toUnit)._value;
 
   Volume operator /(MassPerVolume concentration) => Volume(
-        asNumber(concentration.massUnit) / concentration.asNumber(),
-        concentration.volumeUnit,
-      );
+    asNumber(concentration.massUnit) / concentration.asNumber(),
+    concentration.volumeUnit,
+  );
   MassPerMass divideMass(Mass mass) =>
       // ignore: unnecessary_this
       MassPerMass(
@@ -62,9 +62,9 @@ class Mass implements Number {
   factory Mass.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
         (String value, [String mass]) => Mass(
-            num.parse(value),
-            MassUnit.fromJson(mass),
-          ),
+          num.parse(value),
+          MassUnit.fromJson(mass),
+        ),
         _ => throw InvalidJsonException(json),
       };
 

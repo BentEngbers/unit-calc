@@ -8,7 +8,6 @@ import 'package:unit_calc/src/calc/utils.dart';
 import 'package:unit_calc/src/exceptions.dart';
 
 @immutable
-
 /// An amount of mass divided by a mass unit per time unit \
 /// Example: `5 mg/kg/hour`
 class MassPerMassTime implements Number {
@@ -23,8 +22,8 @@ class MassPerMassTime implements Number {
     this.perTimeUnit,
   ) : assert(_value >= 0);
   const MassPerMassTime.perKg(this._value, this.massUnit, this.perTimeUnit)
-      : perMassUnit = MassUnit.kiloGram,
-        assert(_value >= 0);
+    : perMassUnit = MassUnit.kiloGram,
+      assert(_value >= 0);
 
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
@@ -65,52 +64,47 @@ class MassPerMassTime implements Number {
   int get hashCode => Object.hash(_value, massUnit, perMassUnit, perTimeUnit);
 
   MassPerTime operator *(Mass mass) => MassPerTime(
-        asNumber() * mass.asNumber(perMassUnit),
-        massUnit,
-        perTimeUnit,
-      );
+    asNumber() * mass.asNumber(perMassUnit),
+    massUnit,
+    perTimeUnit,
+  );
 
   MassPerMassTime _toMassUnit(MassUnit toMass) => MassPerMassTime(
-        _value * massUnit.convertFactor(to: toMass),
-        toMass,
-        perMassUnit,
-        perTimeUnit,
-      );
+    _value * massUnit.convertFactor(to: toMass),
+    toMass,
+    perMassUnit,
+    perTimeUnit,
+  );
 
   MassPerMassTime _toPerMassUnit(MassUnit toPerMass) => MassPerMassTime(
-        _value / perMassUnit.convertFactor(to: toPerMass),
-        massUnit,
-        toPerMass,
-        perTimeUnit,
-      );
+    _value / perMassUnit.convertFactor(to: toPerMass),
+    massUnit,
+    toPerMass,
+    perTimeUnit,
+  );
 
   MassPerMassTime _toPerTimeUnit(TimeUnit toPerTime) => MassPerMassTime(
-        _value /
-            perTimeUnit.convertFactor(
-              toTime: toPerTime,
-            ),
-        massUnit,
-        perMassUnit,
-        toPerTime,
-      );
+    _value / perTimeUnit.convertFactor(toTime: toPerTime),
+    massUnit,
+    perMassUnit,
+    toPerTime,
+  );
 
   MassPerMassTime as({
     MassUnit? massUnit,
     MassUnit? perMassUnit,
     TimeUnit? perTimeUnit,
-  }) =>
-      _toMassUnit(massUnit ?? this.massUnit)
-          ._toPerMassUnit(perMassUnit ?? this.perMassUnit)
-          ._toPerTimeUnit(perTimeUnit ?? this.perTimeUnit);
+  }) => _toMassUnit(massUnit ?? this.massUnit)
+      ._toPerMassUnit(perMassUnit ?? this.perMassUnit)
+      ._toPerTimeUnit(perTimeUnit ?? this.perTimeUnit);
 
   num asNumber({
     MassUnit? massUnit,
     MassUnit? perMassUnit,
     TimeUnit? perTimeUnit,
-  }) =>
-      as(
-        massUnit: massUnit,
-        perMassUnit: perMassUnit,
-        perTimeUnit: perTimeUnit,
-      )._value;
+  }) => as(
+    massUnit: massUnit,
+    perMassUnit: perMassUnit,
+    perTimeUnit: perTimeUnit,
+  )._value;
 }
