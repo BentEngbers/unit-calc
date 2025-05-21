@@ -4,17 +4,11 @@ import 'package:unit_calc/unit_calc.dart';
 import 'mass_per_volume_test.dart';
 
 typedef UnitConversion = ({Mass from, Mass to});
-typedef UnitConversionDivision = ({
-  Mass amount,
-  MassPerVolume divisor,
-  Volume result,
-});
+typedef UnitConversionDivision =
+    ({Mass amount, MassPerVolume divisor, Volume result});
 
-typedef MassDivisionTestCase = ({
-  Mass dividend,
-  Mass divisor,
-  MassPerMass answer
-});
+typedef MassDivisionTestCase =
+    ({Mass dividend, Mass divisor, MassPerMass answer});
 
 void main() {
   group('Amount:', () {
@@ -107,26 +101,35 @@ void main() {
       ),
       (
         amount: Mass(7, MassUnit.microGram),
-        divisor:
-            MassPerVolume(0.007, MassUnit.milliGram, VolumeUnit.milliLiters),
-        result: Volume.milliLiters(1)
+        divisor: MassPerVolume(
+          0.007,
+          MassUnit.milliGram,
+          VolumeUnit.milliLiters,
+        ),
+        result: Volume.milliLiters(1),
       ),
       (
         amount: Mass(7, MassUnit.microGram),
-        divisor:
-            MassPerVolume(0.007, MassUnit.milliGram, VolumeUnit.milliLiters),
-        result: Volume.milliLiters(1)
+        divisor: MassPerVolume(
+          0.007,
+          MassUnit.milliGram,
+          VolumeUnit.milliLiters,
+        ),
+        result: Volume.milliLiters(1),
       ),
       (
         amount: Mass(60, MassUnit.nanoGram),
-        divisor:
-            MassPerVolume(0.004, MassUnit.microGram, VolumeUnit.milliLiters),
-        result: Volume.milliLiters(15)
+        divisor: MassPerVolume(
+          0.004,
+          MassUnit.microGram,
+          VolumeUnit.milliLiters,
+        ),
+        result: Volume.milliLiters(15),
       ),
       (
         amount: Mass(60000000, MassUnit.nanoGram),
         divisor: MassPerVolume(6, MassUnit.milliGram, VolumeUnit.milliLiters),
-        result: Volume.milliLiters(10)
+        result: Volume.milliLiters(10),
       ),
     ];
     for (final tuple in divisionTestCases) {
@@ -157,8 +160,9 @@ void main() {
       test("test $currentMass <= $currentMass", () {
         expect(currentMass <= currentMass, isTrue);
       });
-      final largerMasses =
-          decreasingMassList.takeWhile((value) => value != currentMass);
+      final largerMasses = decreasingMassList.takeWhile(
+        (value) => value != currentMass,
+      );
       for (final largerMass in largerMasses) {
         test("hashcode not equal", () {
           expect(currentMass.hashCode, isNot(equals(largerMass.hashCode)));
@@ -184,22 +188,22 @@ void main() {
       (
         dividend: Mass.kiloGrams(5),
         divisor: Mass.kiloGrams(5),
-        answer: MassPerMass.perKg(1, MassUnit.kiloGram)
+        answer: MassPerMass.perKg(1, MassUnit.kiloGram),
       ),
       (
         dividend: Mass.kiloGrams(10),
         divisor: Mass.kiloGrams(5),
-        answer: MassPerMass.perKg(2, MassUnit.kiloGram)
+        answer: MassPerMass.perKg(2, MassUnit.kiloGram),
       ),
       (
         dividend: Mass.milliGrams(30),
         divisor: Mass.kiloGrams(3),
-        answer: MassPerMass.perKg(10, MassUnit.milliGram)
+        answer: MassPerMass.perKg(10, MassUnit.milliGram),
       ),
       (
         dividend: Mass.kiloGrams(30),
         divisor: Mass.milliGrams(3),
-        answer: MassPerMass(10, MassUnit.kiloGram, MassUnit.milliGram)
+        answer: MassPerMass(10, MassUnit.kiloGram, MassUnit.milliGram),
       ),
     ];
 
@@ -210,13 +214,15 @@ void main() {
       test("expect $dividend / $divisor has massUnit ${answer.massUnit}", () {
         expect(dividend.divideMass(divisor).massUnit, equals(answer.massUnit));
       });
-      test("expect $dividend / $divisor has perMassUnit ${answer.massUnit}",
-          () {
-        expect(
-          dividend.divideMass(divisor).perMassUnit,
-          equals(answer.perMassUnit),
-        );
-      });
+      test(
+        "expect $dividend / $divisor has perMassUnit ${answer.massUnit}",
+        () {
+          expect(
+            dividend.divideMass(divisor).perMassUnit,
+            equals(answer.perMassUnit),
+          );
+        },
+      );
     }
   });
 }

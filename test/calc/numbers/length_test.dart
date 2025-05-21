@@ -34,22 +34,13 @@ void main() {
       );
     });
     test("as", () {
-      expect(
-        const Length.meters(5).as().toString(),
-        "5 m",
-      );
+      expect(const Length.meters(5).as().toString(), "5 m");
     });
     test("equality true", () {
-      expect(
-        const Length.meters(5) == const Length.centiMeters(500),
-        true,
-      );
+      expect(const Length.meters(5) == const Length.centiMeters(500), true);
     });
     test("equality true 2", () {
-      expect(
-        const Length.meters(5) == const Length.centiMeters(500),
-        true,
-      );
+      expect(const Length.meters(5) == const Length.centiMeters(500), true);
     });
     test("hashFunction", () {
       expect(
@@ -87,8 +78,9 @@ void main() {
       test("test $currentLength <= $currentLength", () {
         expect(currentLength <= currentLength, isTrue);
       });
-      final largerMasses =
-          decreasingLengthList.takeWhile((value) => value != currentLength);
+      final largerMasses = decreasingLengthList.takeWhile(
+        (value) => value != currentLength,
+      );
       for (final largerMass in largerMasses) {
         test("hashcode not equal", () {
           expect(currentLength.hashCode, isNot(equals(largerMass.hashCode)));

@@ -3,11 +3,8 @@ import 'package:test/scaffolding.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 typedef _UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});
-typedef _MassUnitConversionTestCase = ({
-  MassUnit unit1,
-  MassUnit unit2,
-  num convertFactor,
-});
+typedef _MassUnitConversionTestCase =
+    ({MassUnit unit1, MassUnit unit2, num convertFactor});
 void main() {
   group('MassUnit', () {
     test("U equals", () {
@@ -43,32 +40,33 @@ void main() {
       });
     }
     test(
-        "throws an error if trying to create a ConcentrationUnit from an invalid string",
-        () {
-      expect(
-        () => MassUnit.fromJson("FOO"),
-        throwsA(
-          predicate(
-            (x) =>
-                x is InvalidMassUnitException &&
-                x.toString() ==
-                    "InvalidMassUnitException: The given string was an invalid MassUnit",
+      "throws an error if trying to create a ConcentrationUnit from an invalid string",
+      () {
+        expect(
+          () => MassUnit.fromJson("FOO"),
+          throwsA(
+            predicate(
+              (x) =>
+                  x is InvalidMassUnitException &&
+                  x.toString() ==
+                      "InvalidMassUnitException: The given string was an invalid MassUnit",
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   });
   const unitTests = <_MassUnitConversionTestCase>[
     (unit1: MassUnit.milliGram, unit2: MassUnit.milliGram, convertFactor: 1.0),
     (
       unit1: MassUnit.milliGram,
       unit2: MassUnit.microGram,
-      convertFactor: 1000.0
+      convertFactor: 1000.0,
     ),
     (
       unit1: MassUnit.microGram,
       unit2: MassUnit.nanoGram,
-      convertFactor: 1000.0
+      convertFactor: 1000.0,
     ),
     (unit1: MassUnit.nanoGram, unit2: MassUnit.microGram, convertFactor: 0.001),
     (unit1: U(factorToNg: 1), unit2: U(factorToNg: 1), convertFactor: 1),

@@ -60,22 +60,23 @@ class MassPerVolumeTime implements Number {
   String toString() => toDisplayString();
 
   MassPerVolumeTime _toMassUnit(MassUnit toMass) => MassPerVolumeTime(
-        _value * massUnit.convertFactor(to: toMass),
-        toMass,
-        volumeUnit,
-        timeUnit,
-      );
+    _value * massUnit.convertFactor(to: toMass),
+    toMass,
+    volumeUnit,
+    timeUnit,
+  );
 
   MassPerVolumeTime _toPerVolumeUnit(VolumeUnit toVolume) => MassPerVolumeTime(
-        _value / volumeUnit.convertFactor(to: toVolume),
-        massUnit,
-        volumeUnit,
-        timeUnit,
-      );
+    _value / volumeUnit.convertFactor(to: toVolume),
+    massUnit,
+    volumeUnit,
+    timeUnit,
+  );
 
   MassPerVolumeTime as(VolumeUnit? volumeUnit, MassUnit? massUnit) =>
-      _toMassUnit(massUnit ?? this.massUnit)
-          ._toPerVolumeUnit(volumeUnit ?? this.volumeUnit);
+      _toMassUnit(
+        massUnit ?? this.massUnit,
+      )._toPerVolumeUnit(volumeUnit ?? this.volumeUnit);
 
   num asNumber([VolumeUnit? volumeUnit, MassUnit? massUnit]) =>
       as(volumeUnit, massUnit)._value;

@@ -4,11 +4,8 @@ import 'package:unit_calc/unit_calc.dart';
 
 // ignore: camel_case_types
 typedef _testCase = ({LengthUnit unit, String name});
-typedef _TimeUnitConversionTestCase = ({
-  LengthUnit unit1,
-  LengthUnit unit2,
-  num value,
-});
+typedef _TimeUnitConversionTestCase =
+    ({LengthUnit unit1, LengthUnit unit2, num value});
 const List<_testCase> _testCases = [
   (unit: LengthUnit.centiMeter, name: "cm"),
   (unit: LengthUnit.meter, name: "m"),

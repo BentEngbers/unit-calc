@@ -9,18 +9,12 @@ class Time implements Number, Comparable<Time> {
   final TimeUnit unit;
 
   const Time(this._value, this.unit) : assert(_value >= 0);
-  const Time.seconds(this._value)
-      : unit = TimeUnit.second,
-        assert(_value >= 0);
-  const Time.hours(this._value)
-      : unit = TimeUnit.hour,
-        assert(_value >= 0);
-  const Time.minutes(this._value)
-      : unit = TimeUnit.minute,
-        assert(_value >= 0);
+  const Time.seconds(this._value) : unit = TimeUnit.second, assert(_value >= 0);
+  const Time.hours(this._value) : unit = TimeUnit.hour, assert(_value >= 0);
+  const Time.minutes(this._value) : unit = TimeUnit.minute, assert(_value >= 0);
   const Time.zero([TimeUnit? unit])
-      : _value = 0,
-        unit = unit ?? TimeUnit.second;
+    : _value = 0,
+      unit = unit ?? TimeUnit.second;
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -72,34 +66,32 @@ class Time implements Number, Comparable<Time> {
     return "$_value ${unit.toJson()}";
   }
 
-  factory Time.fromJson(String json) =>
-      switch (ParseUtilities.splitString(json)) {
-        (String value, [String mass]) => Time(
-            num.parse(value),
-            TimeUnit.fromJson(mass),
-          ),
-        _ => throw InvalidJsonException(json),
-      };
+  factory Time.fromJson(String json) => switch (ParseUtilities.splitString(
+    json,
+  )) {
+    (String value, [String mass]) => Time(
+      num.parse(value),
+      TimeUnit.fromJson(mass),
+    ),
+    _ => throw InvalidJsonException(json),
+  };
 
   @override
   int get hashCode => Object.hash(_value, unit);
 
   String _timeDigits(TimeUnit unit) => switch (unit) {
-        TimeUnit.hour => asNumber(unit),
-        _ => asNumber(unit) % 60
-      }
-          .floor()
-          .toString()
-          .padLeft(2, "0");
+    TimeUnit.hour => asNumber(unit),
+    _ => asNumber(unit) % 60,
+  }.floor().toString().padLeft(2, "0");
 
   String get asHHmmSS =>
       '${_timeDigits(TimeUnit.hour)}:${_timeDigits(TimeUnit.minute)}:${_timeDigits(TimeUnit.second)}';
 
   // ignore: non_constant_identifier_names
   String get asHHmmSS_short => switch (asHHmmSS) {
-        final hHmmSS when hHmmSS.startsWith("00:") => hHmmSS.substring(3),
-        final hHmmSS => hHmmSS
-      };
+    final hHmmSS when hHmmSS.startsWith("00:") => hHmmSS.substring(3),
+    final hHmmSS => hHmmSS,
+  };
 
   ///Returns the amount of complete seconds in [Time]
   /// Example: (5.9 seconds).toFullSeconds=5

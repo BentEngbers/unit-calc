@@ -66,8 +66,9 @@ void main() {
           ),
         );
       });
-      final previousElements =
-          testCases.takeWhile((value) => value != testCase);
+      final previousElements = testCases.takeWhile(
+        (value) => value != testCase,
+      );
       test("Check $massPerMlKg >= $massPerMlKg ", () {
         expect(massPerMlKg >= massPerMlKg, isTrue);
       });

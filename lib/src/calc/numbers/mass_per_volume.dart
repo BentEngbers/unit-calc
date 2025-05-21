@@ -12,45 +12,39 @@ class MassPerVolume implements Number {
   final VolumeUnit volumeUnit;
 
   const MassPerVolume(this._value, this.massUnit, this.volumeUnit)
-      : assert(_value >= 0);
+    : assert(_value >= 0);
 
   const MassPerVolume.zero([MassUnit? massUnit, VolumeUnit? volumeUnit])
-      : _value = 0,
-        massUnit = massUnit ?? MassUnit.kiloGram,
-        volumeUnit = volumeUnit ?? VolumeUnit.milliLiters;
+    : _value = 0,
+      massUnit = massUnit ?? MassUnit.kiloGram,
+      volumeUnit = volumeUnit ?? VolumeUnit.milliLiters;
 
   Mass operator *(Volume volume) =>
       Mass(volume.asNumber(volumeUnit) * _value, massUnit);
 
   MassPerTime multiply(VolumePerTime volumePerTime) => MassPerTime(
-        _value * volumePerTime.asNumber(volumeUnit),
-        massUnit,
-        volumePerTime.timeUnit,
-      );
+    _value * volumePerTime.asNumber(volumeUnit),
+    massUnit,
+    volumePerTime.timeUnit,
+  );
 
   MassPerVolume _toMassUnit(MassUnit toMass) => MassPerVolume(
-        _value * massUnit.convertFactor(to: toMass),
-        toMass,
-        volumeUnit,
-      );
+    _value * massUnit.convertFactor(to: toMass),
+    toMass,
+    volumeUnit,
+  );
 
   MassPerVolume _toPerVolumeUnit(VolumeUnit toVolume) => MassPerVolume(
-        _value / volumeUnit.convertFactor(to: toVolume),
-        massUnit,
-        toVolume,
-      );
+    _value / volumeUnit.convertFactor(to: toVolume),
+    massUnit,
+    toVolume,
+  );
 
-  MassPerVolume as(
-    MassUnit? massUnit,
-    VolumeUnit? volumeUnit,
-  ) =>
-      _toMassUnit(massUnit ?? this.massUnit)
-          ._toPerVolumeUnit(volumeUnit ?? this.volumeUnit);
+  MassPerVolume as(MassUnit? massUnit, VolumeUnit? volumeUnit) => _toMassUnit(
+    massUnit ?? this.massUnit,
+  )._toPerVolumeUnit(volumeUnit ?? this.volumeUnit);
 
-  num asNumber([
-    MassUnit? massUnit,
-    VolumeUnit? volumeUnit,
-  ]) =>
+  num asNumber([MassUnit? massUnit, VolumeUnit? volumeUnit]) =>
       as(massUnit, volumeUnit)._value;
 
   @override
@@ -65,10 +59,10 @@ class MassPerVolume implements Number {
   factory MassPerVolume.fromJson(String json) =>
       switch (ParseUtilities.splitString(json)) {
         (String value, [String mass, String volume]) => MassPerVolume(
-            num.parse(value),
-            MassUnit.fromJson(mass),
-            VolumeUnit.fromJson(volume),
-          ),
+          num.parse(value),
+          MassUnit.fromJson(mass),
+          VolumeUnit.fromJson(volume),
+        ),
         _ => throw InvalidJsonException(json),
       };
 

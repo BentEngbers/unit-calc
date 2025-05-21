@@ -17,18 +17,18 @@ sealed class MassUnit {
   static const microGram = MicroGram._();
   static const nanoGram = NanoGram._();
   factory MassUnit.fromJson(String json) => switch (json) {
-        _mgName => milliGram,
-        _mcgName => microGram,
-        _nanoGrName => nanoGram,
-        _gramName => gram,
-        _kgName => kiloGram,
-        _ when json.startsWith(_uName) => U(
-            factorToNg: num.parse(
-              json.replaceFirst("U(factorNanoGr: ", '').replaceFirst(")", ""),
-            ),
-          ),
-        _ => throw const InvalidMassUnitException()
-      };
+    _mgName => milliGram,
+    _mcgName => microGram,
+    _nanoGrName => nanoGram,
+    _gramName => gram,
+    _kgName => kiloGram,
+    _ when json.startsWith(_uName) => U(
+      factorToNg: num.parse(
+        json.replaceFirst("U(factorNanoGr: ", '').replaceFirst(")", ""),
+      ),
+    ),
+    _ => throw const InvalidMassUnitException(),
+  };
 
   num convertFactor({required MassUnit to}) => factorNanoGr / to.factorNanoGr;
 
@@ -88,7 +88,7 @@ class KiloGram extends MassUnit {
 
 class U extends MassUnit {
   const U({required num factorToNg})
-      : super(displayName: _uName, factorNanoGr: factorToNg);
+    : super(displayName: _uName, factorNanoGr: factorToNg);
   @override
   bool operator ==(Object other) =>
       other is U && other.factorNanoGr == factorNanoGr;

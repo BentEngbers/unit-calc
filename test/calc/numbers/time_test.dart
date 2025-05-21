@@ -13,24 +13,15 @@ void main() {
     test("bad json test", () {
       expect(() => Time.fromJson("3.2 mg/ml"), throwsInvalidJsonException);
     });
-    test(
-      "seconds: throws an error if initialized with negative number",
-      () {
-        expect(() => Time.seconds(-1), throwsAssertionError);
-      },
-    );
-    test(
-      "hour: throws an error if initialized with negative number",
-      () {
-        expect(() => Time.hours(-1000), throwsAssertionError);
-      },
-    );
-    test(
-      "minutes: throws an error if initialized with negative number",
-      () {
-        expect(() => Time.minutes(-1000), throwsAssertionError);
-      },
-    );
+    test("seconds: throws an error if initialized with negative number", () {
+      expect(() => Time.seconds(-1), throwsAssertionError);
+    });
+    test("hour: throws an error if initialized with negative number", () {
+      expect(() => Time.hours(-1000), throwsAssertionError);
+    });
+    test("minutes: throws an error if initialized with negative number", () {
+      expect(() => Time.minutes(-1000), throwsAssertionError);
+    });
     test("check the to string method", () {
       expect(const Time.seconds(2.1).toString(), "2.1 sec");
     });
@@ -120,8 +111,9 @@ void main() {
       test("test $currentTime <= $currentTime", () {
         expect(currentTime <= currentTime, isTrue);
       });
-      final largerTimes =
-          decreasingTimeList.takeWhile((value) => value != currentTime);
+      final largerTimes = decreasingTimeList.takeWhile(
+        (value) => value != currentTime,
+      );
       for (final largerTime in largerTimes) {
         test("hashcode not equal", () {
           expect(currentTime.hashCode, isNot(equals(largerTime.hashCode)));

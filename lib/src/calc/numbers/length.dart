@@ -13,16 +13,16 @@ class Length implements Number {
 
   const Length(this._value, this.unit) : assert(_value >= 0);
   const Length.zero([LengthUnit? unit])
-      : _value = 0,
-        unit = unit ?? LengthUnit.meter;
+    : _value = 0,
+      unit = unit ?? LengthUnit.meter;
 
   const Length.centiMeters(this._value)
-      : unit = LengthUnit.centiMeter,
-        assert(_value >= 0);
+    : unit = LengthUnit.centiMeter,
+      assert(_value >= 0);
 
   const Length.meters(this._value)
-      : unit = LengthUnit.meter,
-        assert(_value >= 0);
+    : unit = LengthUnit.meter,
+      assert(_value >= 0);
   @override
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       '${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}';
@@ -33,19 +33,20 @@ class Length implements Number {
   @override
   String toJson() => "$_value ${unit.toJson()}";
 
-  factory Length.fromJson(String json) =>
-      switch (ParseUtilities.splitString(json)) {
-        (String value, [String lengthUnit]) => Length(
-            num.parse(value),
-            LengthUnit.fromJson(lengthUnit),
-          ),
-        _ => throw InvalidJsonException(json),
-      };
+  factory Length.fromJson(String json) => switch (ParseUtilities.splitString(
+    json,
+  )) {
+    (String value, [String lengthUnit]) => Length(
+      num.parse(value),
+      LengthUnit.fromJson(lengthUnit),
+    ),
+    _ => throw InvalidJsonException(json),
+  };
 
   Length as([LengthUnit? unit]) => Length(
-        _value * this.unit.convertFactor(toLength: unit ?? this.unit),
-        unit ?? this.unit,
-      );
+    _value * this.unit.convertFactor(toLength: unit ?? this.unit),
+    unit ?? this.unit,
+  );
 
   num asNumber([LengthUnit? unit]) => as(unit)._value;
 

@@ -63,10 +63,7 @@ void main() {
       expect(
         // ignore: unrelated_type_equality_checks
         const MassPerTime(2.4, U(factorToNg: 1), TimeUnit.minute) ==
-            const Mass(
-              2.4,
-              U(factorToNg: 1),
-            ),
+            const Mass(2.4, U(factorToNg: 1)),
         false,
       );
     });
@@ -116,8 +113,11 @@ void main() {
       );
     });
     test("divide by volume", () {
-      const concentration5mgPerMl =
-          MassPerVolume(5, MassUnit.milliGram, VolumeUnit.milliLiters);
+      const concentration5mgPerMl = MassPerVolume(
+        5,
+        MassUnit.milliGram,
+        VolumeUnit.milliLiters,
+      );
       const massPerTime = MassPerTime(10000, MassUnit.microGram, TimeUnit.hour);
       expect(
         massPerTime / concentration5mgPerMl,
