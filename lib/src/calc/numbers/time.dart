@@ -66,15 +66,14 @@ class Time implements Number, Comparable<Time> {
     return "$_value ${unit.toJson()}";
   }
 
-  factory Time.fromJson(String json) => switch (ParseUtilities.splitString(
-    json,
-  )) {
-    (String value, [String mass]) => Time(
-      num.parse(value),
-      TimeUnit.fromJson(mass),
-    ),
-    _ => throw InvalidJsonException(json),
-  };
+  factory Time.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass]) => Time(
+          num.parse(value),
+          TimeUnit.fromJson(mass),
+        ),
+        _ => throw InvalidJsonException(json),
+      };
 
   @override
   int get hashCode => Object.hash(_value, unit);

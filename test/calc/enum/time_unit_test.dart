@@ -3,8 +3,11 @@ import 'package:unit_calc/unit_calc.dart';
 
 // ignore: camel_case_types
 typedef _testCase = ({TimeUnit unit, String name});
-typedef _TimeUnitConversionTestCase =
-    ({TimeUnit unit1, TimeUnit unit2, num value});
+typedef _TimeUnitConversionTestCase = ({
+  TimeUnit unit1,
+  TimeUnit unit2,
+  num value,
+});
 const List<_testCase> _testCases = [
   (unit: TimeUnit.hour, name: "hr"),
   (unit: TimeUnit.minute, name: "min"),

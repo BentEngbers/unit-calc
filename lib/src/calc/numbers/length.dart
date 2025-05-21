@@ -33,15 +33,14 @@ class Length implements Number {
   @override
   String toJson() => "$_value ${unit.toJson()}";
 
-  factory Length.fromJson(String json) => switch (ParseUtilities.splitString(
-    json,
-  )) {
-    (String value, [String lengthUnit]) => Length(
-      num.parse(value),
-      LengthUnit.fromJson(lengthUnit),
-    ),
-    _ => throw InvalidJsonException(json),
-  };
+  factory Length.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String lengthUnit]) => Length(
+          num.parse(value),
+          LengthUnit.fromJson(lengthUnit),
+        ),
+        _ => throw InvalidJsonException(json),
+      };
 
   Length as([LengthUnit? unit]) => Length(
     _value * this.unit.convertFactor(toLength: unit ?? this.unit),

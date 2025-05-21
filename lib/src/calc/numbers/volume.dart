@@ -43,15 +43,14 @@ final class Volume implements Number {
   String toDisplayString([DigitPrecision? override, NumberFormat? format]) =>
       "${NumberUtils.toDecimalString(_value, override, format)} ${unit.displayName}";
 
-  factory Volume.fromJson(String json) => switch (ParseUtilities.splitString(
-    json,
-  )) {
-    (String number, [String volume]) => Volume(
-      num.parse(number),
-      VolumeUnit.fromJson(volume),
-    ),
-    _ => throw InvalidJsonException(json),
-  };
+  factory Volume.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String number, [String volume]) => Volume(
+          num.parse(number),
+          VolumeUnit.fromJson(volume),
+        ),
+        _ => throw InvalidJsonException(json),
+      };
 
   @override
   String toString() => toDisplayString();

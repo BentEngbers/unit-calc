@@ -4,8 +4,11 @@ import 'package:unit_calc/src/exceptions.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 // ignore: camel_case_types
-typedef _testCaseMultiplyVolume =
-    ({MassPerVolume val, Volume multiply, Mass result});
+typedef _testCaseMultiplyVolume = ({
+  MassPerVolume val,
+  Volume multiply,
+  Mass result,
+});
 
 final throwsAssertionError = throwsA(isA<AssertionError>());
 final throwsInvalidJsonException = throwsA(isA<InvalidJsonException>());

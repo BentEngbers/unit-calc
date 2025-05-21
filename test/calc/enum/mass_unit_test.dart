@@ -3,8 +3,11 @@ import 'package:test/scaffolding.dart';
 import 'package:unit_calc/unit_calc.dart';
 
 typedef _UnitTestCases = ({MassUnit unit, String name, int factorNanoGr});
-typedef _MassUnitConversionTestCase =
-    ({MassUnit unit1, MassUnit unit2, num convertFactor});
+typedef _MassUnitConversionTestCase = ({
+  MassUnit unit1,
+  MassUnit unit2,
+  num convertFactor,
+});
 void main() {
   group('MassUnit', () {
     test("U equals", () {

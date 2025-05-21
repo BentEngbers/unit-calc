@@ -105,12 +105,11 @@ class MassPerVolumeMass implements Number {
     VolumeUnit? volumeUnit,
     MassUnit? massUnit,
     MassUnit? perMassUnit,
-  }) =>
-      as(
-        volumeUnit: volumeUnit,
-        massUnit: massUnit,
-        perMassUnit: perMassUnit,
-      )._value;
+  }) => as(
+    volumeUnit: volumeUnit,
+    massUnit: massUnit,
+    perMassUnit: perMassUnit,
+  )._value;
 
   @override
   int get hashCode => Object.hash(_value, massUnit, perVolumeUnit, perMassUnit);

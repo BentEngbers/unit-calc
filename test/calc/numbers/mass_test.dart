@@ -4,11 +4,17 @@ import 'package:unit_calc/unit_calc.dart';
 import 'mass_per_volume_test.dart';
 
 typedef UnitConversion = ({Mass from, Mass to});
-typedef UnitConversionDivision =
-    ({Mass amount, MassPerVolume divisor, Volume result});
+typedef UnitConversionDivision = ({
+  Mass amount,
+  MassPerVolume divisor,
+  Volume result,
+});
 
-typedef MassDivisionTestCase =
-    ({Mass dividend, Mass divisor, MassPerMass answer});
+typedef MassDivisionTestCase = ({
+  Mass dividend,
+  Mass divisor,
+  MassPerMass answer,
+});
 
 void main() {
   group('Amount:', () {

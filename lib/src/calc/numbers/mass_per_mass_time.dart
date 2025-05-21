@@ -102,10 +102,9 @@ class MassPerMassTime implements Number {
     MassUnit? massUnit,
     MassUnit? perMassUnit,
     TimeUnit? perTimeUnit,
-  }) =>
-      as(
-        massUnit: massUnit,
-        perMassUnit: perMassUnit,
-        perTimeUnit: perTimeUnit,
-      )._value;
+  }) => as(
+    massUnit: massUnit,
+    perMassUnit: perMassUnit,
+    perTimeUnit: perTimeUnit,
+  )._value;
 }

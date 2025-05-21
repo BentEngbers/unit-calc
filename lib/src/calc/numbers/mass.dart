@@ -44,14 +44,14 @@ class Mass implements Number {
     concentration.volumeUnit,
   );
   MassPerMass divideMass(Mass mass) =>
-  // ignore: unnecessary_this
-  MassPerMass(
-    // ignore: unnecessary_this
-    this.asNumber(this.unit) / mass.asNumber(mass.unit),
-    // ignore: unnecessary_this
-    this.unit,
-    mass.unit,
-  );
+      // ignore: unnecessary_this
+      MassPerMass(
+        // ignore: unnecessary_this
+        this.asNumber(this.unit) / mass.asNumber(mass.unit),
+        // ignore: unnecessary_this
+        this.unit,
+        mass.unit,
+      );
   Mass operator +(Mass other) =>
       Mass(asNumber(other.unit) + other._value, other.unit);
   Mass operator -(Mass other) =>
@@ -59,15 +59,14 @@ class Mass implements Number {
   @override
   String toJson() => "$_value ${unit.toJson()}";
 
-  factory Mass.fromJson(String json) => switch (ParseUtilities.splitString(
-    json,
-  )) {
-    (String value, [String mass]) => Mass(
-      num.parse(value),
-      MassUnit.fromJson(mass),
-    ),
-    _ => throw InvalidJsonException(json),
-  };
+  factory Mass.fromJson(String json) =>
+      switch (ParseUtilities.splitString(json)) {
+        (String value, [String mass]) => Mass(
+          num.parse(value),
+          MassUnit.fromJson(mass),
+        ),
+        _ => throw InvalidJsonException(json),
+      };
 
   @override
   bool operator ==(Object other) =>
